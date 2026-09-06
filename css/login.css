@@ -1,0 +1,1205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    --red: #ff1530;
+
+    --red-dark: #c90025;
+
+    --bg: #05070d;
+
+    --card: rgba(13, 17, 28, 0.72);
+
+    --border: rgba(255, 255, 255, 0.13);
+
+    --text: #ffffff;
+
+    --muted: #a6a9b5;
+
+}
+
+body {
+
+    min-height: 100vh;
+
+    background:
+
+        radial-gradient(
+            circle at 75% 70%,
+            rgba(255, 0, 50, 0.12),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 10% 50%,
+            rgba(0, 100, 255, 0.07),
+            transparent 35%
+        ),
+
+        #05070d;
+
+    color: var(--text);
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================================
+   FITNESS BACKGROUND
+========================================= */
+
+.fitness-bg {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+
+/* DUMBBELLS */
+
+.dumbbell {
+
+    position: absolute;
+
+    color: rgba(255, 255, 255, 0.08);
+
+    filter:
+        drop-shadow(
+            0 0 15px rgba(255, 0, 40, 0.3)
+        );
+
+    font-size: 100px;
+
+    animation:
+        floating 10s ease-in-out infinite;
+
+}
+
+
+.d1 {
+
+    left: 2%;
+
+    top: 13%;
+
+    transform: rotate(-25deg);
+
+    color: rgba(255, 30, 60, 0.18);
+
+}
+
+
+.d2 {
+
+    left: 32%;
+
+    top: 5%;
+
+    font-size: 70px;
+
+    animation-delay: 2s;
+
+}
+
+
+.d3 {
+
+    left: 47%;
+
+    top: 35%;
+
+    font-size: 80px;
+
+    animation-delay: 1s;
+
+}
+
+
+.d4 {
+
+    right: 2%;
+
+    top: 40%;
+
+    font-size: 120px;
+
+    animation-delay: 3s;
+
+}
+
+
+.d5 {
+
+    left: 5%;
+
+    bottom: 12%;
+
+    font-size: 90px;
+
+    animation-delay: 4s;
+
+}
+
+
+.d6 {
+
+    right: 30%;
+
+    bottom: -20px;
+
+    font-size: 110px;
+
+    animation-delay: 5s;
+
+}
+
+
+@keyframes floating {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(-20deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-35px)
+            rotate(10deg);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(-20deg);
+
+    }
+
+}
+
+
+/* =========================================
+   PARTICLES
+========================================= */
+
+.red-particle {
+
+    position: absolute;
+
+    width: 5px;
+
+    height: 5px;
+
+    background: var(--red);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 15px var(--red);
+
+    animation:
+        particle 4s infinite ease-in-out;
+
+}
+
+
+.p1 {
+    left: 60%;
+    top: 20%;
+}
+
+.p2 {
+    left: 80%;
+    top: 70%;
+    animation-delay: 1s;
+}
+
+.p3 {
+    left: 20%;
+    top: 80%;
+    animation-delay: 2s;
+}
+
+.p4 {
+    left: 70%;
+    top: 50%;
+    animation-delay: 3s;
+}
+
+
+@keyframes particle {
+
+    0%,
+    100% {
+
+        opacity: 0.2;
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            translateY(-30px);
+
+    }
+
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+
+    position: relative;
+
+    z-index: 10;
+
+    height: 85px;
+
+}
+
+
+.brand-small {
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    font-size: 20px;
+
+}
+
+
+.mini-logo {
+
+    display: inline-flex;
+
+    width: 32px;
+
+    height: 32px;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: var(--red);
+
+    margin-right: 8px;
+
+}
+
+
+
+
+/* TOGGLE */
+
+.toggle {
+
+    width: 48px;
+
+    height: 25px;
+
+    border-radius: 30px;
+
+    background: var(--red);
+
+    padding: 3px;
+
+}
+
+
+.toggle-circle {
+
+    width: 19px;
+
+    height: 19px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    margin-left: auto;
+
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.main-container {
+
+    position: relative;
+
+    z-index: 5;
+
+    min-height:
+        calc(100vh - 85px);
+
+    padding:
+        20px 5% 60px;
+
+}
+
+
+/* =========================================
+   LEFT SIDE
+========================================= */
+
+.left-side {
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+.brand-content {
+
+    max-width: 650px;
+
+    width: 100%;
+
+    animation:
+        leftAppear 1s ease;
+
+}
+
+
+@keyframes leftAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(-50px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0);
+
+    }
+
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.main-logo {
+
+    text-align: center;
+
+}
+
+
+.main-logo h1 {
+
+    font-size:
+        clamp(55px, 7vw, 95px);
+
+    font-weight: 1000;
+
+    letter-spacing: -5px;
+
+    margin: 0;
+
+}
+
+
+.main-logo h1 span {
+
+    color: var(--red);
+
+}
+
+
+.vivafit-logo {
+    width: 115px;
+    height: 115px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 5px;
+    filter: drop-shadow(0 0 12px rgba(255, 20, 40, 0.35));
+}
+
+
+
+/* =========================================
+   TAGLINE
+========================================= */
+
+.tagline {
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    letter-spacing: 5px;
+
+    margin-top: -5px;
+
+}
+
+
+.tagline span {
+
+    font-size: 17px;
+
+    color: white;
+
+}
+
+
+.tagline strong {
+
+    font-size: 21px;
+
+    color: var(--red);
+
+    letter-spacing: 6px;
+
+}
+
+
+/* =========================================
+   RED LINE
+========================================= */
+
+.red-line {
+
+    width: 130px;
+
+    height: 2px;
+
+    margin:
+        35px auto 30px;
+
+    background: var(--red);
+
+    box-shadow:
+        0 0 20px var(--red);
+
+    position: relative;
+
+}
+
+
+.red-line::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 40px;
+
+    height: 5px;
+
+    background: white;
+
+    left: 45px;
+
+    top: -1px;
+
+    opacity: .7;
+
+    filter:
+        blur(2px);
+
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.description {
+
+    text-align: center;
+
+    color: #d2d4dc;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    max-width: 500px;
+
+    margin: auto;
+
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.stats-card {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    margin-top: 65px;
+
+    background:
+        rgba(15, 18, 28, .55);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    backdrop-filter:
+        blur(20px);
+
+}
+
+
+.stat {
+
+    padding:
+        25px 15px;
+
+    text-align: center;
+
+    border-right:
+        1px solid var(--border);
+
+    transition: .3s;
+
+}
+
+
+.stat:last-child {
+
+    border: none;
+
+}
+
+
+.stat:hover {
+
+    background:
+        rgba(255, 20, 50, .07);
+
+    transform:
+        translateY(-5px);
+
+}
+
+
+.stat i {
+
+    color: var(--red);
+
+    font-size: 22px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.stat h3 {
+
+    font-size: 28px;
+
+    margin-bottom: 4px;
+
+}
+
+
+.stat p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================
+   LOGIN CARD
+========================================= */
+
+.login-card {
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 28, 40, .78),
+            rgba(8, 11, 19, .82)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.16);
+
+    border-radius: 32px;
+
+    padding:
+        50px 48px;
+
+    backdrop-filter:
+        blur(25px);
+
+    box-shadow:
+
+        0 30px 80px
+        rgba(0,0,0,.5),
+
+        0 0 60px
+        rgba(255,0,50,.08);
+
+    overflow: hidden;
+
+    animation:
+        cardAppear 1s ease;
+
+}
+
+
+
+
+
+@keyframes cardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.welcome {
+
+    color: var(--red);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+}
+
+
+.login-header h2 {
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    margin:
+        12px 0 8px;
+
+}
+
+
+.login-header p {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.input-container {
+
+    margin-top: 27px;
+
+}
+
+
+.input-container label {
+
+    display: block;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.password-title {
+
+    display: flex;
+
+    justify-content: space-between;
+
+}
+
+
+.password-title a {
+
+    color: var(--red);
+
+    font-size: 12px;
+
+    text-decoration: none;
+
+}
+
+
+.input-box {
+
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding:
+        0 18px;
+
+    background:
+        rgba(12,15,24,.75);
+
+    border:
+        1px solid rgba(255,255,255,.13);
+
+    border-radius: 14px;
+
+    transition: .3s;
+
+}
+
+
+.input-box:focus-within {
+
+    border-color:
+        var(--red);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255,20,50,.08),
+
+        0 0 25px
+        rgba(255,20,50,.08);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.input-box > i {
+
+    color: #89909e;
+
+}
+
+
+.input-box input {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 14px;
+
+}
+
+
+.input-box input::placeholder {
+
+    color: #626877;
+
+}
+
+
+.input-box button {
+
+    border: none;
+
+    background: none;
+
+    color: #89909e;
+
+    cursor: pointer;
+
+}
+
+
+.input-container small {
+
+    display: block;
+
+    color: #ff4a60;
+
+    font-size: 11px;
+
+    margin-top: 6px;
+
+}
+
+
+/* =========================================
+   SIGN IN BUTTON
+========================================= */
+
+.sign-btn {
+
+    margin-top: 30px;
+
+    width: 100%;
+
+    height: 60px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    background:
+        linear-gradient(
+            100deg,
+            #ff172f,
+            #d90072
+        );
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .3s;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.sign-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+
+    height: 100%;
+
+    left: 0;
+
+    top: 0;
+
+    background:
+        rgba(255,255,255,.15);
+
+    transition: .4s;
+
+}
+
+
+.sign-btn:hover::before {
+
+    width: 100%;
+
+}
+
+
+.sign-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(255,20,50,.25);
+
+}
+
+
+.sign-btn i {
+
+    position: absolute;
+
+    right: 22px;
+
+}
+/* =========================================
+   SIGN UP
+========================================= */
+
+.signup {
+
+    text-align: center;
+
+    color: #989ca8;
+
+    font-size: 13px;
+
+    margin-top: 28px;
+
+}
+
+
+.signup a {
+
+    color: var(--red);
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+}
+
+
+.signup a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 991px) {
+
+    .left-side {
+
+        padding-top: 30px;
+
+    }
+
+    .stats-card {
+
+        margin-top: 40px;
+
+    }
+
+    .login-card {
+
+        margin-top: 20px;
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .navbar {
+
+        height: 70px;
+
+    }
+
+    
+
+    .main-container {
+
+        padding:
+            20px 18px 50px;
+
+    }
+
+    .main-logo h1 {
+
+        font-size: 58px;
+
+    }
+
+    .vivafit-logo {
+
+        width: 80px;
+
+        height: 80px;
+
+    }
+
+
+
+    .tagline span {
+
+        font-size: 12px;
+
+    }
+
+    .tagline strong {
+
+        font-size: 14px;
+
+        letter-spacing: 3px;
+
+    }
+
+    .description {
+
+        font-size: 14px;
+
+    }
+
+    .stats-card {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+    .stat:nth-child(2) {
+
+        border-right: none;
+
+    }
+
+    .stat:nth-child(-n+2) {
+
+        border-bottom:
+            1px solid var(--border);
+
+    }
+
+    .login-card {
+
+        padding:
+            35px 22px;
+
+        border-radius: 25px;
+
+    }
+
+    .login-header h2 {
+
+        font-size: 27px;
+
+    }
+
+    
+}
+
+
+@media (max-width: 400px) {
+
+    .stats-card {
+
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+    .stat h3 {
+
+        font-size: 22px;
+
+    }
+
+    .stat p {
+
+        font-size: 10px;
+
+    }
+
+}
+
+
+/* =========================================
+   NAV ACTIVE STATE
+========================================== */
+
+.planner-nav-active {
+
+    color: var(--red) !important;
+
+    font-weight: 700;
+
+}

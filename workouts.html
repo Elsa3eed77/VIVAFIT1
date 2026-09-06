@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VIVAFIT - Workouts</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="css/login.css">
+
+    <!-- Workouts CSS -->
+    <link rel="stylesheet" href="css/workouts.css">
+
+    <!-- Workout Modal CSS -->
+    <link rel="stylesheet" href="css/workout-modal.css">
+
+    <!-- Adaptive Workout CSS -->
+    <link rel="stylesheet" href="css/adaptive.css">
+
+    <!-- Exercise Substitution CSS -->
+    <link rel="stylesheet" href="css/substitution.css">
+
+    <!-- Exercise Guide CSS -->
+    <link rel="stylesheet" href="css/exercise-guide.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         BACKGROUND
+    ========================== -->
+
+    <div class="fitness-bg">
+
+        <i class="fa-solid fa-dumbbell dumbbell d1"></i>
+        <i class="fa-solid fa-dumbbell dumbbell d2"></i>
+        <i class="fa-solid fa-dumbbell dumbbell d3"></i>
+        <i class="fa-solid fa-dumbbell dumbbell d4"></i>
+        <i class="fa-solid fa-dumbbell dumbbell d5"></i>
+        <i class="fa-solid fa-dumbbell dumbbell d6"></i>
+
+        <div class="red-particle p1"></div>
+        <div class="red-particle p2"></div>
+        <div class="red-particle p3"></div>
+        <div class="red-particle p4"></div>
+
+    </div>
+
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar navbar-dark">
+
+        <div class="container-fluid px-4 px-md-5">
+
+            <a
+                class="navbar-brand brand-small"
+                href="dashboard.html">
+
+                <span class="mini-logo">V</span>
+
+                VIVAFIT
+
+            </a>
+
+
+            <div class="d-flex align-items-center gap-4">
+
+                <a
+                    href="dashboard.html"
+                    class="text-white text-decoration-none">
+
+                    <i class="fa-solid fa-house"></i>
+                    Home
+
+                </a>
+
+
+                <a
+                    href="workouts.html"
+                    class="text-white text-decoration-none">
+
+                    <i class="fa-solid fa-dumbbell"></i>
+                    Workouts
+
+                </a>
+
+
+                <a
+                    href="planner.html"
+                    class="text-white text-decoration-none">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    Planner
+
+                </a>
+
+
+                <a
+                    href="nutrition.html"
+                    class="text-white text-decoration-none">
+
+                    <i class="fa-solid fa-utensils"></i>
+                    Nutrition
+
+                </a>
+
+
+                <a
+                    href="progress.html"
+                    class="text-white text-decoration-none">
+
+                    <i class="fa-solid fa-chart-line"></i>
+                    Progress
+
+                </a>
+
+
+                <a
+                    href="profile.html"
+                    class="text-white text-decoration-none">
+
+                    <i class="fa-solid fa-user"></i>
+                    Profile
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="workouts-container">
+
+
+        <!-- HEADER -->
+
+        <div class="header-card">
+
+            <div class="icon-lg">
+
+                <i class="fa-solid fa-dumbbell"></i>
+
+            </div>
+
+
+            <div>
+
+                <p class="subtitle">
+                    VIVAFIT WORKOUTS
+                </p>
+
+                <h1>
+                    Choose Your Workout
+                </h1>
+
+                <p>
+                    Train smarter, get stronger, and keep moving toward your goals.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TODAY'S WORKOUT -->
+
+        <div class="today-card">
+
+            <div class="icon-lg red-bg">
+
+                <i class="fa-solid fa-fire"></i>
+
+            </div>
+
+
+            <div class="today-info">
+
+                <p class="subtitle">
+                    TODAY'S WORKOUT
+                </p>
+
+                <h3>
+                    Full Body Strength
+                </h3>
+
+                <p>
+                    Build strength, burn calories, and feel stronger.
+                </p>
+
+            </div>
+
+
+            <div class="meta">
+
+                <span>
+                    <i class="fa-regular fa-clock"></i>
+                    45 min
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Medium
+                </span>
+
+            </div>
+
+
+            <button class="btn-red" id="todayStartBtn">
+                Start Workout
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+
+
+        <!-- FILTERS -->
+
+        <div class="filters">
+
+            <button class="filter active">
+                All
+            </button>
+
+            <button class="filter">
+                Strength
+            </button>
+
+            <button class="filter">
+                Cardio
+            </button>
+
+            <button class="filter">
+                Full Body
+            </button>
+
+        </div>
+
+
+
+        <!-- WORKOUT GRID (rendered by JS) -->
+
+        <div class="workout-grid">
+        </div>
+
+
+
+        <!-- ADAPTIVE HISTORY -->
+
+        <div class="adaptive-section" id="adaptiveHistorySection">
+
+            <div class="section-header">
+                <i class="fa-solid fa-chart-line"></i>
+                <h2>Adaptive History</h2>
+            </div>
+
+            <div id="adaptiveHistoryContainer"></div>
+
+        </div>
+
+
+
+        <!-- SUBSTITUTION HISTORY -->
+
+        <div class="adaptive-section" id="substitutionHistorySection">
+
+            <div class="section-header">
+                <i class="fa-solid fa-shuffle"></i>
+                <h2>Exercise Substitutions</h2>
+            </div>
+
+            <div id="substitutionHistoryContainer"></div>
+
+        </div>
+
+
+
+        <!-- RECENT ACTIVITY -->
+
+        <div class="activity-card">
+
+            <div class="icon-lg red-bg">
+
+                <i class="fa-solid fa-clipboard-list"></i>
+
+            </div>
+
+
+            <div>
+
+                <p class="subtitle">
+                    RECENT ACTIVITY
+                </p>
+
+                <h3 id="workoutQuote">
+                    Keep going! 🔥
+                </h3>
+
+
+                <div class="activity-item">
+
+                    <span>
+
+                        <i class="fa-solid fa-dumbbell"></i>
+
+                        Full Body Workout
+
+                    </span>
+
+                    <span>
+                        Today
+                    </span>
+
+                </div>
+
+
+                <div class="activity-item">
+
+                    <span>
+
+                        <i class="fa-solid fa-fire"></i>
+
+                        320 Calories Burned
+
+                    </span>
+
+                    <span>
+                        Today
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         WORKOUT MODAL
+    ========================== -->
+
+    <div class="modal-overlay" id="workoutModal">
+
+        <div class="modal-card">
+
+            <div class="modal-header">
+
+                <div class="modal-header-content">
+
+                    <div class="modal-icon" id="modalIcon">
+
+                        <i class="fa-solid fa-dumbbell"></i>
+
+                    </div>
+
+                    <div class="modal-header-text">
+
+                        <h2 id="modalTitle">Workout Name</h2>
+
+                        <p id="modalDescription">Workout description goes here.</p>
+
+                    </div>
+
+                </div>
+
+                <button class="modal-close" id="modalClose">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+            <div class="modal-meta">
+
+                <div class="modal-meta-item">
+
+                    <i class="fa-regular fa-clock"></i>
+
+                    <span id="modalDuration">30 min</span>
+
+                </div>
+
+                <div class="modal-meta-item">
+
+                    <i class="fa-solid fa-chart-simple"></i>
+
+                    <span id="modalDifficulty">Medium</span>
+
+                </div>
+
+                <div class="modal-meta-item">
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                    <span id="modalCategory">Strength</span>
+
+                </div>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p class="modal-section-title">EXERCISES</p>
+
+                <ul class="exercise-list" id="modalExerciseList">
+
+                    <!-- Exercises injected by JS -->
+
+                </ul>
+
+                <div id="adaptiveBannerContainer"></div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn-modal-save" id="modalSaveBtn">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add to My Workouts
+
+                </button>
+
+                <button class="btn-modal-cancel" id="modalCancelBtn">
+
+                    Close
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Motivational Quotes -->
+    <script src="js/motivational-quotes.js"></script>
+
+    <!-- Workouts JS -->
+    <script src="js/adaptive.js"></script>
+    <script src="js/substitution.js"></script>
+    <script src="js/exercise-guide.js"></script>
+    <script src="js/workouts.js"></script>
+    <script>renderRandomQuote("workoutQuote");</script>
+
+</body>
+
+</html>

@@ -1,0 +1,505 @@
+/* =========================================
+   ADAPTIVE WORKOUT SYSTEM
+========================================== */
+
+/* =========================================
+   ADAPTIVE BANNER (Modal)
+========================================== */
+
+.adaptive-banner {
+    background: linear-gradient(135deg, rgba(25, 28, 40, 0.9), rgba(8, 11, 19, 0.95));
+    border: 1px solid rgba(255, 21, 48, 0.25);
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+
+.adaptive-banner-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.adaptive-banner-header i {
+    color: #ff9a76;
+    font-size: 16px;
+}
+
+.adaptive-banner-header span {
+    color: #ff9a76;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.adaptive-banner-subtitle {
+    color: #a6a9b5;
+    font-size: 12px;
+    margin: 0 0 14px;
+}
+
+/* =========================================
+   RECOMMENDATION CARDS
+========================================== */
+
+.adaptive-recommendations {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.adaptive-rec-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 14px;
+}
+
+.adaptive-rec-card.action-increase {
+    border-left: 3px solid #45e58a;
+}
+
+.adaptive-rec-card.action-decrease {
+    border-left: 3px solid #ff4a60;
+}
+
+.adaptive-rec-card.action-keep {
+    border-left: 3px solid #a6a9b5;
+}
+
+.adaptive-rec-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.adaptive-rec-header i {
+    font-size: 14px;
+}
+
+.adaptive-rec-exercise {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    flex: 1;
+}
+
+.adaptive-rec-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+.badge-increase {
+    background: rgba(69, 229, 138, 0.15);
+    color: #45e58a;
+}
+
+.badge-decrease {
+    background: rgba(255, 74, 96, 0.15);
+    color: #ff4a60;
+}
+
+.badge-keep {
+    background: rgba(166, 169, 181, 0.15);
+    color: #a6a9b5;
+}
+
+/* =========================================
+   CHANGE ROWS
+========================================== */
+
+.adaptive-rec-changes {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.adaptive-change-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.change-label {
+    color: #a6a9b5;
+    min-width: 65px;
+    font-weight: 600;
+}
+
+.change-old {
+    color: #626877;
+    text-decoration: line-through;
+    min-width: 55px;
+}
+
+.change-arrow {
+    color: #ff9a76;
+    font-size: 10px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.change-new {
+    color: white;
+    font-weight: 700;
+}
+
+/* =========================================
+   REASON / META
+========================================== */
+
+.adaptive-reason {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.adaptive-reason i {
+    color: #ff9a76;
+    font-size: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.adaptive-reason span {
+    color: #d2d4dc;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.adaptive-meta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.adaptive-meta span {
+    font-size: 10px;
+    color: #626877;
+    font-weight: 600;
+}
+
+.confidence-high {
+    color: #45e58a !important;
+}
+
+.confidence-medium {
+    color: #ff9a76 !important;
+}
+
+.confidence-low {
+    color: #a6a9b5 !important;
+}
+
+.confidence-none {
+    color: #626877 !important;
+}
+
+/* =========================================
+   WORKOUT PAGE — ADAPTIVE SECTION
+========================================== */
+
+.adaptive-section {
+    margin-bottom: 25px;
+}
+
+.adaptive-section .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.adaptive-section .section-header i {
+    color: #ff9a76;
+    font-size: 20px;
+}
+
+.adaptive-section .section-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+/* =========================================
+   PERFORMANCE FORM
+========================================== */
+
+.perf-form-container {
+    background: linear-gradient(180deg, rgba(20, 24, 35, 0.95), rgba(10, 13, 22, 0.98));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 25px;
+}
+
+.perf-form-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.perf-form-header i {
+    color: #ff1530;
+    font-size: 18px;
+}
+
+.perf-form-header span {
+    color: #ff1530;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.perf-form-subtitle {
+    color: #a6a9b5;
+    font-size: 13px;
+    margin: 0 0 20px;
+}
+
+.perf-exercise-entry {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 14px;
+}
+
+.perf-exercise-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.perf-exercise-num {
+    min-width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 21, 48, 0.12);
+    border-radius: 8px;
+    color: #ff1530;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.perf-exercise-name {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.perf-fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.perf-field label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    color: #a6a9b5;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.perf-field .form-input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   RPE SELECTOR
+========================================== */
+
+.rpe-selector {
+    display: flex;
+    gap: 4px;
+}
+
+.rpe-btn {
+    flex: 1;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a6a9b5;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.rpe-easy {
+    color: #45e58a;
+}
+
+.rpe-moderate {
+    color: #ff9a76;
+}
+
+.rpe-hard {
+    color: #ff4a60;
+}
+
+.rpe-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.rpe-btn.selected {
+    background: rgba(255, 21, 48, 0.2);
+    border-color: #ff1530;
+    color: white;
+}
+
+/* =========================================
+   FORM ACTIONS
+========================================== */
+
+.perf-form-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.perf-save-btn {
+    flex: none;
+}
+
+.perf-form-msg {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* =========================================
+   HISTORY
+========================================== */
+
+.adaptive-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.adaptive-history-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.adaptive-history-date {
+    color: #a6a9b5;
+    font-size: 12px;
+    font-weight: 600;
+    min-width: 100px;
+}
+
+.adaptive-history-workout {
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    min-width: 120px;
+}
+
+.adaptive-history-adjustments {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.history-adj {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.adaptive-history-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #626877;
+}
+
+.adaptive-history-empty i {
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.08);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.adaptive-history-empty p {
+    font-size: 13px;
+    margin: 0;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .adaptive-banner {
+        padding: 14px;
+    }
+
+    .adaptive-rec-card {
+        padding: 12px;
+    }
+
+    .perf-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .perf-form-container {
+        padding: 18px;
+    }
+
+    .adaptive-history-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .adaptive-history-date,
+    .adaptive-history-workout {
+        min-width: auto;
+    }
+
+    .rpe-selector {
+        flex-wrap: wrap;
+    }
+
+    .rpe-btn {
+        min-width: 30px;
+    }
+}

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>VIVAFIT | Sign In</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link rel="stylesheet" href="css/login.css">
+
+</head>
+
+
+<body>
+
+
+
+
+  <div class="fitness-bg">
+
+    <i class="fa-solid fa-dumbbell dumbbell d1"></i>
+
+    <i class="fa-solid fa-dumbbell dumbbell d2"></i>
+
+    <i class="fa-solid fa-dumbbell dumbbell d3"></i>
+
+    <i class="fa-solid fa-dumbbell dumbbell d4"></i>
+
+    <i class="fa-solid fa-dumbbell dumbbell d5"></i>
+
+    <i class="fa-solid fa-dumbbell dumbbell d6"></i>
+
+
+
+    <div class="red-particle p1"></div>
+    <div class="red-particle p2"></div>
+    <div class="red-particle p3"></div>
+    <div class="red-particle p4"></div>
+    <div class="red-particle p5"></div>
+
+  </div>
+
+
+
+
+
+  <nav class="navbar navbar-dark">
+
+    <div class="container-fluid px-4 px-md-5">
+
+      <a class="navbar-brand brand-small" href="login.html">
+
+        <span class="mini-logo">V</span>
+
+        VIVAFIT
+
+      </a>
+
+
+
+    </div>
+
+    </div>
+
+  </nav>
+
+  <main class="container-fluid main-container">
+
+    <div class="row align-items-center justify-content-center g-5">
+      <div class="col-lg-6 left-side">
+        <div class="brand-content">
+          <div class="main-logo">
+
+    <img
+        src="images/img.png"
+        alt="VIVAFIT Logo"
+        class="vivafit-logo"
+    >
+
+    <h1>
+        VIVA<span>FIT</span>
+    </h1>
+
+</div>
+
+          <!-- TAGLINE -->
+
+          <div class="tagline">
+
+            <span>YOUR PATH TO A</span>
+
+            <strong>HEALTHIER TOMORROW</strong>
+
+          </div>
+
+
+          <!-- LINE -->
+
+          <div class="red-line"></div>
+
+
+          <!-- DESCRIPTION -->
+
+          <p class="description">
+
+            Personalized workouts, smart nutrition,
+            and progress tracking — all in one place.
+
+          </p>
+
+
+          <!-- =================================
+                     STATS
+                ================================= -->
+
+          <div class="stats-card">
+
+            <div class="stat">
+
+              <i class="fa-solid fa-users"></i>
+
+              <h3>10K+</h3>
+
+              <p>Active Users</p>
+
+            </div>
+
+
+            <div class="stat">
+
+              <i class="fa-solid fa-dumbbell"></i>
+
+              <h3>50K+</h3>
+
+              <p>Workouts Completed</p>
+
+            </div>
+
+
+            <div class="stat">
+
+              <i class="fa-solid fa-fire"></i>
+
+              <h3>100K+</h3>
+
+              <p>Calories Burned</p>
+
+            </div>
+
+
+            <div class="stat">
+
+              <i class="fa-solid fa-chart-line"></i>
+
+              <h3>99.9%</h3>
+
+              <p>System Uptime</p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- RIGHT LOGIN -->
+
+      <div class="col-lg-5 col-xl-4">
+
+        <div class="login-card">
+
+
+          <!-- HEADER -->
+
+          <div class="login-header">
+
+            <span class="welcome">
+              WELCOME BACK
+            </span>
+
+            <h2>
+              Sign in to your account
+            </h2>
+
+            <p>
+              Continue your journey to a healthier you.
+            </p>
+
+          </div>
+
+
+
+          <!-- FORM -->
+
+          <form id="loginForm">
+
+
+            <!-- EMAIL -->
+
+            <div class="input-container">
+
+              <label>
+                Email Address
+              </label>
+
+              <div class="input-box">
+
+                <i class="fa-regular fa-envelope"></i>
+
+                <input type="email" id="email" placeholder="Enter your email">
+
+              </div>
+
+              <small id="emailError"></small>
+
+            </div>
+
+
+
+            <!-- Password -->
+
+            <div class="input-container">
+
+              <div class="password-title">
+
+                <label>
+                  Password
+                </label>
+
+                <a href="#" onclick="alert('Password reset is not available yet. Please contact support.'); return false;">
+                  Forgot Password?
+                </a>
+
+              </div>
+
+
+              <div class="input-box">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input type="password" id="password" placeholder="Enter your password">
+
+                <button type="button" id="showPassword">
+
+                  <i class="fa-regular fa-eye"></i>
+
+                </button>
+
+              </div>
+
+              <small id="passwordError"></small>
+
+            </div>
+
+
+
+            <!-- SIGN IN -->
+
+            <button type="submit" class="sign-btn">
+
+              <span id="signText">
+                Sign In
+              </span>
+
+              <span class="spinner-border spinner-border-sm" id="spinner"></span>
+
+              <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+          </form>
+
+          <!-- SIGN UP -->
+
+          <div class="signup">
+
+            Don't have an account?
+
+            <a href="signup.html">
+              Sign Up
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+
+  <script src="js/login.js"></script>
+
+</body>
+
+</html>
