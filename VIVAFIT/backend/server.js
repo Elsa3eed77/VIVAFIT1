@@ -10,7 +10,15 @@ const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
 
-require("dotenv").config({ path: path.join(__dirname, "backend", ".env") });
+// Load .env — supports both "<backend>/.env" and "<backend>/backend/.env" layouts
+{
+    const envCandidates = [
+        path.join(__dirname, ".env"),
+        path.join(__dirname, "backend", ".env")
+    ];
+    const envPath = envCandidates.find((p) => fs.existsSync(p));
+    require("dotenv").config({ path: envPath || envCandidates[0] });
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;

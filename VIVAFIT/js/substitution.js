@@ -244,6 +244,21 @@ function aiCacheKeyFor(context) {
     return (context.originalName + "|" + (context.userEquipment || "full-gym"));
 }
 
+function aiSeedKeyFor(context) {
+    return (context.originalName + "|" + (context.userEquipment || "full-gym") + "|" + (context.userLevel || "intermediate")).toLowerCase();
+}
+
+function getEmbeddedSeedHit(context) {
+    try {
+        var seed = (typeof window !== "undefined" && window.VIVAFIT_AI_SEED) ? window.VIVAFIT_AI_SEED : null;
+        if (!seed) return null;
+        var hit = seed[aiSeedKeyFor(context)];
+        return (hit && hit.alternatives && hit.alternatives.length) ? hit.alternatives : null;
+    } catch (e) {
+        return null;
+    }
+}
+
 function getAiCacheHit(context) {
     try {
         var cache = getAiCache();
@@ -339,7 +354,7 @@ function isFileProtocol() {
 function serverHintHtml() {
     if (!isFileProtocol()) return "";
     return '\
-        <p class="offline-ai-note"><i class="fa-solid fa-link"></i> You opened this page directly from the file. To use the AI suggestions, open it through the server instead: <a href="http://localhost:3000/workouts.html" target="_blank" rel="noopener" style="color:#ff9a76;font-weight:700;text-decoration:underline;">http://localhost:3000/workouts.html</a></p>\
+        <p class="offline-ai-note"><i class="fa-solid fa-link"></i> Opened directly from the file — the built-in suggestions still work here for the ready workouts. For brand-new exercises (AI on demand), open via the server: <a href="http://localhost:3000/workouts.html" target="_blank" rel="noopener" style="color:#ff9a76;font-weight:700;text-decoration:underline;">http://localhost:3000/workouts.html</a></p>\
     ';
 }
 
@@ -857,6 +872,12 @@ function openSubstitutionModal(context) {
     var cacheHit = getAiCacheHit(context);
     if (cacheHit && cacheHit.length) {
         renderAiAlternatives(cacheHit);
+        return;
+    }
+
+    var seedHit = getEmbeddedSeedHit(context);
+    if (seedHit && seedHit.length) {
+        renderAiAlternatives(seedHit);
         return;
     }
 
