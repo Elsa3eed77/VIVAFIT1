@@ -1,0 +1,2330 @@
+{
+  "bench press|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Flat Dumbbell Press",
+        "reason": "It mimics the horizontal pressing pattern of the barbell bench press while allowing a greater range of motion and balancing unilateral strength.",
+        "muscle": "chest",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Sit on a flat bench holding dumbbells on your thighs, then kick them up as you lie back.",
+          "Plant your feet flat on the floor and retract your shoulder blades into the bench.",
+          "Press the dumbbells upward in a slight arc until your arms are extended over your chest.",
+          "Lower the weights under control until your elbows reach approximately a 45-degree angle to your torso."
+        ],
+        "tips": [
+          "Keep your wrists stacked directly over your elbows throughout the movement.",
+          "Maintain a slight natural arch in your lower back with your core braced."
+        ],
+        "commonMistakes": [
+          "Flaring the elbows out to 90 degrees, which places excess strain on the shoulder joint.",
+          "Clanking the dumbbells together forcefully at the top of the rep."
+        ]
+      },
+      {
+        "name": "Machine Chest Press",
+        "reason": "It provides a stable, guided path that isolates the pectoral muscles and allows you to train close to muscular failure safely.",
+        "muscle": "chest",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "60s",
+        "steps": [
+          "Adjust the seat height so the machine handles align with the middle of your chest.",
+          "Sit back with your head, upper back, and glutes firmly against the pad.",
+          "Grip the handles and press forward smoothly until your arms are nearly straight.",
+          "Slowly return the handles to the starting position until you feel a comfortable stretch in your chest."
+        ],
+        "tips": [
+          "Keep your shoulder blades pinned against the back pad throughout the entire set.",
+          "Focus on a controlled two-second lowering phase rather than letting the weight stack drop."
+        ],
+        "commonMistakes": [
+          "Letting the shoulders round forward off the pad at full extension.",
+          "Setting the seat too low or too high, altering the target pressing angle."
+        ]
+      },
+      {
+        "name": "Standing Cable Chest Press",
+        "reason": "The cables provide constant, uninterrupted tension throughout the entire movement, maximizing chest contraction.",
+        "muscle": "chest",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "12-15",
+        "rest": "60s",
+        "steps": [
+          "Set both cable pulleys at chest height and take a handle in each hand.",
+          "Step forward into a staggered stance to stabilize your base, keeping a slight forward lean.",
+          "Press the cables forward and slightly inward until your hands meet in front of your chest.",
+          "Control the cables as they pull your arms back wide to the starting position."
+        ],
+        "tips": [
+          "Brace your core tightly to keep your torso stationary during the press.",
+          "Think about bringing your biceps toward each other to maximize inner chest engagement."
+        ],
+        "commonMistakes": [
+          "Using excessive momentum or swaying the torso to heave the weight forward.",
+          "Allowing the cables to pull the elbows too far back behind the torso, overextending the shoulders."
+        ]
+      }
+    ]
+  },
+  "overhead press|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Seated Dumbbell Shoulder Press",
+        "reason": "Allows for a natural, independent arm path that balances strength discrepancies while heavily loading the anterior and lateral deltoids.",
+        "muscle": "shoulders",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Sit upright on an adjustable bench with back support, holding dumbbells at shoulder height with palms facing forward.",
+          "Press the weights upward smoothly until your arms are fully extended overhead without locking out your elbows.",
+          "Lower the dumbbells back to ear level in a controlled manner before starting the next rep."
+        ],
+        "tips": [
+          "Keep your wrists directly stacked over your elbows throughout the movement.",
+          "Press your lower back firmly against the pad and keep your core braced."
+        ],
+        "commonMistakes": [
+          "Arching the lower back excessively off the bench pad to press heavier loads.",
+          "Clinking the dumbbells together at the top, which removes tension from the deltoids."
+        ]
+      },
+      {
+        "name": "Machine Shoulder Press",
+        "reason": "Provides a guided, stable movement track that maximizes deltoid tension without requiring excessive core stabilization.",
+        "muscle": "shoulders",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "60s",
+        "steps": [
+          "Adjust the seat height so the handles align at or slightly above shoulder level when seated.",
+          "Grip the handles firmly, plant your feet on the floor, and press upward until your arms reach near-lockout.",
+          "Slowly lower the handles under control until you feel a comfortable stretch in the shoulders."
+        ],
+        "tips": [
+          "Keep your shoulder blades depressed against the back pad throughout the lift.",
+          "Maintain continuous tension by avoiding a hard lockout at the top."
+        ],
+        "commonMistakes": [
+          "Setting the seat too low, which places the shoulder joints in an excessively strained position.",
+          "Letting the weight stack slam down between reps instead of controlling the eccentric phase."
+        ]
+      },
+      {
+        "name": "Standing Cable Overhead Press",
+        "reason": "Provides continuous tension throughout the entire range of motion while maintaining the standing core stability demands of the original lift.",
+        "muscle": "shoulders",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "75s",
+        "steps": [
+          "Set the cable pulleys to the lowest position and bring the D-handles up to shoulder height.",
+          "Assume a solid athletic stance with feet shoulder-width apart and core braced.",
+          "Press the cables upward and slightly inward until arms are extended overhead.",
+          "Lower the handles steadily back to shoulder height against the cable tension."
+        ],
+        "tips": [
+          "Squeeze your glutes and brace your abs to prevent leaning backward during the press.",
+          "Keep your elbows slightly tucked forward at a 45-degree angle in the scapular plane."
+        ],
+        "commonMistakes": [
+          "Arching the lumbar spine as the weight moves overhead.",
+          "Allowing the cable resistance to yank the hands downward on the negative phase."
+        ]
+      }
+    ]
+  },
+  "barbell row|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Seated Cable Row",
+        "reason": "It provides continuous tension across the entire range of motion while significantly reducing lower-back fatigue compared to a barbell row.",
+        "muscle": "back",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "60-90s",
+        "steps": [
+          "Sit upright with feet on the platform, knees slightly bent, and grip the handle attachment.",
+          "Pull the handle toward your lower abdomen while driving your elbows back and retracting your shoulder blades.",
+          "Pause briefly at peak contraction, then slowly return the weight to the starting position under control."
+        ],
+        "tips": [
+          "Keep your torso upright with minimal forward or backward torso swing.",
+          "Focus on driving through your elbows rather than pulling strictly with your hands."
+        ],
+        "commonMistakes": [
+          "Excessively leaning back to use body momentum to move the weight.",
+          "Rounding the spine at full arm extension on the negative portion."
+        ]
+      },
+      {
+        "name": "Chest-Supported Dumbbell Row",
+        "reason": "This exercise isolates the latissimus dorsi and rhomboids by removing the balance demands and lower-back strain of a bent-over row.",
+        "muscle": "back",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Lie face down on an incline bench set to roughly 30 to 45 degrees with a dumbbell in each hand.",
+          "Row the dumbbells up toward your hips by pulling your elbows backward and upward.",
+          "Squeeze your back muscles at the top, then lower the weights back down under complete control."
+        ],
+        "tips": [
+          "Keep your chest glued to the bench pad throughout the entire set.",
+          "Think of pulling your hands toward your pockets to engage the lats fully."
+        ],
+        "commonMistakes": [
+          "Lifting your chest off the bench pad to jerk the dumbbells upward.",
+          "Shrugging your shoulders toward your ears instead of pulling your elbows back."
+        ]
+      },
+      {
+        "name": "One-Arm Dumbbell Row",
+        "reason": "It matches the heavy horizontal pulling stimulus of the barbell row while correcting side-to-side strength imbalances and allowing a deeper stretch.",
+        "muscle": "back",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "8-10",
+        "rest": "60s",
+        "steps": [
+          "Place one knee and hand on a flat bench, keeping your spine neutral and the other foot planted on the floor.",
+          "Grip a dumbbell with your free hand, letting the arm hang straight down.",
+          "Pull the dumbbell toward your hip while keeping the elbow tucked close to your torso.",
+          "Lower the dumbbell back down smoothly until you feel a deep stretch in your back."
+        ],
+        "tips": [
+          "Keep your hips and shoulders squared to the bench to minimize rotation.",
+          "Initiate the movement by retracting your shoulder blade before bending the elbow."
+        ],
+        "commonMistakes": [
+          "Twisting the torso excessively at the top of the pull to heave heavier weight.",
+          "Dropping the dumbbell quickly without controlling the eccentric phase."
+        ]
+      }
+    ]
+  },
+  "bicep curls|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Cable Rope Hammer Curl",
+        "reason": "Utilizes constant cable tension to challenge the biceps and brachialis throughout the entire range of motion. It provides a unique contraction angle compared to free-weight curls.",
+        "muscle": "arms",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "60s",
+        "steps": [
+          "Attach a rope to the lowest pulley setting and grasp the handles with a neutral grip.",
+          "Stand upright with shoulders back, elbows pinned to your sides, and knees slightly bent.",
+          "Curl the rope upward while keeping palms facing each other, spreading the rope apart at the top.",
+          "Lower the weight under control back to full arm extension."
+        ],
+        "tips": [
+          "Keep your upper arms stationary against your ribs throughout the movement.",
+          "Focus on squeezing the forearms and outer biceps at the peak of the curl."
+        ],
+        "commonMistakes": [
+          "Using shoulder momentum to swing the cable upward.",
+          "Allowing the elbows to flare outward or drift forward."
+        ]
+      },
+      {
+        "name": "Incline Dumbbell Curl",
+        "reason": "Places the biceps in a deep passive stretch at the bottom position, which emphasizes the long head. This provides a greater stimulus for muscle hypertrophy.",
+        "muscle": "arms",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "10-12",
+        "rest": "60s",
+        "steps": [
+          "Set an adjustable bench to a 45-to-60-degree incline and sit back with a dumbbell in each hand.",
+          "Let your arms hang straight down toward the floor with palms turned forward.",
+          "Curl the dumbbells upward toward your shoulders while keeping your back flat against the bench.",
+          "Slowly lower the weights back to the full stretch position at the bottom."
+        ],
+        "tips": [
+          "Keep your shoulders pinned back against the bench padding.",
+          "Control the eccentric phase for 2 to 3 seconds to maximize tension."
+        ],
+        "commonMistakes": [
+          "Setting the bench angle too flat and stressing the anterior deltoids.",
+          "Raising your shoulders or head off the bench to assist the lift."
+        ]
+      },
+      {
+        "name": "EZ-Bar Preacher Curl",
+        "reason": "Strictly isolates the biceps by bracing the upper arms against a pad, eliminating body momentum. The angled bar also reduces strain on the wrists.",
+        "muscle": "arms",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Sit at a preacher bench and rest the back of your upper arms flat against the pad.",
+          "Grip the inner handles of the EZ-bar with an underhand grip and arms extended.",
+          "Curl the bar upward toward your chin until your biceps are fully contracted.",
+          "Lower the bar slowly until your arms are nearly straight without hyperextending the elbows."
+        ],
+        "tips": [
+          "Ensure your armpits are snug against the top of the preacher pad.",
+          "Maintain a firm wrist position rather than curling your wrists backward."
+        ],
+        "commonMistakes": [
+          "Lifting hips off the seat to leverage heavier weights.",
+          "Hyperextending and locking out the elbows abruptly at the bottom."
+        ]
+      }
+    ]
+  },
+  "tricep dips|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Close-Grip Barbell Bench Press",
+        "reason": "This exercise targets the triceps heavily while allowing for progressive overload similar to dips, but with significantly less shoulder strain.",
+        "muscle": "arms",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Lie flat on a bench and grip the barbell with hands placed about shoulder-width apart.",
+          "Lower the bar slowly to your lower chest while keeping your elbows tucked close to your sides.",
+          "Press the bar straight back up to the starting position by extending your elbows fully."
+        ],
+        "tips": [
+          "Keep your elbows tucked at roughly a 45-degree angle to your torso to maximize tricep engagement.",
+          "Ensure your wrists remain straight and stacked directly over your elbows throughout the lift."
+        ],
+        "commonMistakes": [
+          "Flaring the elbows out wide, which shifts the tension to the shoulders and increases injury risk.",
+          "Bouncing the bar off the chest at the bottom of the movement to gain momentum."
+        ]
+      },
+      {
+        "name": "Cable Tricep Pushdown",
+        "reason": "This movement provides constant tension on the triceps throughout the entire range of motion and allows for a highly controlled contraction.",
+        "muscle": "arms",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "12",
+        "rest": "60s",
+        "steps": [
+          "Face the cable machine, grasp the attachment with an overhand grip, and tuck your elbows close to your ribs.",
+          "Push the attachment down by extending your elbows until your arms are fully straight.",
+          "Slowly return the attachment back to the starting position while maintaining control of the weight."
+        ],
+        "tips": [
+          "Keep your shoulders pinned back and down to isolate the triceps and prevent chest involvement.",
+          "Focus on squeezing your triceps hard for a full second at the bottom of the movement."
+        ],
+        "commonMistakes": [
+          "Using momentum or leaning your body weight over the attachment to force the weight down.",
+          "Allowing your elbows to flare out or drift forward and backward during the exercise."
+        ]
+      },
+      {
+        "name": "EZ-Bar Skull Crusher",
+        "reason": "It isolates the long head of the triceps effectively, matching the deep stretch and intense contraction experienced during tricep dips.",
+        "muscle": "arms",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "75s",
+        "steps": [
+          "Lie on a flat bench holding an EZ-bar over your chest with your arms fully extended.",
+          "Lower the bar slowly toward your forehead or slightly behind your head by bending only at the elbows.",
+          "Extend your elbows to return the bar back to the starting position without locking out too aggressively."
+        ],
+        "tips": [
+          "Keep your upper arms stationary and perpendicular to the floor throughout the entire set.",
+          "Use the inner angled grips on the EZ-bar to reduce stress on your wrists and elbows."
+        ],
+        "commonMistakes": [
+          "Moving the elbows forward and backward, which engages the shoulders and reduces tricep isolation.",
+          "Lowering the bar too quickly without controlling the eccentric phase of the movement."
+        ]
+      }
+    ]
+  },
+  "barbell squat|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Hack Squat",
+        "reason": "The hack squat mimics the deep knee flexion of a barbell squat while providing back support and allowing for intense quad overload. It delivers a similar compound leg stimulus with reduced spinal load.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Position your shoulders and back firmly against the pads with your feet shoulder-width on the platform.",
+          "Disengage the safety levers and slowly lower the carriage by bending your knees to at least a 90-degree angle.",
+          "Drive firmly through your midfoot and heels to push the sled back up to the starting position."
+        ],
+        "tips": [
+          "Keep your lower back glued to the back pad throughout the entire movement.",
+          "Avoid locking your knees forcefully at the top of the repetition."
+        ],
+        "commonMistakes": [
+          "Allowing the heels to lift off the footplate during the descent.",
+          "Letting the lower back round away from the support pad at the bottom."
+        ]
+      },
+      {
+        "name": "Barbell Front Squat",
+        "reason": "Front squats place an increased emphasis on the quadriceps and upper back posture while reducing compressive forces on the lumbar spine. This is an ideal barbell alternative for developing upright squat mechanics.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "6-8",
+        "rest": "120s",
+        "steps": [
+          "Rack the barbell across the front of your shoulders using a clean grip with elbows raised high.",
+          "Brace your core, push your hips back slightly, and bend your knees until thighs are parallel to the floor.",
+          "Drive straight upward through your feet while keeping your chest proud and elbows pointing forward."
+        ],
+        "tips": [
+          "Keep your elbows lifted high throughout the descent to keep the bar secure.",
+          "Maintain a rigid core brace to prevent your upper body from folding forward."
+        ],
+        "commonMistakes": [
+          "Dropping the elbows downward, which causes the upper back to round and the bar to slide.",
+          "Allowing the knees to cave inward when pushing out of the bottom position."
+        ]
+      },
+      {
+        "name": "Leg Press",
+        "reason": "The leg press allows you to heavily overload the quadriceps and glutes in a fixed movement path without taxing spinal stabilizers. It serves as an effective strength and hypertrophy builder when replacing free-weight squats.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "10-12",
+        "rest": "90s",
+        "steps": [
+          "Sit firmly in the machine with your back against the backrest and place feet shoulder-width on the platform.",
+          "Release the safety catches and lower the platform in a controlled manner until your knees reach approximately 90 degrees.",
+          "Press evenly through your midfoot to push the sled back up without hyperextending your joints."
+        ],
+        "tips": [
+          "Control the lowering phase over two to three seconds to maximize time under tension.",
+          "Keep your tailbone pinned down against the seat throughout the range of motion."
+        ],
+        "commonMistakes": [
+          "Allowing the hips and lower back to curl off the seat at maximum depth.",
+          "Violently locking out the knees at the top of the movement."
+        ]
+      }
+    ]
+  },
+  "romanian deadlift|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Barbell Good Morning",
+        "reason": "It mimics the hip-hinge movement pattern of the Romanian Deadlift, placing a high eccentric load on the hamstrings and glutes.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Rack a barbell on your upper back and stand with feet shoulder-width apart.",
+          "Soften your knees and hinge at your hips, sending your glutes backward while keeping your spine neutral.",
+          "Lower your torso until it is nearly parallel to the floor, feeling a stretch in your hamstrings.",
+          "Drive your hips forward to return to the starting position, squeezing your glutes at the top."
+        ],
+        "tips": [
+          "Keep the bar securely braced against your traps throughout the movement.",
+          "Maintain a flat back and avoid rounding your lumbar spine."
+        ],
+        "commonMistakes": [
+          "Bending the knees too much, turning the movement into a squat.",
+          "Hyperextending the neck by looking up during the descent."
+        ]
+      },
+      {
+        "name": "Lying Leg Curl",
+        "reason": "This machine-based exercise isolates the hamstrings through knee flexion, providing a safe and effective way to target the same primary muscle group without lower back fatigue.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "beginner",
+        "sets": 3,
+        "reps": "12",
+        "rest": "60s",
+        "steps": [
+          "Lie face down on the leg curl machine, positioning the roller pad just below your calf muscles.",
+          "Grasp the handles and brace your core, keeping your hips pressed firmly against the bench.",
+          "Pull your heels toward your glutes by contracting your hamstrings.",
+          "Slowly lower the weight back to the starting position under control."
+        ],
+        "tips": [
+          "Keep your hips glued to the pad to prevent your lower back from arching.",
+          "Focus on a slow, controlled negative phase to maximize muscle tension."
+        ],
+        "commonMistakes": [
+          "Lifting the hips off the bench to use momentum.",
+          "Using too much weight, leading to an incomplete range of motion."
+        ]
+      },
+      {
+        "name": "Cable Pull-Through",
+        "reason": "It teaches and reinforces the hip hinge mechanic under cable tension, offering a smooth resistance profile that targets the glutes and hamstrings.",
+        "muscle": "glutes",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "12-15",
+        "rest": "60s",
+        "steps": [
+          "Stand facing away from a low cable pulley with a rope attachment held between your legs.",
+          "Take a few steps forward to create tension, keeping feet wide and knees slightly bent.",
+          "Hinge at your hips, reaching your hands back through your legs while keeping your spine straight.",
+          "Drive your hips forward and squeeze your glutes to stand tall."
+        ],
+        "tips": [
+          "Keep your arms relaxed; they should act only as cables holding the rope.",
+          "Focus on pushing your hips back toward the machine rather than bending downward."
+        ],
+        "commonMistakes": [
+          "Pulling the weight with your arms and shoulders instead of your hips.",
+          "Rounding the spine during the hinge phase."
+        ]
+      }
+    ]
+  },
+  "leg press|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Hack Squat Machine",
+        "reason": "It provides a stable, machine-guided movement path similar to the leg press, allowing you to safely overload the quadriceps with minimal stabilization required.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "8-12",
+        "rest": "90s",
+        "steps": [
+          "Position your back and shoulders firmly against the pads and place your feet shoulder-width apart on the platform.",
+          "Release the safety handles and slowly lower the carriage by bending your knees until your thighs are parallel to the footplate.",
+          "Drive through your heels to extend your knees and hips, returning to the starting position without locking out your knees."
+        ],
+        "tips": [
+          "Keep your lower back pressed firmly against the back pad throughout the entire movement.",
+          "Focus on pushing through your mid-foot and heels rather than your toes."
+        ],
+        "commonMistakes": [
+          "Allowing your knees to cave inward during the descent or ascent.",
+          "Lifting your heels off the platform at the bottom of the squat."
+        ]
+      },
+      {
+        "name": "Barbell Back Squat",
+        "reason": "It is a highly effective compound movement that targets the entire lower body, especially the quadriceps, while building functional strength and stability.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "6-10",
+        "rest": "120s",
+        "steps": [
+          "Rest the barbell on your upper traps, grip the bar firmly, and step back from the rack with feet shoulder-width apart.",
+          "Brace your core, hinge at your hips, and bend your knees to lower your body as if sitting in a chair.",
+          "Descend until your thighs are parallel to the floor, then drive upward through your heels to return to standing."
+        ],
+        "tips": [
+          "Keep your chest up and your gaze forward to maintain a neutral spine.",
+          "Actively push your knees outward to keep them aligned with your toes."
+        ],
+        "commonMistakes": [
+          "Rounding your lower back at the bottom of the squat, also known as butt wink.",
+          "Allowing your weight to shift forward onto your toes, lifting your heels."
+        ]
+      },
+      {
+        "name": "Smith Machine Squat",
+        "reason": "The fixed vertical track provides stability similar to a leg press, allowing you to position your feet forward to isolate the quadriceps more intensely.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "90s",
+        "steps": [
+          "Position the bar across your upper back, step your feet slightly forward of the bar, and set them shoulder-width apart.",
+          "Unlock the bar and lower your hips down and back until your thighs are parallel to the ground.",
+          "Drive through your heels to push yourself back up to the starting position."
+        ],
+        "tips": [
+          "Placing your feet slightly forward reduces hamstring involvement and increases quadriceps activation.",
+          "Keep your torso relatively upright throughout the movement by leaning back slightly into the bar."
+        ],
+        "commonMistakes": [
+          "Locking your knees completely at the top of the movement, which shifts the load to the joints.",
+          "Allowing your hips to rise faster than your shoulders on the way up."
+        ]
+      }
+    ]
+  },
+  "walking lunges|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Barbell Reverse Lunge",
+        "reason": "It targets the same unilateral movement pattern as walking lunges, but staying in place offers better stability and control. This makes it easier to focus on quad and glute engagement.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10 per leg",
+        "rest": "90s",
+        "steps": [
+          "Unrack a barbell across your upper back and stand with feet hip-width apart.",
+          "Step backward with one foot, lowering your hips until your back knee is just above the floor.",
+          "Push through your front heel to return to the starting standing position.",
+          "Repeat for the desired reps before switching legs or alternate legs."
+        ],
+        "tips": [
+          "Keep your torso slightly leaned forward to increase glute engagement.",
+          "Ensure your front knee aligns with your second toe and does not cave inward."
+        ],
+        "commonMistakes": [
+          "Taking too short of a step back, which forces the front heel off the ground.",
+          "Letting the back knee slam hard into the floor."
+        ]
+      },
+      {
+        "name": "Dumbbell Bulgarian Split Squat",
+        "reason": "This exercise provides an intense unilateral stimulus to the quads and glutes, matching the depth and hip extension of walking lunges.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "8-10 per leg",
+        "rest": "90s",
+        "steps": [
+          "Stand about two feet in front of a bench, holding a dumbbell in each hand.",
+          "Place the top of your back foot flat on the bench behind you.",
+          "Lower your hips until your back knee is close to the floor and your front thigh is parallel to the ground.",
+          "Drive through your front heel to stand back up to the starting position."
+        ],
+        "tips": [
+          "Keep the majority of your weight on your front foot, using the back foot mostly for balance.",
+          "Maintain a neutral spine and tight core throughout the movement."
+        ],
+        "commonMistakes": [
+          "Positioning the front foot too close to the bench, causing excessive knee shear.",
+          "Hyperextending the lower back instead of keeping the core braced."
+        ]
+      },
+      {
+        "name": "Single-Leg Leg Press",
+        "reason": "This machine-based alternative isolates the quads and glutes unilaterally. It removes the balance requirement of walking lunges, allowing you to safely push to failure.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "10-12",
+        "rest": "90s",
+        "steps": [
+          "Sit in the leg press machine and place one foot high and centered on the sled.",
+          "Release the safety locks and slowly lower the weight until your knee is bent at a 90-degree angle.",
+          "Press the sled back up by pushing through your heel, stopping just short of locking out your knee."
+        ],
+        "tips": [
+          "Keep your lower back flat against the seat pad at all times.",
+          "Focus on pushing through your heel to maximize glute and hamstring recruitment."
+        ],
+        "commonMistakes": [
+          "Allowing your lower back or glutes to lift off the seat pad at the bottom of the movement.",
+          "Locking out your working knee aggressively at the top of the press."
+        ]
+      }
+    ]
+  },
+  "calf raises|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Leg Press Calf Press",
+        "reason": "It targets the calf muscles using the leg press machine, providing excellent stability and allowing for a safe, deep stretch at the bottom of the movement.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "12-15",
+        "rest": "60s",
+        "steps": [
+          "Sit on the leg press machine and place the balls of your feet on the lower edge of the platform with your heels hanging off.",
+          "Release the safety bar and press the platform up slightly to fully extend your legs without locking your knees.",
+          "Lower the platform slowly by flexing your ankles until your calves are fully stretched.",
+          "Push the platform back up by extending your ankles as high as possible, contracting your calves at the top."
+        ],
+        "tips": [
+          "Keep a very slight bend in your knees throughout the movement to protect the joints.",
+          "Pause for a full second at both the peak contraction and the bottom stretch to eliminate momentum."
+        ],
+        "commonMistakes": [
+          "Bending and straightening the knees to assist the lift instead of moving solely at the ankles.",
+          "Bouncing the weight quickly at the bottom of the rep."
+        ]
+      },
+      {
+        "name": "Seated Calf Raise Machine",
+        "reason": "By keeping the knees bent at a 90-degree angle, this exercise shifts the primary focus to the soleus muscle, which is essential for complete calf development.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "15",
+        "rest": "60s",
+        "steps": [
+          "Sit on the machine, place the balls of your feet on the platform, and secure the thigh pad snugly over your lower thighs.",
+          "Release the safety bar by lifting your heels slightly.",
+          "Lower your heels slowly as far as possible to get a deep stretch in the soleus.",
+          "Press through the balls of your feet to raise your heels as high as possible, squeezing the calf muscles."
+        ],
+        "tips": [
+          "Ensure the thigh pad is tight enough so it does not shift during the exercise.",
+          "Focus on a slow, controlled negative phase of about 2 to 3 seconds."
+        ],
+        "commonMistakes": [
+          "Using a range of motion that is too short, missing the full stretch and contraction.",
+          "Lifting the thighs off the pad by using the hip flexors instead of the calves."
+        ]
+      },
+      {
+        "name": "Single-Leg Dumbbell Calf Raise",
+        "reason": "This unilateral exercise helps correct strength imbalances between legs while improving ankle stability and balance.",
+        "muscle": "legs",
+        "equipment": "minimal",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "12",
+        "rest": "45s",
+        "steps": [
+          "Hold a dumbbell in one hand on the same side as the working leg, and stand with the ball of that foot on an elevated step.",
+          "Hook your non-working foot behind your working ankle and lightly hold a wall or rack with your free hand for balance.",
+          "Lower your heel below the level of the step until you feel a deep stretch in your calf.",
+          "Press up through the ball of your foot to raise your heel as high as possible."
+        ],
+        "tips": [
+          "Keep your torso upright and avoid leaning forward or backward.",
+          "Focus on pushing straight up through your big toe to fully engage the inner calf."
+        ],
+        "commonMistakes": [
+          "Using the hand on the wall to pull or push yourself upward.",
+          "Rushing through the repetitions without pausing at the top and bottom."
+        ]
+      }
+    ]
+  },
+  "deadlift|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Barbell Romanian Deadlift",
+        "reason": "This exercise isolates the posterior chain similarly to the conventional deadlift but emphasizes the eccentric phase and hip hinge mechanics.",
+        "muscle": "glutes",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Stand with feet hip-width apart holding a barbell.",
+          "Hinge at the hips while keeping a slight bend in the knees.",
+          "Lower the bar until you feel a stretch in your hamstrings.",
+          "Drive through your heels to return to a standing position."
+        ],
+        "tips": [
+          "Keep the barbell in contact with your legs throughout the movement.",
+          "Focus on pushing your hips backward rather than bending forward."
+        ],
+        "commonMistakes": [
+          "Rounding the upper or lower back.",
+          "Looking up instead of keeping a neutral neck."
+        ]
+      },
+      {
+        "name": "Trap Bar Deadlift",
+        "reason": "The trap bar allows for a more upright torso position, reducing lower back stress while still allowing for heavy loading of the legs and glutes.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "6-8",
+        "rest": "120s",
+        "steps": [
+          "Step inside the trap bar with feet hip-width apart.",
+          "Squat down and grasp the handles with a neutral grip.",
+          "Keep your chest up and core braced.",
+          "Drive through the floor to stand tall."
+        ],
+        "tips": [
+          "Initiate the drive by pushing the floor away with your legs.",
+          "Ensure your shoulders are pulled back and down."
+        ],
+        "commonMistakes": [
+          "Jerking the bar off the floor instead of pulling smoothly.",
+          "Hyperextending the lower back at the top of the lift."
+        ]
+      },
+      {
+        "name": "Barbell Good Morning",
+        "reason": "This exercise is an excellent alternative for targeting the erector spinae and glutes through a hip hinge pattern similar to the deadlift.",
+        "muscle": "back",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "90s",
+        "steps": [
+          "Place a barbell across your upper traps.",
+          "Hinge at the hips, pushing them back while keeping your knees slightly bent.",
+          "Lower your torso until it is nearly parallel to the floor.",
+          "Engage your glutes to return to the starting upright position."
+        ],
+        "tips": [
+          "Use a lighter weight than you would for a deadlift to maintain control.",
+          "Maintain a neutral spine throughout the entire range of motion."
+        ],
+        "commonMistakes": [
+          "Turning the movement into a squat by bending the knees too much.",
+          "Letting the bar roll up onto the neck."
+        ]
+      }
+    ]
+  },
+  "pull-ups|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Wide-Grip Lat Pulldown",
+        "reason": "Provides an identical vertical pulling pattern while allowing precise load adjustment for consistent progression. It heavily targets the latissimus dorsi while minimizing stabilizing fatigue.",
+        "muscle": "back",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "8-12",
+        "rest": "90s",
+        "steps": [
+          "Sit upright with thighs secured firmly under the pads and grip the bar slightly wider than shoulder-width.",
+          "Pull the bar down toward your upper chest by depressing your shoulder blades and driving your elbows down.",
+          "Pause briefly at the chest, then slowly resist the weight back up to full overhead extension."
+        ],
+        "tips": [
+          "Keep your chest lifted slightly toward the bar throughout the movement.",
+          "Initiate the movement with your back muscles rather than your arms."
+        ],
+        "commonMistakes": [
+          "Leaning excessively backward to swing the weight down.",
+          "Pulling the bar behind the neck instead of to the upper chest."
+        ]
+      },
+      {
+        "name": "Chin-Ups",
+        "reason": "Matches the bodyweight vertical pulling movement of pull-ups while using an underhand grip. This recruits more biceps assistance, making it a great variation to maintain relative strength.",
+        "muscle": "back",
+        "equipment": "bodyweight",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "6-10",
+        "rest": "90s",
+        "steps": [
+          "Grip a pull-up bar with an underhand grip, hands spaced shoulder-width apart in a full dead hang.",
+          "Pull your body upward by driving your elbows down until your chin clears the bar.",
+          "Lower yourself under complete control back to the starting dead-hang position."
+        ],
+        "tips": [
+          "Keep your core braced and legs tight to prevent swinging.",
+          "Focus on squeezing your shoulder blades together at the apex of the pull."
+        ],
+        "commonMistakes": [
+          "Kipping or swinging the lower body to generate momentum.",
+          "Cutting the range of motion short by not lowering to full arm extension."
+        ]
+      },
+      {
+        "name": "Single-Arm Cable Lat Pulldown",
+        "reason": "Isolates each lat unilaterally to balance strength asymmetries while maintaining a vertical pull. The cable allows a custom line of pull that optimizes lat fiber alignment.",
+        "muscle": "back",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "60s",
+        "steps": [
+          "Kneel facing a high cable pulley equipped with a single D-handle.",
+          "Grasp the handle and pull it straight down, tucking your elbow toward your hip.",
+          "Pause for a second at peak contraction, then slowly extend your arm to feel a deep lat stretch."
+        ],
+        "tips": [
+          "Rotate your wrist from pronated at the top to neutral at the bottom for better lat activation.",
+          "Keep your torso braced and resist rotating toward the working side."
+        ],
+        "commonMistakes": [
+          "Twisting the torso to yank the weight down.",
+          "Letting the weight slam up without controlling the eccentric phase."
+        ]
+      }
+    ]
+  },
+  "plank|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Barbell Ab Rollout",
+        "reason": "It provides an active anti-extension challenge that progressively overloads the core muscles in a similar movement pattern to the plank.",
+        "muscle": "core",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "8-10",
+        "rest": "60s",
+        "steps": [
+          "Kneel on a mat with hands shoulder-width apart gripping a loaded barbell on the floor.",
+          "Brace your core and slowly roll the barbell forward, extending your hips and arms.",
+          "Pause briefly before your lower back sags, maintaining a rigid torso.",
+          "Contract your abs to pull the barbell back to the starting kneeling position."
+        ],
+        "tips": [
+          "Keep your glutes squeezed and posterior pelvic tilt engaged throughout.",
+          "Only roll out as far as you can control without straining your lower back."
+        ],
+        "commonMistakes": [
+          "Hyperextending and arching the lower back at full extension.",
+          "Initiating the return pull with the hips instead of the abdominal wall."
+        ]
+      },
+      {
+        "name": "Cable Pallof Press",
+        "reason": "It trains isometric core stability and anti-rotation using continuous cable tension, building functional midline strength like a plank.",
+        "muscle": "core",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "45s",
+        "steps": [
+          "Stand perpendicular to a cable pulley at chest height, holding the handle with both hands at your sternum.",
+          "Adopt an athletic shoulder-width stance with knees slightly bent and core braced.",
+          "Press the cable handle straight out in front of your chest until arms are fully extended.",
+          "Hold for two seconds while resisting rotation, then slowly return hands to chest."
+        ],
+        "tips": [
+          "Keep shoulders and hips square forward without twisting toward the anchor.",
+          "Exhale forcefully as you press outward to intensify core brace."
+        ],
+        "commonMistakes": [
+          "Allowing the torso or hips to rotate toward the cable machine.",
+          "Shrugging the shoulders upward toward the ears during the press."
+        ]
+      },
+      {
+        "name": "Captain's Chair Leg Raise",
+        "reason": "It develops anterior core endurance and lower abdominal strength while keeping the spine supported, offering a dynamic alternative to static planks.",
+        "muscle": "core",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "12-15",
+        "rest": "60s",
+        "steps": [
+          "Position yourself in the captain's chair with forearms on the pads and back flat against the support.",
+          "Grip the handles securely and let your legs hang straight down.",
+          "Engage your abdominal wall to raise your legs until parallel with the floor without swinging.",
+          "Lower your legs slowly under control back to the starting hanging position."
+        ],
+        "tips": [
+          "Slightly tilt your pelvis upward at the top to fully engage the rectus abdominis.",
+          "Avoid using momentum or swinging your legs to complete reps."
+        ],
+        "commonMistakes": [
+          "Arching the lower back off the back pad during the movement.",
+          "Relying purely on the hip flexors rather than engaging the abdominal wall."
+        ]
+      }
+    ]
+  },
+  "jump rope|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Box Jumps",
+        "reason": "This exercise replicates the explosive, plyometric nature of jump rope while significantly increasing the intensity on the lower body.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10",
+        "rest": "90s",
+        "steps": [
+          "Stand facing a sturdy plyo box with feet shoulder-width apart.",
+          "Drop into a shallow squat while swinging your arms back.",
+          "Explosively jump onto the box, landing softly with both feet.",
+          "Step down carefully to the starting position."
+        ],
+        "tips": [
+          "Focus on landing with your knees slightly bent to absorb impact.",
+          "Use your arms to generate momentum during the jump."
+        ],
+        "commonMistakes": [
+          "Landing on the box with locked knees.",
+          "Using a box height that is too challenging for your current vertical."
+        ]
+      },
+      {
+        "name": "Battle Rope Waves",
+        "reason": "Battle ropes provide an excellent cardiovascular challenge similar to jump rope, but shift the primary focus to muscular endurance and coordination.",
+        "muscle": "shoulders",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "30s",
+        "rest": "60s",
+        "steps": [
+          "Stand with feet shoulder-width apart, holding the ends of the ropes.",
+          "Slightly bend your knees and engage your core.",
+          "Alternately whip your arms up and down to create consistent waves."
+        ],
+        "tips": [
+          "Keep your core tight to prevent your torso from swaying.",
+          "Adjust the slack in the rope to change the difficulty level."
+        ],
+        "commonMistakes": [
+          "Rounding the back during the movement.",
+          "Stopping the motion of the rope before the end of the interval."
+        ]
+      },
+      {
+        "name": "High Knees on Treadmill",
+        "reason": "This exercise mimics the rhythmic, high-repetition movement of jump rope, providing an effective metabolic conditioning stimulus.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "45s",
+        "rest": "60s",
+        "steps": [
+          "Set the treadmill to a moderate walking pace.",
+          "Drive one knee up toward your chest while keeping the torso upright.",
+          "Rapidly switch legs, landing on the balls of your feet."
+        ],
+        "tips": [
+          "Pump your arms in coordination with your knee drive.",
+          "Maintain a light touch on the handrails if needed for balance."
+        ],
+        "commonMistakes": [
+          "Leaning too far forward or backward.",
+          "Not lifting the knees high enough to engage the hip flexors."
+        ]
+      }
+    ]
+  },
+  "burpees|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Kettlebell Swings",
+        "reason": "Kettlebell swings offer a high-intensity cardiovascular challenge similar to burpees while heavily targeting the posterior chain. They build explosive power and endurance without the high joint impact of jumping.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "20",
+        "rest": "45s",
+        "steps": [
+          "Stand with feet hip-width apart, holding a kettlebell with both hands in front of you.",
+          "Hinge at your hips, bending your knees slightly, and pull the kettlebell back between your legs.",
+          "Drive your hips forward explosively to stand up, swinging the kettlebell up to chest height.",
+          "Let the kettlebell guide itself back down as you hinge your hips to prepare for the next rep."
+        ],
+        "tips": [
+          "Keep your core tight and back flat throughout the movement.",
+          "Generate power from your hips and glutes, not your arms."
+        ],
+        "commonMistakes": [
+          "Squatting instead of hinging at the hips.",
+          "Using your shoulders to pull the kettlebell up."
+        ]
+      },
+      {
+        "name": "Medicine Ball Slams",
+        "reason": "This exercise matches the explosive, full-body energy expenditure of burpees. It trains power and core stability while providing an intense cardiovascular stimulus.",
+        "muscle": "core",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "15",
+        "rest": "60s",
+        "steps": [
+          "Stand with feet shoulder-width apart, holding a medicine ball at chest level.",
+          "Reach the ball high overhead, extending your hips and knees to stand on your toes.",
+          "Forcefully slam the ball down to the ground directly in front of you by flexing your hips and core.",
+          "Catch the ball on the bounce or pick it up to immediately transition into the next repetition."
+        ],
+        "tips": [
+          "Engage your abdominal muscles actively as you slam the ball down.",
+          "Follow through with your hips, bending your knees slightly as you slam."
+        ],
+        "commonMistakes": [
+          "Bending only at the waist without using your legs and hips.",
+          "Looking down and rounding your lower back excessively."
+        ]
+      },
+      {
+        "name": "Dumbbell Thrusters",
+        "reason": "Thrusters combine a front squat with an overhead press, mimicking the full-body demand and high metabolic rate of burpees. They are excellent for building muscular endurance and conditioning.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "12",
+        "rest": "60s",
+        "steps": [
+          "Hold dumbbells at shoulder height with your feet shoulder-width apart.",
+          "Lower into a deep squat, keeping your chest up and knees tracking over your toes.",
+          "Drive explosively through your heels to stand up, using the momentum to press the dumbbells overhead.",
+          "Lower the dumbbells back to your shoulders as you sink back down into the next squat."
+        ],
+        "tips": [
+          "Keep your core braced tightly to stabilize your spine during the press.",
+          "Use the upward momentum of your legs to help drive the weights overhead."
+        ],
+        "commonMistakes": [
+          "Allowing your knees to cave inward during the squat phase.",
+          "Pausing at the top of the squat before starting the overhead press."
+        ]
+      }
+    ]
+  },
+  "mountain climbers|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Stability Ball Plank Knee Tucks",
+        "reason": "This exercise mimics the knee-drive pattern of mountain climbers while adding a stability challenge that forces deeper core engagement.",
+        "muscle": "core",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "15",
+        "rest": "60s",
+        "steps": [
+          "Place your shins on a stability ball and assume a high plank position with hands on the floor.",
+          "Engage your core to stabilize your torso.",
+          "Draw your knees toward your chest by curling the ball forward.",
+          "Extend your legs back to the starting position."
+        ],
+        "tips": [
+          "Keep your back flat throughout the movement.",
+          "Focus on using your lower abs to pull the ball."
+        ],
+        "commonMistakes": [
+          "Allowing the hips to sag toward the floor.",
+          "Using momentum rather than controlled muscle contractions."
+        ]
+      },
+      {
+        "name": "Hanging Knee Raises",
+        "reason": "This exercise targets the same core muscles with a vertical knee-drive motion, providing high intensity and constant tension.",
+        "muscle": "core",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "12",
+        "rest": "60s",
+        "steps": [
+          "Grab a pull-up bar with an overhand grip at shoulder width.",
+          "Hang with your arms fully extended and torso stable.",
+          "Exhale and lift your knees toward your chest by curling your pelvis upward.",
+          "Lower your legs slowly back to the starting position."
+        ],
+        "tips": [
+          "Avoid swinging your body to create momentum.",
+          "Focus on curling your tailbone toward your ribs."
+        ],
+        "commonMistakes": [
+          "Swinging the legs to generate artificial height.",
+          "Arching the lower back during the descent."
+        ]
+      },
+      {
+        "name": "Cable Crunches",
+        "reason": "Cable crunches provide constant resistance to the rectus abdominis, similar to the high-volume workload of mountain climbers.",
+        "muscle": "core",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "15",
+        "rest": "60s",
+        "steps": [
+          "Kneel in front of a cable machine and hold the rope attachment near your head.",
+          "Brace your core and hinge at the hips.",
+          "Crunch your torso downward toward your knees.",
+          "Slowly return to the upright position."
+        ],
+        "tips": [
+          "Keep your hips stationary during the movement.",
+          "Focus on pulling with your abs rather than your arms."
+        ],
+        "commonMistakes": [
+          "Using the arms to pull the weight down.",
+          "Moving the hips instead of keeping them locked."
+        ]
+      }
+    ]
+  },
+  "high knees|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Battle Rope Alternating Waves",
+        "reason": "This exercise mimics the high-intensity cardiovascular demand of high knees while engaging the core and shoulders for stability.",
+        "muscle": "core",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "45s",
+        "rest": "60s",
+        "steps": [
+          "Stand with feet shoulder-width apart and knees slightly bent.",
+          "Grip the ends of the battle ropes with an overhand grip.",
+          "Create fluid, alternating waves by moving your arms up and down rapidly.",
+          "Maintain a braced core throughout the movement."
+        ],
+        "tips": [
+          "Keep your back straight and chest up.",
+          "Focus on quick, small oscillations rather than large, slow movements."
+        ],
+        "commonMistakes": [
+          "Rounding the lower back.",
+          "Allowing the ropes to slap the floor without creating a wave pattern."
+        ]
+      },
+      {
+        "name": "Weighted Step-Ups",
+        "reason": "This movement provides a similar unilateral leg drive and hip flexion as high knees but adds external resistance for increased intensity.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "12 per leg",
+        "rest": "60s",
+        "steps": [
+          "Hold dumbbells at your sides and stand facing a sturdy bench.",
+          "Place one foot firmly on the bench.",
+          "Drive through the heel of the elevated foot to bring your body up.",
+          "Lower yourself back down in a controlled manner."
+        ],
+        "tips": [
+          "Keep your torso upright throughout the entire movement.",
+          "Ensure your full foot is on the bench before pushing up."
+        ],
+        "commonMistakes": [
+          "Pushing off the floor with the bottom foot.",
+          "Allowing the knee of the working leg to cave inward."
+        ]
+      },
+      {
+        "name": "Mountain Climbers on Bench",
+        "reason": "This is a direct variation of high knees performed in a plank position, focusing on explosive hip flexion and core engagement.",
+        "muscle": "core",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "20 per leg",
+        "rest": "45s",
+        "steps": [
+          "Place hands on the edge of a flat gym bench in a high plank position.",
+          "Engage your core and maintain a straight line from head to heels.",
+          "Drive one knee toward your chest explosively.",
+          "Quickly switch legs, alternating in a running motion."
+        ],
+        "tips": [
+          "Keep your hips level and avoid bouncing them up and down.",
+          "Maintain a neutral neck position by looking slightly ahead of your hands."
+        ],
+        "commonMistakes": [
+          "Allowing the hips to sag toward the floor.",
+          "Lifting the glutes too high into the air."
+        ]
+      }
+    ]
+  },
+  "incline bench press|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Incline Dumbbell Press",
+        "reason": "It targets the upper chest similarly to the barbell version but allows for a greater range of motion and helps correct bilateral strength imbalances.",
+        "muscle": "chest",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Lie back on an incline bench angled at 30 to 45 degrees, holding a dumbbell in each hand at chest level.",
+          "Press the weights directly upward over your chest, keeping your wrists stacked over your elbows.",
+          "Lower the dumbbells slowly under control until they are near the sides of your upper chest.",
+          "Push the dumbbells back up to the starting position without locking out your elbows."
+        ],
+        "tips": [
+          "Keep your shoulder blades retracted and pressed firmly into the bench throughout the movement.",
+          "Maintain a 45-degree angle between your elbows and your torso to protect your shoulders."
+        ],
+        "commonMistakes": [
+          "Clashing the dumbbells together at the top, which loses muscle tension.",
+          "Setting the bench angle too steep (over 45 degrees), shifting the focus to the anterior deltoids."
+        ]
+      },
+      {
+        "name": "Low-to-High Cable Fly",
+        "reason": "The low-to-high path of motion perfectly aligns with the muscle fibers of the upper chest, providing constant tension throughout the exercise.",
+        "muscle": "chest",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "12-15",
+        "rest": "60s",
+        "steps": [
+          "Set the pulleys to the lowest position on a cable crossover machine and grab a handle in each hand.",
+          "Step forward to create tension, keeping a slight bend in your elbows and your chest proud.",
+          "Bring your hands upward and inward in an upward sweeping arc until they meet in front of your upper chest.",
+          "Slowly reverse the motion back to the starting position, feeling a stretch in your chest."
+        ],
+        "tips": [
+          "Focus on bringing your inner biceps together rather than just your hands to maximize chest contraction.",
+          "Keep your core braced and maintain a split stance for better stability."
+        ],
+        "commonMistakes": [
+          "Using momentum or leaning forward too much, which reduces chest activation.",
+          "Pressing the weight instead of flying, which happens when you bend the elbows too much during the movement."
+        ]
+      },
+      {
+        "name": "Incline Machine Chest Press",
+        "reason": "This machine alternative stabilizes the path of motion, allowing you to safely push closer to failure and isolate the upper chest.",
+        "muscle": "chest",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "90s",
+        "steps": [
+          "Adjust the seat height so the handles align with your upper chest, and sit back firmly against the pad.",
+          "Grasp the handles with a pronated grip and keep your feet flat on the floor.",
+          "Press the handles forward and upward until your arms are fully extended but not locked.",
+          "Return the handles slowly to the starting position under control, feeling a stretch in your upper chest."
+        ],
+        "tips": [
+          "Keep your chest puffed out and your shoulders pinned back against the pad throughout the lift.",
+          "Exhale as you press the weight away and inhale as you return to the start."
+        ],
+        "commonMistakes": [
+          "Allowing your shoulders to round forward off the backpad at the end of the press.",
+          "Using a partial range of motion by not letting the handles come back far enough."
+        ]
+      }
+    ]
+  },
+  "dumbbell shoulder press|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Barbell Overhead Press",
+        "reason": "This barbell variation targets the entire shoulder complex while engaging the core and upper back for stability. It is an excellent compound movement for building overall shoulder strength and mass.",
+        "muscle": "shoulders",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Stand with feet shoulder-width apart and rack the barbell at upper-chest height.",
+          "Grip the bar just wider than shoulder-width with elbows pointing slightly forward.",
+          "Press the bar directly overhead by extending your arms and pushing your head slightly forward at the top.",
+          "Lower the bar under control back to the starting upper-chest position."
+        ],
+        "tips": [
+          "Squeeze your glutes and core to keep your spine neutral throughout the lift.",
+          "Keep your wrists stacked directly over your elbows to maximize force transfer."
+        ],
+        "commonMistakes": [
+          "Excessively arching the lower back to assist the lift.",
+          "Bouncing the weight off the chest at the bottom of the movement."
+        ]
+      },
+      {
+        "name": "Seated Machine Shoulder Press",
+        "reason": "The machine shoulder press provides a guided path of motion that isolates the anterior and medial deltoids. It reduces the need for stabilizer muscles, allowing you to focus purely on shoulder hypertrophy.",
+        "muscle": "shoulders",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "60s",
+        "steps": [
+          "Adjust the seat so the handles are aligned with your shoulders.",
+          "Sit back firmly against the pad, grab the handles with a pronated grip, and plant your feet.",
+          "Press the handles upward until your arms are fully extended but not locked out.",
+          "Slowly lower the handles back down to shoulder level, maintaining control."
+        ],
+        "tips": [
+          "Keep your elbows tucked slightly forward rather than flared out to the sides.",
+          "Maintain contact between your upper back and head against the seat pad throughout."
+        ],
+        "commonMistakes": [
+          "Letting the weight plates slam together at the bottom of the rep.",
+          "Lifting your hips off the seat to press heavier weight."
+        ]
+      },
+      {
+        "name": "Seated Cable Shoulder Press",
+        "reason": "Using cables provides constant tension on the deltoids throughout both the concentric and eccentric phases of the lift. It offers a smooth range of motion that is highly effective for shoulder development.",
+        "muscle": "shoulders",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "75s",
+        "steps": [
+          "Position a low-back bench between two low cable pulleys.",
+          "Grip the handles, sit down, and bring them to shoulder height with elbows bent.",
+          "Press the handles upward and slightly inward until your arms are fully extended overhead.",
+          "Lower the handles slowly back to the starting position at shoulder height."
+        ],
+        "tips": [
+          "Focus on a slow, controlled negative phase to maximize time under tension.",
+          "Adjust the cables so they pull slightly outward to increase lateral deltoid activation."
+        ],
+        "commonMistakes": [
+          "Allowing the cables to pull your shoulders into internal rotation.",
+          "Using momentum and jerking the weight from the bottom position."
+        ]
+      }
+    ]
+  },
+  "cable flyes|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Pec Deck Fly",
+        "reason": "It provides a similar constant tension on the chest muscles through a guided pathway, making it a highly effective isolation movement that minimizes shoulder strain.",
+        "muscle": "chest",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "12-15",
+        "rest": "60s",
+        "steps": [
+          "Adjust the seat height so the handles are at chest level and sit with your back flat against the pad.",
+          "Grasp the handles with a slight bend in your elbows and bring your arms together in front of your chest.",
+          "Squeeze your chest at the peak contraction, then slowly return to the starting position."
+        ],
+        "tips": [
+          "Keep your shoulders pressed back into the pad throughout the movement.",
+          "Focus on squeezing your elbows together rather than just your hands."
+        ],
+        "commonMistakes": [
+          "Allowing your shoulders to roll forward at the end of the movement.",
+          "Using momentum or letting the weight stack slam between reps."
+        ]
+      },
+      {
+        "name": "Dumbbell Flyes",
+        "reason": "This exercise mimics the cable fly motion using free weights, forcing your stabilizing muscles to work harder to balance the load.",
+        "muscle": "chest",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "10-12",
+        "rest": "90s",
+        "steps": [
+          "Lie flat on a bench holding dumbbells directly above your chest with palms facing each other.",
+          "Slowly lower the weights out to the sides in a wide arc while keeping a slight bend in your elbows.",
+          "Reverse the movement by contracting your chest muscles to bring the dumbbells back to the starting position."
+        ],
+        "tips": [
+          "Maintain a constant, slight bend in your elbows to protect the joints.",
+          "Stop the descent when your elbows are in line with the bench to avoid overstretching."
+        ],
+        "commonMistakes": [
+          "Turning the fly into a press by bending the elbows too much during the descent.",
+          "Clanking the dumbbells together at the top, which releases tension on the chest."
+        ]
+      },
+      {
+        "name": "Incline Cable Flyes",
+        "reason": "Performing the flyes on an incline bench using cables targets the upper clavicular head of the chest while maintaining continuous tension.",
+        "muscle": "chest",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "12",
+        "rest": "60s",
+        "steps": [
+          "Set an incline bench to 30 degrees between two low cable pulleys.",
+          "Grab the handles, lie down, and start with your arms extended upwards and slightly outward.",
+          "Bring your hands together in a wide arc over your upper chest, squeezing hard at the top.",
+          "Slowly lower your arms back to the starting position under control."
+        ],
+        "tips": [
+          "Keep your head and upper back firmly planted on the incline bench.",
+          "Ensure the cables align with the angle of your arms during the movement."
+        ],
+        "commonMistakes": [
+          "Using too much weight, which forces the shoulders to dominate the movement.",
+          "Pressing the weight up instead of maintaining a wide, sweeping arc."
+        ]
+      }
+    ]
+  },
+  "lateral raises|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Cable Lateral Raises",
+        "reason": "Using cables keeps constant tension on the lateral deltoids throughout the entire range of motion, maximizing muscle fiber recruitment.",
+        "muscle": "shoulders",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "12-15",
+        "rest": "60s",
+        "steps": [
+          "Set the cable pulley to the lowest setting and attach a single D-handle.",
+          "Stand sideways to the machine, reaching across your body to grab the handle with your outer hand.",
+          "Raise your arm out to the side in a wide arc until it is parallel to the floor.",
+          "Slowly lower the weight back to the starting position under strict control."
+        ],
+        "tips": [
+          "Keep a slight bend in your elbow throughout the entire movement.",
+          "Lead the movement with your elbow rather than your hand to maximize side delt engagement."
+        ],
+        "commonMistakes": [
+          "Using momentum or jerking the torso to lift the weight.",
+          "Shrugging the shoulders upward, which shifts the work to the upper traps."
+        ]
+      },
+      {
+        "name": "Machine Lateral Raises",
+        "reason": "The machine provides a fixed path of motion, which isolates the lateral delts with high stability and minimizes the need for stabilizer muscles.",
+        "muscle": "shoulders",
+        "equipment": "full-gym",
+        "difficulty": "beginner",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "90s",
+        "steps": [
+          "Adjust the seat height so your shoulders align perfectly with the machine's pivot point.",
+          "Place your outer arms against the pads and grasp the handles lightly.",
+          "Push outward and upward against the pads until your upper arms are parallel to the floor.",
+          "Control the weight back down to the starting position without letting the weight stack touch."
+        ],
+        "tips": [
+          "Keep your chest pressed firmly against the pad to maintain proper posture.",
+          "Focus on pushing outward against the pads rather than lifting upward."
+        ],
+        "commonMistakes": [
+          "Selecting too heavy of a weight, leading to a restricted range of motion.",
+          "Allowing the shoulders to shrug up toward the ears during the lifting phase."
+        ]
+      },
+      {
+        "name": "Behind-the-Back Cable Lateral Raises",
+        "reason": "Positioning the cable behind your back places the lateral deltoid under a deep stretch at the bottom of the movement, altering the resistance profile.",
+        "muscle": "shoulders",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "12",
+        "rest": "60s",
+        "steps": [
+          "Set the cable pulley to the lowest height and stand sideways, slightly in front of the cable column.",
+          "Reach behind your back to grab the handle with your far-side hand.",
+          "Raise your arm out to the side and slightly forward in a wide arc.",
+          "Lower the weight slowly behind your back to return to the starting position."
+        ],
+        "tips": [
+          "Keep your shoulder blades pinned back and down throughout the set.",
+          "Maintain a slight forward lean to optimize the line of pull on the lateral head."
+        ],
+        "commonMistakes": [
+          "Pulling the cable too far forward across the body instead of out to the side.",
+          "Allowing the working shoulder to roll forward at the bottom of the stretch."
+        ]
+      }
+    ]
+  },
+  "tricep pushdowns|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Skull Crushers",
+        "reason": "This is a classic compound movement that isolates the triceps effectively using a barbell while allowing for heavier loading.",
+        "muscle": "arms",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "90s",
+        "steps": [
+          "Lie on a flat bench holding an EZ-bar with an overhand grip.",
+          "Extend your arms fully so the bar is directly above your shoulders.",
+          "Bend your elbows to lower the bar toward your forehead while keeping elbows tucked.",
+          "Press the bar back to the starting position by extending your elbows."
+        ],
+        "tips": [
+          "Keep your elbows pointed toward the ceiling throughout the movement.",
+          "Control the descent to maximize the stretch in the triceps."
+        ],
+        "commonMistakes": [
+          "Allowing elbows to flare outward away from the body.",
+          "Using momentum by swinging the weight instead of using controlled extensions."
+        ]
+      },
+      {
+        "name": "Dips",
+        "reason": "Dips use your own body weight to provide significant resistance to the triceps and are excellent for developing overall arm mass.",
+        "muscle": "arms",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "8-12",
+        "rest": "90s",
+        "steps": [
+          "Grip the parallel bars and lift your body up with arms fully extended.",
+          "Lean your torso slightly forward and lower your body by bending your elbows.",
+          "Descend until your shoulders are below your elbows.",
+          "Push back up to the starting position until arms are fully locked out."
+        ],
+        "tips": [
+          "Keep your core tight to prevent unnecessary swinging.",
+          "Maintain a vertical torso position to emphasize the triceps over the chest."
+        ],
+        "commonMistakes": [
+          "Not going deep enough to engage the triceps fully.",
+          "Rounding the shoulders forward at the top of the movement."
+        ]
+      },
+      {
+        "name": "Overhead Cable Extensions",
+        "reason": "This variation places the long head of the triceps in a stretched position, which is optimal for hypertrophy.",
+        "muscle": "arms",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "12-15",
+        "rest": "60s",
+        "steps": [
+          "Attach a rope to a low cable pulley and face away from the machine.",
+          "Reach back over your head to grab the rope handles with both hands.",
+          "Extend your elbows forward until your arms are straight toward the ceiling.",
+          "Return to the starting position by bending the elbows behind your head."
+        ],
+        "tips": [
+          "Keep your upper arms stationary against your head.",
+          "Focus on feeling a deep stretch in the triceps at the bottom of the movement."
+        ],
+        "commonMistakes": [
+          "Moving the upper arms instead of keeping them locked near your ears.",
+          "Arching the lower back excessively to compensate for the weight."
+        ]
+      }
+    ]
+  },
+  "seated cable row|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Bent-Over Barbell Row",
+        "reason": "This free-weight compound movement targets the entire back while challenging core and spinal stability. It serves as an excellent mass builder that matches the horizontal pull mechanics of the seated cable row.",
+        "muscle": "back",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Hinge at the hips with knees slightly bent, keeping your back flat at roughly a 45-degree angle.",
+          "Grip the barbell slightly wider than shoulder-width with an overhand grip.",
+          "Pull the barbell toward your lower ribcage, driving your elbows back and squeezing your shoulder blades.",
+          "Lower the bar under control until your arms are fully extended without rounding your spine."
+        ],
+        "tips": [
+          "Brace your core tightly throughout the entire movement to protect your lower back.",
+          "Lead the pull with your elbows rather than yanking with your biceps and wrists."
+        ],
+        "commonMistakes": [
+          "Rounding the lower back during the pull.",
+          "Using excessive upper-body momentum to swing the weight upward."
+        ]
+      },
+      {
+        "name": "Chest-Supported Machine Row",
+        "reason": "The chest-supported machine row isolates the mid-back and lats by eliminating lower-back fatigue and stabilization demands. It closely replicates the constant tension and safety profile of the seated cable row.",
+        "muscle": "back",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "60s",
+        "steps": [
+          "Adjust the seat height so your chest rests firmly against the upper portion of the pad.",
+          "Grasp the handles with a neutral or overhand grip with your arms fully extended.",
+          "Pull the handles toward your torso by driving your elbows backward and retracting your scapulae.",
+          "Slowly return the handles to the starting position under control, feeling a full stretch in your lats."
+        ],
+        "tips": [
+          "Keep your chest glued to the pad throughout the full range of motion.",
+          "Pause for one second at peak contraction to maximize back muscle engagement."
+        ],
+        "commonMistakes": [
+          "Lifting your chest off the support pad to gain leverage on heavier loads.",
+          "Shrugging your shoulders upward instead of pulling your shoulder blades down and back."
+        ]
+      },
+      {
+        "name": "Single-Arm Standing Cable Row",
+        "reason": "Performing the row unilaterally on a cable machine addresses side-to-side strength imbalances and allows a deeper range of motion. It provides continuous tension similar to the standard seated cable row while recruiting the core for rotational stability.",
+        "muscle": "back",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "12",
+        "rest": "60s",
+        "steps": [
+          "Set a cable pulley to mid-chest height and attach a single D-handle.",
+          "Step back into an athletic staggered stance, holding the handle with one extended arm.",
+          "Drive your working elbow backward, pulling the handle to the side of your ribcage while maintaining a stable torso.",
+          "Extend your arm forward under control to return to the full stretch position."
+        ],
+        "tips": [
+          "Resist the rotational pull of the cable to keep your core engaged and hips square.",
+          "Keep your shoulders level and down away from your ears as you row."
+        ],
+        "commonMistakes": [
+          "Twisting the torso excessively to heave the weight back.",
+          "Letting the cable snap back quickly without controlling the eccentric phase."
+        ]
+      }
+    ]
+  },
+  "face pulls|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Cable Reverse Fly",
+        "reason": "This exercise uses cables to provide constant tension on the rear deltoids and upper back, closely mimicking the smooth resistance profile of face pulls.",
+        "muscle": "shoulders",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "12-15",
+        "rest": "60s",
+        "steps": [
+          "Set the cable pulleys at shoulder height and stand in the center without handles, grabbing the bare cable ends.",
+          "Cross your arms in front of you to grab the left cable with your right hand and the right cable with your left hand.",
+          "Keep a slight bend in your elbows and pull your arms out and back in a wide arc until they are in line with your torso.",
+          "Slowly return to the starting position under control, feeling the stretch in your upper back."
+        ],
+        "tips": [
+          "Focus on leading the movement with your elbows rather than pulling with your hands.",
+          "Keep your shoulders depressed and avoid shrugging during the movement."
+        ],
+        "commonMistakes": [
+          "Bending and straightening the elbows during the repetition, which recruits the triceps.",
+          "Using excessive momentum and swinging the torso to pull the weight."
+        ]
+      },
+      {
+        "name": "Bent-Over Dumbbell Rear Delt Fly",
+        "reason": "This free-weight alternative effectively isolates the posterior deltoids while engaging the mid-trapezius and rhomboids as stabilizers.",
+        "muscle": "shoulders",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "12-15",
+        "rest": "60s",
+        "steps": [
+          "Stand with feet shoulder-width apart, holding a dumbbell in each hand, and hinge forward at the hips until your torso is nearly parallel to the floor.",
+          "Let the dumbbells hang down with a slight bend in your elbows and your palms facing each other.",
+          "Raise your arms out to the sides in a wide arc, squeezing your shoulder blades together at the peak.",
+          "Slowly lower the dumbbells back to the starting position under control."
+        ],
+        "tips": [
+          "Keep your neck in a neutral alignment by looking at a spot on the floor a few feet in front of you.",
+          "Initiate the pull from the rear delts rather than squeezing the shoulder blades together too early."
+        ],
+        "commonMistakes": [
+          "Using too much weight, leading to swinging the torso upward to complete the rep.",
+          "Shrugging the shoulders up toward the ears, which shifts the focus to the upper traps."
+        ]
+      },
+      {
+        "name": "Machine Reverse Fly",
+        "reason": "This machine-based alternative stabilizes the torso, allowing for complete isolation of the rear delts without requiring lower back stabilization.",
+        "muscle": "shoulders",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "12-15",
+        "rest": "60s",
+        "steps": [
+          "Adjust the seat height so the handles are at shoulder level when seated facing the chest pad.",
+          "Sit facing the pad, press your chest firmly against it, and grab the handles with a neutral or pronated grip.",
+          "Press your arms out and back in a wide arc, squeezing your rear delts and upper back at the end of the movement.",
+          "Return to the starting position slowly, resisting the weight to maintain tension."
+        ],
+        "tips": [
+          "Keep your chest pressed firmly against the pad throughout the entire set to avoid using momentum.",
+          "Keep a slight bend in your elbows to protect the joints and maximize rear delt activation."
+        ],
+        "commonMistakes": [
+          "Letting the chest lift off the pad, which introduces momentum and other muscle groups.",
+          "Allowing the shoulders to shrug up toward the ears during the fly."
+        ]
+      }
+    ]
+  },
+  "hammer curls|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Cable Rope Hammer Curls",
+        "reason": "Maintains the neutral grip to target the brachialis and brachioradialis while providing continuous tension throughout the entire range of motion.",
+        "muscle": "arms",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "60s",
+        "steps": [
+          "Attach a rope to the lowest pulley setting and grasp the ends with a neutral grip.",
+          "Stand upright with elbows tucked close to your torso.",
+          "Curl the rope upward while keeping wrists neutral until forearms touch your biceps.",
+          "Lower the weight slowly under control back to the starting position."
+        ],
+        "tips": [
+          "Squeeze the rope handles slightly outward at the top for maximum peak contraction.",
+          "Keep your elbows stationary at your sides throughout the movement."
+        ],
+        "commonMistakes": [
+          "Using momentum or leaning back to swing the weight up.",
+          "Flaring the elbows outward during the contraction."
+        ]
+      },
+      {
+        "name": "Reverse Barbell Curls",
+        "reason": "Overloads the brachioradialis and forearm extensors by utilizing a pronated grip to develop arm thickness.",
+        "muscle": "arms",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Grip a barbell with an overhand, pronated shoulder-width grip.",
+          "Stand tall with core engaged and elbows pinned near your ribs.",
+          "Curl the bar upward using your forearms and biceps until fully flexed.",
+          "Lower the bar with a controlled tempo back down to full extension."
+        ],
+        "tips": [
+          "Keep your wrists completely straight and rigid to prevent joint strain.",
+          "Use an EZ-bar if a straight barbell causes discomfort in your wrists."
+        ],
+        "commonMistakes": [
+          "Letting the wrists collapse downward at the top of the curl.",
+          "Rocking the torso to generate momentum."
+        ]
+      },
+      {
+        "name": "Incline Dumbbell Hammer Curls",
+        "reason": "The incline angle places the arm flexors under a greater passive stretch, maximizing muscle recruitment and hypertrophy.",
+        "muscle": "arms",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "10-12",
+        "rest": "60s",
+        "steps": [
+          "Set an adjustable bench to a 45 to 60-degree incline and sit back with a dumbbell in each hand.",
+          "Hang your arms straight down with palms facing each other in a neutral grip.",
+          "Curl the dumbbells up toward your shoulders while keeping your upper arms stationary.",
+          "Lower the dumbbells slowly to feel a deep stretch at the bottom."
+        ],
+        "tips": [
+          "Keep your shoulders and back flat against the bench pad at all times.",
+          "Pause briefly at full stretch before initiating the next repetition."
+        ],
+        "commonMistakes": [
+          "Bringing the elbows forward to shorten the range of motion.",
+          "Lifting your head and shoulders off the bench during the curl."
+        ]
+      }
+    ]
+  },
+  "back squat|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Leg Press",
+        "reason": "The leg press targets the quadriceps and glutes similarly to the back squat but reduces axial loading on the spine. This makes it an excellent alternative for building lower-body strength and hypertrophy with added stability.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "10-12",
+        "rest": "90s",
+        "steps": [
+          "Sit firmly in the machine and place your feet shoulder-width apart on the platform.",
+          "Lower the safety locks and slowly bend your knees to lower the platform toward your chest.",
+          "Push through your heels to return the platform to the starting position without locking your knees."
+        ],
+        "tips": [
+          "Keep your lower back pressed firmly against the seat pad throughout the entire movement.",
+          "Ensure your knees remain aligned with your toes and do not collapse inward."
+        ],
+        "commonMistakes": [
+          "Allowing the lower back and glutes to lift off the seat pad at the bottom of the movement.",
+          "Locking out the knees aggressively at the top of the repetition."
+        ]
+      },
+      {
+        "name": "Barbell Front Squat",
+        "reason": "The front squat shifts the load to the front of the body, increasing quadriceps and core engagement. It demands similar mobility and strength to the back squat while promoting a more upright torso.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Rest the barbell across the front of your shoulders, keeping your elbows pointed high and forward.",
+          "Stand with feet shoulder-width apart, brace your core, and lower your hips down into a squat.",
+          "Drive upward through your mid-foot to return to a standing position, keeping your chest proud."
+        ],
+        "tips": [
+          "Keep your elbows pointing straight ahead throughout the lift to prevent the bar from rolling forward.",
+          "Maintain a highly upright torso to keep the weight centered over your mid-foot."
+        ],
+        "commonMistakes": [
+          "Letting the elbows drop, which causes the upper back to round and the bar to slip.",
+          "Allowing the heels to lift off the ground during the bottom of the squat."
+        ]
+      },
+      {
+        "name": "Hack Squat",
+        "reason": "The hack squat machine provides a guided path that isolates the quadriceps and glutes with a high degree of safety. It allows intermediate lifters to safely train close to failure without requiring heavy spinal stabilization.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "10",
+        "rest": "90s",
+        "steps": [
+          "Place your back flat against the backrest, shoulders under the pads, and feet shoulder-width apart on the platform.",
+          "Release the safety handles and slowly lower your hips until your thighs are parallel to the platform.",
+          "Drive through your heels to push yourself back up to the starting position."
+        ],
+        "tips": [
+          "Keep your entire back and hips flat against the pad to protect your spine.",
+          "Focus on pushing through the heels and mid-foot rather than shifting your weight to your toes."
+        ],
+        "commonMistakes": [
+          "Allowing the heels to peel off the platform at the bottom of the squat.",
+          "Letting the knees cave inward as you push upward."
+        ]
+      }
+    ]
+  },
+  "front squat|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Hack Squat",
+        "reason": "It provides a similar upright torso angle and heavy quad emphasis as the front squat while eliminating upper-back stability demands.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Position your back firmly against the pad with shoulders under the supports.",
+          "Place feet shoulder-width apart on the middle of the platform.",
+          "Lower the sled by bending knees until thighs reach parallel to the footplate.",
+          "Drive through your midfoot and heels to return to the starting position."
+        ],
+        "tips": [
+          "Keep your lower back pressed firmly into the backrest throughout the rep.",
+          "Maintain control during the eccentric lowering phase."
+        ],
+        "commonMistakes": [
+          "Letting the heels rise off the platform during the descent.",
+          "Locking out knees aggressively at the top."
+        ]
+      },
+      {
+        "name": "Goblet Squat",
+        "reason": "Holding a heavy weight against the chest maintains the front-loaded mechanics that keep the torso upright and heavily recruit the quads.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "60s",
+        "steps": [
+          "Hold a dumbbell vertically against your chest with both hands under the top plate.",
+          "Stand with feet shoulder-width apart and toes angled slightly outward.",
+          "Squat down by breaking at the hips and knees until your thighs reach parallel.",
+          "Push through your feet to stand back up, keeping the weight pinned to your chest."
+        ],
+        "tips": [
+          "Keep your elbows pointed down inside your knees at the bottom of the squat.",
+          "Brace your core tight before descending on each repetition."
+        ],
+        "commonMistakes": [
+          "Letting the weight drift away from the torso.",
+          "Rounding the upper back forward under load."
+        ]
+      },
+      {
+        "name": "Zercher Squat",
+        "reason": "Cradling the barbell in the crook of the elbows preserves the anterior loading pattern and core engagement of the front squat without requiring wrist mobility.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Set the barbell in a rack at mid-chest height and hook it into the crooks of your elbows.",
+          "Clasp your hands together and step back with feet slightly wider than shoulder-width.",
+          "Descend into a squat while keeping your torso upright and elbows tucked.",
+          "Drive through the floor to return to a full standing position."
+        ],
+        "tips": [
+          "Keep your knuckles facing the ceiling to maintain upper-body tension.",
+          "Wear long sleeves or wrap a towel around the bar for elbow comfort."
+        ],
+        "commonMistakes": [
+          "Allowing the bar weight to pull your torso forward into an excessive forward lean.",
+          "Flaring the elbows out and losing upper-body tightness."
+        ]
+      }
+    ]
+  },
+  "bulgarian split squat|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Barbell Walking Lunge",
+        "reason": "Provides an intense unilateral lower-body stimulus similar to the Bulgarian split squat, strengthening the quadriceps and glutes while challenging dynamic balance.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12 per leg",
+        "rest": "90s",
+        "steps": [
+          "Rest a barbell across your upper back and stand tall with feet hip-width apart.",
+          "Take a controlled step forward, lowering your hips until both knees bend to approximately 90 degrees.",
+          "Drive through your lead foot to stand up, smoothly stepping forward with the trailing leg.",
+          "Continue alternating legs in a steady, controlled walking pattern."
+        ],
+        "tips": [
+          "Keep your torso upright with a slight forward lean to protect the spine.",
+          "Ensure your front knee tracks in line with your middle toes."
+        ],
+        "commonMistakes": [
+          "Allowing the front knee to cave inward during the descent.",
+          "Taking strides that are too short, causing excessive shear stress on the front knee."
+        ]
+      },
+      {
+        "name": "Single-Leg Leg Press",
+        "reason": "Isolates each leg independently to balance quad and glute development while removing the balance requirement, allowing for heavy, focused overload.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12 per leg",
+        "rest": "75s",
+        "steps": [
+          "Sit in the leg press machine and place one foot in the center of the sled platform.",
+          "Release the safety catches and slowly lower the sled by bending your knee toward your chest.",
+          "Press firmly through your whole foot to return the sled to the start without locking out the knee."
+        ],
+        "tips": [
+          "Keep your lower back and hips firmly pressed against the seat pad at all times.",
+          "Lower the sled only as far as you can without your pelvis rolling off the seat."
+        ],
+        "commonMistakes": [
+          "Locking the knee aggressively at the top of the movement.",
+          "Letting the working knee collapse inward under load."
+        ]
+      },
+      {
+        "name": "Dumbbell Step-Up",
+        "reason": "Replicates the unilateral knee and hip extension demands of the split squat, targeting the quads and glutes with high functional carryover.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12 per leg",
+        "rest": "60s",
+        "steps": [
+          "Hold a dumbbell in each hand and stand facing a sturdy knee-height bench or plyo box.",
+          "Place your entire lead foot flat on top of the surface.",
+          "Drive through your lead heel to stand fully upright onto the platform.",
+          "Control your descent as you slowly lower your trailing foot back to the floor."
+        ],
+        "tips": [
+          "Minimize pushing off the floor with your rear foot to ensure the top leg does the work.",
+          "Maintain an engaged core and an upright chest throughout."
+        ],
+        "commonMistakes": [
+          "Pushing or bouncing off the bottom foot rather than pulling with the lead leg.",
+          "Allowing the working knee to shoot excessively forward or cave inward."
+        ]
+      }
+    ]
+  },
+  "leg curl|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Romanian Deadlift",
+        "reason": "It targets the hamstrings and glutes through hip extension, providing a powerful eccentric stretch that builds strength and muscle mass similarly to the leg curl.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "8-10",
+        "rest": "90s",
+        "steps": [
+          "Stand with feet hip-width apart, holding a barbell in front of your thighs with an overhand grip.",
+          "Push your hips back and lower the bar along your shins while keeping your back flat and knees slightly bent.",
+          "Lower until you feel a deep stretch in your hamstrings, then drive through your heels and push your hips forward to return to standing."
+        ],
+        "tips": [
+          "Keep the bar close to your legs throughout the entire movement to protect your lower back.",
+          "Focus on pushing your hips backward rather than just bending over at the waist."
+        ],
+        "commonMistakes": [
+          "Rounding the lower back during the descent.",
+          "Bending the knees too much, which turns the movement into a squat."
+        ]
+      },
+      {
+        "name": "Glute Ham Raise",
+        "reason": "It isolates the hamstrings through knee flexion under bodyweight load, making it one of the most effective direct alternatives to a machine leg curl.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "8-12",
+        "rest": "90s",
+        "steps": [
+          "Adjust the GHR machine so your knees are positioned just behind the pad, and secure your ankles between the rollers.",
+          "Start with your torso upright, then slowly lower your body forward until your torso is parallel to the floor, keeping your spine neutral.",
+          "Contract your hamstrings to pull your upper body back up to the vertical starting position."
+        ],
+        "tips": [
+          "Keep a straight line from your knees to your shoulders; do not bend at the hips.",
+          "Use your hands to gently push off the floor support if you cannot complete the concentric phase on your own."
+        ],
+        "commonMistakes": [
+          "Bending at the waist or breaking the hip line to ease the load on the hamstrings.",
+          "Using excessive momentum instead of a controlled hamstring contraction."
+        ]
+      },
+      {
+        "name": "Cable Standing Leg Curl",
+        "reason": "This exercise isolates the hamstrings using cable resistance, mimicking the exact knee flexion mechanics of a standard leg curl machine with added stability demands.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "12-15",
+        "rest": "60s",
+        "steps": [
+          "Attach an ankle cuff to a low cable pulley and secure it around your ankle, facing toward the machine.",
+          "Step back slightly to create tension, hold onto the machine frame for stability, and keep your standing leg slightly bent.",
+          "Curl your active heel upward toward your glutes, squeezing your hamstring at the top of the movement.",
+          "Slowly lower your foot back to the starting position under control."
+        ],
+        "tips": [
+          "Keep your thighs aligned and avoid letting the working knee drift forward.",
+          "Flex your foot (dorsiflexion) to maximize hamstring engagement."
+        ],
+        "commonMistakes": [
+          "Swinging the leg and using momentum instead of controlled muscle contraction.",
+          "Arching the lower back to help lift the weight."
+        ]
+      }
+    ]
+  },
+  "leg extension|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Leg Press (Quad-Dominant)",
+        "reason": "It allows for heavy loading of the quadriceps in a safe, machine-supported environment, making it an excellent primary builder similar to the leg extension.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "10-12",
+        "rest": "90s",
+        "steps": [
+          "Sit in the leg press machine and place your feet lower on the platform, hip-width apart.",
+          "Lower the safety handles and slowly bend your knees to lower the platform toward your chest.",
+          "Press the platform back up by extending your knees, stopping just short of lockout."
+        ],
+        "tips": [
+          "Keep your lower back pressed firmly against the backrest throughout the movement.",
+          "Focus on pushing through the balls of your feet to maximize quad activation."
+        ],
+        "commonMistakes": [
+          "Allowing the lower back to lift off the seat at the bottom of the movement.",
+          "Locking out the knees aggressively at the top of the press."
+        ]
+      },
+      {
+        "name": "Goblet Squat",
+        "reason": "The front-loaded position shifts the center of mass, forcing the quadriceps to work harder to maintain an upright posture compared to a traditional back squat.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "12",
+        "rest": "60s",
+        "steps": [
+          "Hold a dumbbell vertically against your chest, gripping it by the upper bell.",
+          "Stand with feet shoulder-width apart, initiate the squat by pushing hips back and bending knees.",
+          "Lower until your thighs are parallel to the floor, keeping your torso upright.",
+          "Drive through your feet to return to the standing position."
+        ],
+        "tips": [
+          "Keep your elbows pointing down to help maintain an upright chest.",
+          "Actively push your knees outward as you descend to stay aligned with your toes."
+        ],
+        "commonMistakes": [
+          "Allowing the heels to lift off the ground during the descent.",
+          "Letting the upper back round and the weight pull the torso forward."
+        ]
+      },
+      {
+        "name": "Hack Squat",
+        "reason": "The fixed plane of motion and angled backrest isolate the quadriceps intensely while reducing spinal loading, mimicking the quad-heavy nature of leg extensions.",
+        "muscle": "legs",
+        "equipment": "full-gym",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "10",
+        "rest": "90s",
+        "steps": [
+          "Position yourself in the hack squat machine with your back flat against the pad and shoulders under the pads.",
+          "Place feet low on the platform, shoulder-width apart, and disengage the safety locks.",
+          "Lower the weight slowly by bending your knees until your thighs are slightly past parallel.",
+          "Push through your mid-foot to extend your legs and return to the starting position."
+        ],
+        "tips": [
+          "Maintain constant contact between your entire back and the machine pad.",
+          "Control the eccentric lowering phase to maximize tension on the quadriceps."
+        ],
+        "commonMistakes": [
+          "Bouncing out of the bottom position instead of using controlled muscle contraction.",
+          "Letting your knees collapse inward during the drive phase."
+        ]
+      }
+    ]
+  },
+  "jumping jacks|full-gym|intermediate": {
+    "alternatives": [
+      {
+        "name": "Jump Squats",
+        "reason": "This plyometric exercise elevates the heart rate similarly to jumping jacks while placing a higher strength and power demand on the lower body.",
+        "muscle": "legs",
+        "equipment": "bodyweight",
+        "difficulty": "intermediate",
+        "sets": 4,
+        "reps": "45s",
+        "rest": "45s",
+        "steps": [
+          "Stand with feet shoulder-width apart, chest upright, and core engaged.",
+          "Lower your hips back and down into a squat until your thighs are parallel to the floor.",
+          "Explode upward, pushing through your feet to launch your body off the ground.",
+          "Land softly on the balls of your feet and immediately transition into the next squat."
+        ],
+        "tips": [
+          "Keep your chest proud and avoid letting your knees cave inward during the landing.",
+          "Absorb the impact of landing by immediately bending your knees to transition smoothly into the next rep."
+        ],
+        "commonMistakes": [
+          "Landing with locked knees, which transfers high impact directly to your joints.",
+          "Leaning too far forward, placing excessive strain on the lower back."
+        ]
+      },
+      {
+        "name": "Kettlebell Swings",
+        "reason": "This movement provides a powerful cardiovascular response and targets the posterior chain, offering a low-impact alternative to jumping jacks.",
+        "muscle": "glutes",
+        "equipment": "minimal",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "20",
+        "rest": "60s",
+        "steps": [
+          "Stand with feet slightly wider than shoulder-width, holding a kettlebell with both hands in front of you.",
+          "Hinge at your hips, shifting your weight back, and swing the kettlebell back between your legs.",
+          "Drive your hips forward explosively, squeezing your glutes to swing the kettlebell up to chest height.",
+          "Allow the weight to fall back down naturally, hinging again to transition into the next rep."
+        ],
+        "tips": [
+          "Focus on a hip hinge rather than a squatting motion to power the swing.",
+          "Keep your arms relaxed and let the explosive power of your hips drive the kettlebell upward."
+        ],
+        "commonMistakes": [
+          "Using your shoulders and arms to pull the weight up instead of driving with the hips.",
+          "Rounding your lower back at the bottom of the hinge phase."
+        ]
+      },
+      {
+        "name": "Dumbbell Thrusters",
+        "reason": "Combines a squat and an overhead press to deliver a high-intensity, full-body movement that targets the shoulders and elevates the heart rate.",
+        "muscle": "shoulders",
+        "equipment": "minimal",
+        "difficulty": "intermediate",
+        "sets": 3,
+        "reps": "15",
+        "rest": "60s",
+        "steps": [
+          "Hold a pair of dumbbells at shoulder height with your palms facing each other, feet shoulder-width apart.",
+          "Perform a deep squat, keeping your chest up and elbows slightly forward.",
+          "Drive explosively through your heels to stand up, using that momentum to press the dumbbells straight overhead.",
+          "Lower the weights back to shoulder height as you descend into the next squat."
+        ],
+        "tips": [
+          "Use the upward momentum of your legs to help propel the dumbbells overhead.",
+          "Keep your core tightly braced throughout the entire movement to protect your lower back."
+        ],
+        "commonMistakes": [
+          "Pressing the dumbbells before fully extending your legs, losing the transfer of momentum.",
+          "Arching your lower back excessively at the top of the overhead press."
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VIVAFIT - Nutrition</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="css/login.css">
+
+    <!-- Nutrition CSS -->
+    <link rel="stylesheet" href="css/nutrition.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         BACKGROUND
+    ========================== -->
+
+    <div class="fitness-bg">
+
+        <i class="fa-solid fa-dumbbell dumbbell d1"></i>
+        <i class="fa-solid fa-dumbbell dumbbell d2"></i>
+        <i class="fa-solid fa-dumbbell dumbbell d3"></i>
+        <i class="fa-solid fa-dumbbell dumbbell d4"></i>
+        <i class="fa-solid fa-dumbbell dumbbell d5"></i>
+        <i class="fa-solid fa-dumbbell dumbbell d6"></i>
+
+        <div class="red-particle p1"></div>
+        <div class="red-particle p2"></div>
+        <div class="red-particle p3"></div>
+        <div class="red-particle p4"></div>
+
+    </div>
+
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar navbar-dark">
+
+        <div class="container-fluid px-4 px-md-5">
+
+            <a
+                class="navbar-brand brand-small"
+                href="dashboard.html">
+
+                <span class="mini-logo">V</span>
+
+                VIVAFIT
+
+            </a>
+
+
+            <div class="d-flex align-items-center gap-4">
+
+                <a
+                    href="dashboard.html"
+                    class="text-white text-decoration-none">
+
+                    <i class="fa-solid fa-house"></i>
+                    Home
+
+                </a>
+
+
+                <a
+                    href="workouts.html"
+                    class="text-white text-decoration-none">
+
+                    <i class="fa-solid fa-dumbbell"></i>
+                    Workouts
+
+                </a>
+
+
+                <a
+                    href="planner.html"
+                    class="text-white text-decoration-none">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    Planner
+
+                </a>
+
+
+                <a
+                    href="nutrition.html"
+                    class="text-white text-decoration-none">
+
+                    <i class="fa-solid fa-utensils"></i>
+                    Nutrition
+
+                </a>
+
+
+                <a
+                    href="progress.html"
+                    class="text-white text-decoration-none">
+
+                    <i class="fa-solid fa-chart-line"></i>
+                    Progress
+
+                </a>
+
+
+                <a
+                    href="profile.html"
+                    class="text-white text-decoration-none">
+
+                    <i class="fa-solid fa-user"></i>
+                    Profile
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="nutrition-container">
+
+
+        <!-- HEADER -->
+
+        <div class="header-card">
+
+            <div class="icon-lg">
+
+                <i class="fa-solid fa-utensils"></i>
+
+            </div>
+
+            <div>
+
+                <p class="subtitle">VIVAFIT NUTRITION</p>
+
+                <h1>Your Daily Nutrition</h1>
+
+                <p>Calculate your macros and track every meal to stay on target.</p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- DATE -->
+
+        <div class="date-bar">
+
+            <i class="fa-regular fa-calendar"></i>
+
+            <span id="dateDisplay">Today</span>
+
+        </div>
+
+
+
+        <!-- CALCULATOR CARD -->
+
+        <div class="calc-card">
+
+            <div class="calc-header">
+
+                <div class="icon-sm">
+
+                    <i class="fa-solid fa-fire-flame-curved"></i>
+
+                </div>
+
+                <div>
+
+                    <p class="subtitle">MACRO CALCULATOR</p>
+
+                    <h3>Calculate Your Targets</h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="calc-grid">
+
+
+                <!-- GENDER -->
+
+                <div class="calc-field">
+
+                    <label>Gender</label>
+
+                    <div class="gender-toggle">
+
+                        <button class="gender-btn active" data-gender="male">
+
+                            <i class="fa-solid fa-mars"></i>
+                            Male
+
+                        </button>
+
+                        <button class="gender-btn" data-gender="female">
+
+                            <i class="fa-solid fa-venus"></i>
+                            Female
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTIVITY LEVEL -->
+
+                <div class="calc-field">
+
+                    <label for="activityLevel">Activity Level</label>
+
+                    <select id="activityLevel">
+
+                        <option value="sedentary">Sedentary (little/no exercise)</option>
+
+                        <option value="lightly-active">Lightly Active (1-3 days/week)</option>
+
+                        <option value="moderately-active" selected>Moderately Active (3-5 days/week)</option>
+
+                        <option value="very-active">Very Active (6-7 days/week)</option>
+
+                        <option value="extra-active">Extra Active (very hard exercise)</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- FITNESS GOAL -->
+
+                <div class="calc-field">
+
+                    <label for="goalSelect">Fitness Goal</label>
+
+                    <select id="goalSelect">
+
+                        <option value="build-muscle">Build Muscle</option>
+
+                        <option value="lose-weight">Lose Weight</option>
+
+                        <option value="stay-fit" selected>Stay Fit</option>
+
+                        <option value="improve-fitness">Improve Fitness</option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+            <button class="calc-btn" id="calculateBtn">
+
+                <i class="fa-solid fa-calculator"></i>
+                Calculate My Macros
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- RESULTS SECTION -->
+
+        <div class="results-section" id="resultsSection">
+
+
+            <!-- TDEE CARD -->
+
+            <div class="tdee-card">
+
+                <div class="tdee-left">
+
+                    <div class="tdee-icon">
+
+                        <i class="fa-solid fa-fire"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p class="subtitle">DAILY CALORIE TARGET</p>
+
+                        <div class="tdee-number">
+
+                            <span id="tdeeValue">0</span>
+
+                            <span class="tdee-unit">kcal</span>
+
+                        </div>
+
+                        <p class="tdee-goal" id="tdeeGoalText"></p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MACRO CARDS -->
+
+            <div class="macro-cards">
+
+
+                <!-- PROTEIN -->
+
+                <div class="macro-card">
+
+                    <div class="macro-icon protein">
+
+                        <i class="fa-solid fa-drumstick-bite"></i>
+
+                    </div>
+
+                    <div class="macro-name">Protein</div>
+
+                    <div class="macro-value" id="proteinGrams">0g</div>
+
+                    <div class="macro-pct" id="proteinPct">0%</div>
+
+                    <div class="macro-bar-track">
+
+                        <div class="macro-bar-fill protein" id="proteinBar" style="width:0%"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CARBS -->
+
+                <div class="macro-card">
+
+                    <div class="macro-icon carbs">
+
+                        <i class="fa-solid fa-wheat-awn"></i>
+
+                    </div>
+
+                    <div class="macro-name">Carbs</div>
+
+                    <div class="macro-value" id="carbsGrams">0g</div>
+
+                    <div class="macro-pct" id="carbsPct">0%</div>
+
+                    <div class="macro-bar-track">
+
+                        <div class="macro-bar-fill carbs" id="carbsBar" style="width:0%"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAT -->
+
+                <div class="macro-card">
+
+                    <div class="macro-icon fat">
+
+                        <i class="fa-solid fa-droplet"></i>
+
+                    </div>
+
+                    <div class="macro-name">Fat</div>
+
+                    <div class="macro-value" id="fatGrams">0g</div>
+
+                    <div class="macro-pct" id="fatPct">0%</div>
+
+                    <div class="macro-bar-track">
+
+                        <div class="macro-bar-fill fat" id="fatBar" style="width:0%"></div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- TODAY'S MEALS CARD -->
+
+        <div class="meals-card" id="mealsCard">
+
+
+            <div class="meals-header">
+
+                <div class="meals-header-left">
+
+                    <div class="icon-sm">
+
+                        <i class="fa-solid fa-utensils"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p class="subtitle">TODAY'S MEALS</p>
+
+                        <h3>Track What You Eat</h3>
+
+                    </div>
+
+                </div>
+
+                <div class="meals-header-actions">
+
+                    <button class="grocery-btn" id="groceryListBtn">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        Generate Grocery List
+
+                    </button>
+
+                    <button class="add-meal-btn" id="addMealBtn">
+
+                        <i class="fa-solid fa-plus"></i>
+                        Add Meal
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MEAL FORM -->
+
+            <div class="meal-form" id="mealForm">
+
+                <div class="meal-form-fields">
+
+                    <div class="meal-form-field meal-form-name">
+
+                        <label>Food Name</label>
+
+                        <input
+                            type="text"
+                            id="mealName"
+                            placeholder="e.g. Chicken Breast">
+
+                    </div>
+
+                    <div class="meal-form-row">
+
+                        <div class="meal-form-field">
+
+                            <label>Protein (g)</label>
+
+                            <input
+                                type="number"
+                                id="mealProtein"
+                                placeholder="0"
+                                min="0"
+                                step="0.1">
+
+                        </div>
+
+                        <div class="meal-form-field">
+
+                            <label>Carbs (g)</label>
+
+                            <input
+                                type="number"
+                                id="mealCarbs"
+                                placeholder="0"
+                                min="0"
+                                step="0.1">
+
+                        </div>
+
+                        <div class="meal-form-field">
+
+                            <label>Fat (g)</label>
+
+                            <input
+                                type="number"
+                                id="mealFat"
+                                placeholder="0"
+                                min="0"
+                                step="0.1">
+
+                        </div>
+
+                    </div>
+
+                    <div class="meal-form-footer">
+
+                        <div class="meal-preview">
+
+                            <i class="fa-solid fa-fire-flame-curved"></i>
+                            <span id="mealCaloriesPreview">0 kcal</span>
+
+                        </div>
+
+                        <div class="meal-form-actions">
+
+                            <button class="meal-cancel-btn" id="mealFormCancel">Cancel</button>
+
+                            <button class="meal-add-btn" id="mealFormAdd">
+
+                                <i class="fa-solid fa-plus"></i>
+                                Add
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MEALS LIST -->
+
+            <div class="meals-list" id="mealsList">
+
+                <div class="meals-empty" id="mealsEmpty">
+
+                    <i class="fa-solid fa-bowl-food"></i>
+
+                    No meals logged yet.<br>
+
+                    Tap "Add Meal" to start tracking.
+
+                </div>
+
+                <div id="mealsContainer"></div>
+
+            </div>
+
+
+            <!-- DAILY PROGRESS -->
+
+            <div class="daily-progress">
+
+                <p class="subtitle">DAILY PROGRESS</p>
+
+                <div class="progress-grid">
+
+
+                    <!-- CALORIES PROGRESS -->
+
+                    <div class="progress-item">
+
+                        <div class="progress-label">
+
+                            <span>Calories</span>
+
+                            <span>
+
+                                <span id="totalCalories">0</span> /
+
+                                <span id="targetCalories">0</span> kcal
+
+                            </span>
+
+                        </div>
+
+                        <div class="progress-track">
+
+                            <div class="progress-fill calories" id="caloriesBar" style="width:0%"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PROTEIN PROGRESS -->
+
+                    <div class="progress-item">
+
+                        <div class="progress-label">
+
+                            <span>Protein</span>
+
+                            <span>
+
+                                <span id="totalProtein">0g</span> /
+
+                                <span id="targetProtein">0g</span>
+
+                            </span>
+
+                        </div>
+
+                        <div class="progress-track">
+
+                            <div class="progress-fill protein" id="proteinProgress" style="width:0%"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARBS PROGRESS -->
+
+                    <div class="progress-item">
+
+                        <div class="progress-label">
+
+                            <span>Carbs</span>
+
+                            <span>
+
+                                <span id="totalCarbs">0g</span> /
+
+                                <span id="targetCarbs">0g</span>
+
+                            </span>
+
+                        </div>
+
+                        <div class="progress-track">
+
+                            <div class="progress-fill carbs" id="carbsProgress" style="width:0%"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAT PROGRESS -->
+
+                    <div class="progress-item">
+
+                        <div class="progress-label">
+
+                            <span>Fat</span>
+
+                            <span>
+
+                                <span id="totalFat">0g</span> /
+
+                                <span id="targetFat">0g</span>
+
+                            </span>
+
+                        </div>
+
+                        <div class="progress-track">
+
+                            <div class="progress-fill fat" id="fatProgress" style="width:0%"></div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+    <!-- GROCERY LIST MODAL -->
+
+    <div class="grocery-overlay" id="groceryOverlay">
+
+        <div class="grocery-modal">
+
+            <div class="grocery-modal-header">
+
+                <div class="grocery-modal-title">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <h3>Grocery List</h3>
+
+                </div>
+
+                <button class="grocery-close-btn" id="groceryCloseBtn">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+            <div class="grocery-modal-body" id="groceryModalBody">
+
+                <div class="grocery-empty" id="groceryEmpty">
+
+                    <i class="fa-solid fa-basket-shopping"></i>
+
+                    No items to show.<br>
+
+                    Add some meals first, then generate your list.
+
+                </div>
+
+                <div id="groceryListContainer"></div>
+
+            </div>
+
+            <div class="grocery-modal-footer" id="groceryModalFooter">
+
+                <button class="grocery-action-btn grocery-clear-btn" id="groceryClearBtn">
+
+                    <i class="fa-solid fa-trash-can"></i>
+                    Clear List
+
+                </button>
+
+                <button class="grocery-action-btn grocery-regen-btn" id="groceryRegenBtn">
+
+                    <i class="fa-solid fa-rotate"></i>
+                    Regenerate
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- JavaScript -->
+    <script src="js/nutrition.js"></script>
+
+</body>
+
+</html>

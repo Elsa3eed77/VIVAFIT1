@@ -1,0 +1,509 @@
+/* =========================================
+   PROFILE PAGE
+========================================= */
+
+.profile-container {
+    position: relative;
+    z-index: 5;
+    min-height: calc(100vh - 85px);
+    padding: 40px 20px 80px;
+}
+
+
+/* =========================================
+   PROFILE CONTENT
+========================================= */
+
+.profile-content {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   PROFILE HEADER
+========================================= */
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-header span {
+    color: var(--red);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.profile-header h1 {
+    margin: 10px 0 8px;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.profile-header p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+
+/* =========================================
+   PROFILE PICTURE
+========================================= */
+
+.profile-picture-section {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.profile-image {
+    width: 130px;
+    height: 130px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 3px solid var(--red);
+
+    display: block;
+
+    margin: 0 auto 18px;
+
+    box-shadow:
+        0 0 25px rgba(255, 20, 50, .25);
+}
+
+
+.change-picture {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--red);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.change-picture:hover {
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   PROFILE FIELDS
+========================================= */
+
+.profile-fields {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 30px;
+}
+
+
+.profile-field {
+    width: 100%;
+}
+
+
+.profile-field label {
+    display: block;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+.profile-field input,
+.profile-field select {
+    width: 100%;
+
+    height: 55px;
+
+    padding: 0 5px;
+
+    background: transparent;
+
+    color: white;
+
+    border: none;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, .22);
+
+    outline: none;
+
+    border-radius: 0;
+
+    font-size: 14px;
+
+    transition: .3s;
+}
+
+
+.profile-field input:focus,
+.profile-field select:focus {
+    border-bottom-color: var(--red);
+
+    box-shadow:
+        0 8px 20px
+        rgba(255, 20, 50, .08);
+}
+
+
+.profile-field input::placeholder {
+    color: #626877;
+}
+
+
+.profile-field select {
+    cursor: pointer;
+}
+
+
+.profile-field select option {
+    background: #0d111c;
+
+    color: white;
+}
+
+
+/* =========================================
+   MY WORKOUTS SECTION
+========================================== */
+
+.my-workouts-section {
+    margin-top: 50px;
+}
+
+
+.my-workouts-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: white;
+
+    margin-bottom: 25px;
+}
+
+
+.my-workouts-title i {
+    color: var(--red);
+}
+
+
+/* SAVED WORKOUTS GRID */
+
+.saved-workouts-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+}
+
+
+/* SAVED WORKOUT CARD */
+
+.saved-workout-card {
+    background: rgba(255, 255, 255, .04);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    position: relative;
+
+    transition: .3s;
+}
+
+
+.saved-workout-card:hover {
+    border-color: rgba(255, 21, 48, .3);
+
+    background: rgba(255, 255, 255, .06);
+}
+
+
+.saved-workout-card .card-icon {
+    font-size: 24px;
+
+    color: var(--red);
+
+    margin-bottom: 12px;
+}
+
+
+.saved-workout-card .card-name {
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: white;
+
+    margin-bottom: 6px;
+}
+
+
+.saved-workout-card .card-category {
+    font-size: 12px;
+
+    color: var(--muted);
+
+    text-transform: capitalize;
+
+    margin-bottom: 10px;
+}
+
+
+.saved-workout-card .card-date {
+    font-size: 11px;
+
+    color: #626877;
+}
+
+
+/* REMOVE BUTTON */
+
+.remove-workout-btn {
+    position: absolute;
+
+    top: 12px;
+
+    right: 12px;
+
+    background: transparent;
+
+    border: none;
+
+    color: #ff4a60;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    transition: .3s;
+}
+
+
+.saved-workout-card:hover .remove-workout-btn {
+    opacity: 1;
+}
+
+
+.remove-workout-btn:hover {
+    color: white;
+
+    transform: scale(1.2);
+}
+
+
+/* EMPTY STATE */
+
+.workouts-empty {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    color: #626877;
+
+    font-size: 14px;
+}
+
+
+.workouts-empty i {
+    display: block;
+
+    font-size: 32px;
+
+    color: rgba(255, 255, 255, .1);
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================
+   ACTIONS
+========================================== */
+
+.profile-actions {
+    margin-top: 45px;
+
+    text-align: center;
+}
+
+
+/* SAVE BUTTON */
+
+.profile-save {
+    width: 100%;
+
+    height: 58px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #ff172f,
+            #d90072
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    transition: .3s;
+}
+
+
+.profile-save:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(255, 20, 50, .25);
+}
+
+
+/* =========================================
+   SAVE MESSAGE
+========================================= */
+
+.save-message {
+    min-height: 20px;
+
+    margin: 15px 0;
+
+    color: #45e58a;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+.logout-btn {
+    background: transparent;
+
+    border: none;
+
+    color: #ff4a60;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    padding: 10px 20px;
+
+    transition: .3s;
+}
+
+
+.logout-btn:hover {
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .profile-container {
+        padding:
+            30px 20px 60px;
+    }
+
+
+    .profile-header h1 {
+        font-size: 32px;
+    }
+
+
+    .profile-header {
+        margin-bottom: 30px;
+    }
+
+
+    .profile-picture-section {
+        margin-bottom: 40px;
+    }
+
+
+    .profile-image {
+        width: 110px;
+        height: 110px;
+    }
+
+
+    .profile-fields {
+        gap: 25px;
+    }
+
+
+    .profile-field input,
+    .profile-field select {
+        height: 50px;
+    }
+
+
+    .saved-workouts-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

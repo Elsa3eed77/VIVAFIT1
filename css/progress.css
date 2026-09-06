@@ -1,0 +1,460 @@
+/* =========================================
+   PROGRESS PAGE — FULL DASHBOARD
+========================================== */
+
+.progress-container {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 25px 80px;
+}
+
+
+/* =========================================
+   QUOTE BANNER
+========================================== */
+
+.quote-banner {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(25, 28, 40, 0.78),
+            rgba(8, 11, 19, 0.82)
+        );
+    border-left: 4px solid var(--red);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.25),
+        0 0 40px rgba(255, 0, 50, 0.06);
+    animation: cardAppear 0.8s ease;
+}
+
+
+.quote-banner .quote-icon {
+    font-size: 32px;
+    color: var(--red);
+    min-width: 40px;
+    text-align: center;
+}
+
+
+.quote-banner .quote-text {
+    font-size: 16px;
+    font-style: italic;
+    color: #d2d4dc;
+    line-height: 1.6;
+    flex: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.quote-banner .quote-text::before {
+    content: "\201C";
+    font-size: 28px;
+    color: var(--red);
+    margin-right: 4px;
+    font-style: normal;
+    font-weight: 800;
+}
+
+.quote-banner .quote-text::after {
+    content: "\201D";
+    font-size: 28px;
+    color: var(--red);
+    margin-left: 4px;
+    font-style: normal;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   STATS ROW
+========================================== */
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+
+.stat-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 28, 40, 0.78),
+            rgba(8, 11, 19, 0.82)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 16px;
+    padding: 24px 18px;
+    text-align: center;
+    backdrop-filter: blur(25px);
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+    animation: cardAppear 0.8s ease;
+}
+
+
+.stat-card:hover {
+    border-color: rgba(255, 21, 48, 0.4);
+    transform: translateY(-3px);
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(255, 20, 50, 0.08);
+}
+
+
+.stat-card .stat-icon {
+    font-size: 22px;
+    color: var(--red);
+    margin-bottom: 10px;
+}
+
+
+.stat-card .stat-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 4px;
+}
+
+
+.stat-card .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   SECTION
+========================================== */
+
+.progress-section {
+    margin-bottom: 30px;
+    animation: cardAppear 0.8s ease;
+}
+
+
+/* =========================================
+   CHART CARD
+========================================== */
+
+.chart-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 28, 40, 0.78),
+            rgba(8, 11, 19, 0.82)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 18px;
+    padding: 28px;
+    backdrop-filter: blur(25px);
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+}
+
+
+.chart-card:hover {
+    border-color: rgba(255, 21, 48, 0.3);
+}
+
+
+.chart-card .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+
+.chart-card .section-header i {
+    color: var(--red);
+    font-size: 20px;
+}
+
+
+.chart-card .section-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+
+.chart-card .section-header .section-badge {
+    margin-left: auto;
+    background: rgba(255, 21, 48, 0.12);
+    color: var(--red);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+
+.chart-wrapper {
+    position: relative;
+    height: 280px;
+    margin-bottom: 24px;
+}
+
+
+.chart-wrapper.doughnut-wrapper {
+    height: 260px;
+    max-width: 320px;
+    margin: 0 auto 24px;
+}
+
+
+/* =========================================
+   LOG FORM
+========================================== */
+
+.log-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-end;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 120px;
+}
+
+
+.form-group label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+
+.form-input {
+    height: 46px;
+    padding: 0 14px;
+    background: rgba(12, 15, 24, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 10px;
+    color: white;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: 0.3s;
+}
+
+
+.form-input:focus {
+    border-color: var(--red);
+    box-shadow:
+        0 0 0 3px rgba(255, 20, 50, 0.08),
+        0 0 15px rgba(255, 20, 50, 0.06);
+    transform: translateY(-1px);
+}
+
+
+.form-input::placeholder {
+    color: #626877;
+}
+
+
+.form-input::-webkit-calendar-picker-indicator {
+    filter: invert(0.5);
+}
+
+
+select.form-input {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23a6a9b5' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+}
+
+
+select.form-input option {
+    background: #0d111c;
+    color: white;
+}
+
+
+.log-btn {
+    height: 46px;
+    padding: 0 22px;
+    background: linear-gradient(100deg, #ff172f, #d90072);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+
+.log-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 20, 50, 0.25);
+}
+
+
+.log-btn i {
+    font-size: 14px;
+}
+
+
+.form-message {
+    min-height: 18px;
+    font-size: 12px;
+    margin-top: 4px;
+    transition: 0.3s;
+}
+
+
+/* =========================================
+   TWO-COLUMN LAYOUT
+========================================== */
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================== */
+
+.chart-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #626877;
+    font-size: 13px;
+}
+
+
+.chart-empty i {
+    display: block;
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.08);
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+    .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .progress-container {
+        padding: 30px 18px 60px;
+    }
+
+    .quote-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 20px;
+    }
+
+    .quote-banner .quote-icon {
+        font-size: 26px;
+    }
+
+    .quote-banner .quote-text {
+        font-size: 14px;
+    }
+
+    .stats-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 20px 14px;
+    }
+
+    .stat-card .stat-value {
+        font-size: 22px;
+    }
+
+    .stat-card .stat-label {
+        font-size: 11px;
+    }
+
+    .chart-card {
+        padding: 20px 18px;
+    }
+
+    .chart-wrapper {
+        height: 220px;
+    }
+
+    .log-form {
+        flex-direction: column;
+    }
+
+    .form-group {
+        min-width: 100%;
+    }
+
+    .log-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .section-header h2 {
+        font-size: 16px;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .stats-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-card .stat-value {
+        font-size: 20px;
+    }
+}

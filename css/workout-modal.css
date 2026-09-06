@@ -1,0 +1,334 @@
+/* =========================================
+   WORKOUT MODAL
+========================================== */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-card {
+    background: linear-gradient(180deg, rgba(20, 24, 35, 0.95), rgba(10, 13, 22, 0.98));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 520px;
+    max-height: 85vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-card {
+    transform: translateY(0) scale(1);
+}
+
+.modal-header {
+    padding: 24px 24px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.modal-header-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.modal-icon {
+    min-width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 21, 48, 0.12);
+    border-radius: 14px;
+    color: #ff1530;
+    font-size: 24px;
+}
+
+.modal-header-text h2 {
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 4px;
+}
+
+.modal-header-text p {
+    color: #a6a9b5;
+    font-size: 13px;
+    margin: 0;
+}
+
+.modal-close {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #a6a9b5;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+    flex-shrink: 0;
+}
+
+.modal-close:hover {
+    background: rgba(255, 21, 48, 0.15);
+    color: #ff1530;
+    border-color: rgba(255, 21, 48, 0.3);
+}
+
+.modal-meta {
+    padding: 20px 24px;
+    display: flex;
+    gap: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #a6a9b5;
+    font-size: 13px;
+}
+
+.modal-meta-item i {
+    color: #ff1530;
+    font-size: 14px;
+}
+
+.modal-meta-item span {
+    color: white;
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 0 24px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.modal-section-title {
+    color: #ff1530;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin: 20px 0 14px;
+    text-transform: uppercase;
+}
+
+.exercise-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.exercise-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+
+.exercise-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.exercise-number {
+    min-width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 21, 48, 0.12);
+    border-radius: 8px;
+    color: #ff1530;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.exercise-info {
+    flex: 1;
+}
+
+.exercise-name {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.exercise-details {
+    color: #a6a9b5;
+    font-size: 12px;
+    margin: 3px 0 0;
+}
+
+.exercise-badge {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 6px 10px;
+    color: #a6a9b5;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.modal-footer {
+    padding: 20px 24px 24px;
+    display: flex;
+    gap: 12px;
+}
+
+.btn-modal-save {
+    flex: 1;
+    background: linear-gradient(100deg, #ff1530, #c90025);
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.btn-modal-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 21, 48, 0.3);
+}
+
+.btn-modal-save.saved {
+    background: rgba(69, 229, 138, 0.15);
+    border: 1px solid rgba(69, 229, 138, 0.3);
+    color: #45e58a;
+    cursor: default;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-modal-cancel {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #a6a9b5;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-modal-cancel:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .modal-card {
+        max-height: 90vh;
+        border-radius: 16px;
+    }
+
+    .modal-header {
+        padding: 20px 18px 0;
+    }
+
+    .modal-icon {
+        min-width: 48px;
+        height: 48px;
+        font-size: 20px;
+        border-radius: 12px;
+    }
+
+    .modal-header-text h2 {
+        font-size: 18px;
+    }
+
+    .modal-meta {
+        padding: 16px 18px;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .modal-body {
+        padding: 0 18px;
+    }
+
+    .exercise-item {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .exercise-number {
+        min-width: 28px;
+        height: 28px;
+        font-size: 12px;
+    }
+
+    .exercise-name {
+        font-size: 13px;
+    }
+
+    .modal-footer {
+        padding: 16px 18px 20px;
+        flex-direction: column;
+    }
+}
