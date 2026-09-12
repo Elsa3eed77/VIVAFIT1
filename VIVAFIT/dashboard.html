@@ -12,6 +12,9 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link rel="stylesheet" href="css/login.css">
+
+    <link rel="stylesheet" href="css/water-tracker.css">
+    <link rel="stylesheet" href="css/water-reminder.css">
 </head>
 
 <body>
@@ -147,6 +150,33 @@
 </div>
 <div class="row g-4 mt-1">
 
+    <div class="col-12">
+        <div class="login-card water-mini-card" id="waterMiniWidget">
+
+            <div class="water-mini-ring">
+                <svg viewBox="0 0 60 60">
+                    <circle class="ring-track" cx="30" cy="30" r="26"></circle>
+                    <circle class="ring-fill" id="waterMiniRingFill" cx="30" cy="30" r="26"></circle>
+                </svg>
+                <div class="ring-icon"><i class="fa-solid fa-droplet"></i></div>
+            </div>
+
+            <div class="water-mini-info">
+                <h4 id="waterMiniLabel">0 / 0 ml</h4>
+                <p id="waterMiniSub">0% of today's goal</p>
+            </div>
+
+            <a href="nutrition.html" class="water-mini-link">
+                Log Water <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="row g-4 mt-1">
+
     <div class="col-md-6">
         <div class="login-card">
             <span class="welcome">QUICK ACTION</span>
@@ -220,6 +250,8 @@
 </main>
 
 <script src="js/motivational-quotes.js"></script>
+<script src="js/water-tracker.js"></script>
+<script src="js/water-reminder.js"></script>
 <script>
 (function () {
     var fallback = "Push harder than yesterday if you want a different tomorrow.";
