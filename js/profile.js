@@ -1,3 +1,4 @@
+console.log("PROFILE JS LOADED");
 // =========================================
 // PROFILE ELEMENTS
 // =========================================
@@ -13,45 +14,105 @@ const logoutButton = document.getElementById("logoutBtn");
 
 
 // =========================================
-// LOAD SAVED PROFILE
+// GET LOGGED-IN USER
 // =========================================
 
+const userId = localStorage.getItem("userId");
+
+console.log("Logged in user ID:", userId);
+
+
+// If no user is logged in
+if (!userId) {
+
+    window.location.href = "login.html";
+
+}
+
+
+// =========================================
+// LOAD PROFILE FROM DATABASE
+// =========================================
+
+async function loadProfile() {
+
+    try {
+
+        const response = await fetch(
+    "php/get_profile.php?id=" + userId
+);
+
+console.log("Profile response status:", response.status);
+
+const result = await response.json();
+
+console.log("Profile result:", result);
+
+        
+
+
+        if (!result.success) {
+
+            alert(result.message);
+
+            window.location.href = "login.html";
+
+            return;
+        }
+
+
+        const user = result.user;
+
+
+        document.getElementById("name").value =
+            user.name || "";
+
+        document.getElementById("phone").value =
+            user.phone || "";
+
+        document.getElementById("email").value =
+            user.email || "";
+
+        document.getElementById("age").value =
+            user.age || "";
+
+        document.getElementById("height").value =
+            user.height || "";
+
+        document.getElementById("weight").value =
+            user.weight || "";
+
+        document.getElementById("goal").value =
+            user.goal || "";
+
+// Show saved profile image
+if (user.profileImage) {
+
+    profileImage.src =
+        user.profileImage;
+
+}
+        
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        saveMessage.textContent =
+            "Could not load your profile.";
+
+    }
+
+}
+
+
+// Load profile when page opens
 window.addEventListener("load", function () {
 
-    const savedProfile =
-        JSON.parse(localStorage.getItem("vivafitProfile"));
+    loadProfile();
 
-    if (!savedProfile) {
-        return;
-    }
-
-    document.getElementById("name").value =
-        savedProfile.name || "";
-
-    document.getElementById("phone").value =
-        savedProfile.phone || "";
-
-    document.getElementById("email").value =
-        savedProfile.email || "";
-
-    document.getElementById("age").value =
-        savedProfile.age || "";
-
-    document.getElementById("height").value =
-        savedProfile.height || "";
-
-    document.getElementById("weight").value =
-        savedProfile.weight || "";
-
-    document.getElementById("goal").value =
-        savedProfile.goal || "";
-
-    if (savedProfile.image) {
-
-        profileImage.src =
-            savedProfile.image;
-
-    }
+    renderSavedWorkouts();
 
 });
 
@@ -68,7 +129,9 @@ imageInput.addEventListener("change", function () {
         return;
     }
 
+
     const reader = new FileReader();
+
 
     reader.onload = function (event) {
 
@@ -77,70 +140,145 @@ imageInput.addEventListener("change", function () {
 
     };
 
+
     reader.readAsDataURL(file);
 
 });
 
 
 // =========================================
-// SAVE PROFILE
+// SAVE PROFILE TO DATABASE
 // =========================================
 
-saveButton.addEventListener("click", function () {
+saveButton.addEventListener("click", async function () {
 
-    const profile = {
-
-        name:
-            document.getElementById("name").value,
-
-        phone:
-            document.getElementById("phone").value,
-
-        email:
-            document.getElementById("email").value,
-
-        age:
-            document.getElementById("age").value,
-
-        height:
-            document.getElementById("height").value,
-
-        weight:
-            document.getElementById("weight").value,
-
-        goal:
-            document.getElementById("goal").value,
-
-        image:
-            profileImage.src
-
-    };
+    saveText.textContent =
+        "Saving...";
 
 
-    localStorage.setItem(
-        "vivafitProfile",
-        JSON.stringify(profile)
+    saveMessage.textContent =
+        "";
+
+
+    const formData = new FormData();
+
+
+    formData.append(
+        "id",
+        userId
     );
 
 
-    // Success message
-
-    saveText.textContent =
-        "Saved! ✓";
-
-    saveMessage.textContent =
-        "Your profile has been saved successfully.";
+    formData.append(
+        "name",
+        document.getElementById("name").value.trim()
+    );
 
 
-    setTimeout(function () {
+    formData.append(
+        "phone",
+        document.getElementById("phone").value.trim()
+    );
+
+
+    formData.append(
+        "age",
+        document.getElementById("age").value
+    );
+
+
+    formData.append(
+        "height",
+        document.getElementById("height").value
+    );
+
+
+    formData.append(
+        "weight",
+        document.getElementById("weight").value
+    );
+
+
+    formData.append(
+        "goal",
+        document.getElementById("goal").value
+    );
+
+
+    // Add image only if user selected one
+    if (imageInput.files[0]) {
+
+        formData.append(
+            "profileImage",
+            imageInput.files[0]
+        );
+
+    }
+
+
+    try {
+
+        const response = await fetch(
+            "php/update_profile.php",
+            {
+                method: "POST",
+                body: formData
+            }
+        );
+
+
+        const result = await response.json();
+
+
+        if (result.success) {
+
+            saveText.textContent =
+                "Saved! ✓";
+
+            saveMessage.textContent =
+                "Your profile has been saved successfully.";
+
+
+            // Update stored name
+            localStorage.setItem(
+                "userName",
+                document.getElementById("name").value.trim()
+            );
+
+
+            setTimeout(function () {
+
+                saveText.textContent =
+                    "Save Changes";
+
+                saveMessage.textContent =
+                    "";
+
+            }, 2000);
+
+
+        } else {
+
+            saveText.textContent =
+                "Save Changes";
+
+            saveMessage.textContent =
+                result.message;
+
+        }
+
+
+    } catch (error) {
+
+        console.error(error);
 
         saveText.textContent =
             "Save Changes";
 
         saveMessage.textContent =
-            "";
+            "Something went wrong. Please try again.";
 
-    }, 2000);
+    }
 
 });
 
@@ -150,6 +288,9 @@ saveButton.addEventListener("click", function () {
 // =========================================
 
 logoutButton.addEventListener("click", function () {
+
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userName");
 
     window.location.href =
         "login.html";
@@ -168,11 +309,13 @@ const savedWorkoutsContainer =
 function getSavedWorkouts() {
 
     try {
-        return JSON.parse(
-            localStorage.getItem("vivafitWorkouts")
-        ) || [];
+
+        return getData("vivafitWorkouts", []) || [];
+
     } catch {
+
         return [];
+
     }
 
 }
@@ -215,61 +358,86 @@ function renderSavedWorkouts() {
     }
 
 
-    savedWorkoutsContainer.innerHTML = workouts.map(function (w) {
+    savedWorkoutsContainer.innerHTML =
+        workouts.map(function (w) {
 
-        return `
-            <div class="saved-workout-card" data-id="${w.id}">
-                <button
-                    class="remove-workout-btn"
-                    data-id="${w.id}"
-                    title="Remove workout">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <div class="card-icon">
-                    <i class="${w.icon || 'fa-solid fa-dumbbell'}"></i>
+            return `
+                <div class="saved-workout-card" data-id="${w.id}">
+
+                    <button
+                        class="remove-workout-btn"
+                        data-id="${w.id}"
+                        title="Remove workout">
+
+                        <i class="fa-solid fa-xmark"></i>
+
+                    </button>
+
+                    <div class="card-icon">
+
+                        <i class="${w.icon || 'fa-solid fa-dumbbell'}"></i>
+
+                    </div>
+
+                    <div class="card-name">
+                        ${w.name}
+                    </div>
+
+                    <div class="card-category">
+                        ${w.category}
+                    </div>
+
+                    <div class="card-date">
+                        Added ${formatDate(w.addedAt)}
+                    </div>
+
                 </div>
-                <div class="card-name">${w.name}</div>
-                <div class="card-category">${w.category}</div>
-                <div class="card-date">Added ${formatDate(w.addedAt)}</div>
-            </div>
-        `;
+            `;
 
-    }).join("");
+        }).join("");
 
 }
 
 
 function removeWorkout(id) {
 
-    let workouts = getSavedWorkouts();
+    let workouts =
+        getSavedWorkouts();
 
-    workouts = workouts.filter(function (w) {
 
-        return w.id !== id;
+    workouts =
+        workouts.filter(function (w) {
 
-    });
+            return w.id !== id;
 
-    localStorage.setItem(
+        });
+
+
+    saveData(
         "vivafitWorkouts",
-        JSON.stringify(workouts)
+        workouts
     );
+
 
     renderSavedWorkouts();
 
 }
 
 
-savedWorkoutsContainer.addEventListener("click", function (e) {
+savedWorkoutsContainer.addEventListener(
+    "click",
+    function (e) {
 
-    const btn = e.target.closest(".remove-workout-btn");
+        const btn =
+            e.target.closest(".remove-workout-btn");
 
-    if (!btn) {
-        return;
+
+        if (!btn) {
+            return;
+        }
+
+
+        removeWorkout(btn.dataset.id);
+
     }
-
-    removeWorkout(btn.dataset.id);
-
-});
-
-
-renderSavedWorkouts();
+);

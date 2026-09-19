@@ -24,6 +24,12 @@
     <!-- Nutrition CSS -->
     <link rel="stylesheet" href="css/nutrition.css">
 
+    <!-- Water Tracker CSS -->
+    <link rel="stylesheet" href="css/water-tracker.css">
+
+    <!-- Water Reminder CSS -->
+    <link rel="stylesheet" href="css/water-reminder.css">
+
 </head>
 
 
@@ -420,6 +426,146 @@
 
 
 
+        <!-- WATER INTAKE TRACKER -->
+
+        <div class="water-card" id="waterTrackerCard">
+
+            <div class="water-header">
+
+                <div class="water-header-left">
+
+                    <div class="icon-sm water-icon">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+
+                    <div>
+                        <p class="subtitle">STAY HYDRATED</p>
+                        <h3>Water Intake</h3>
+                    </div>
+
+                </div>
+
+                <div class="water-streak-badge">
+                    <i class="fa-solid fa-fire"></i>
+                    <span id="waterStreakCount">0</span>
+                    <span>Day Streak</span>
+                </div>
+
+            </div>
+
+
+            <div class="water-main">
+
+                <!-- ANIMATED BOTTLE -->
+                <div class="water-bottle-wrap">
+
+                    <div class="water-cap"></div>
+                    <div class="water-neck"></div>
+
+                    <div class="water-body">
+                        <div class="water-fill" id="waterFill">
+                            <div class="wave"></div>
+                            <div class="wave wave2"></div>
+                            <span class="water-bubble b1"></span>
+                            <span class="water-bubble b2"></span>
+                            <span class="water-bubble b3"></span>
+                        </div>
+                    </div>
+
+                    <div class="water-readout">
+                        <div class="water-pct" id="waterPctText">0%</div>
+                        <div class="water-ml" id="waterMlText">0 / 0 ml</div>
+                    </div>
+
+                </div>
+
+
+                <!-- STATS + QUICK ADD -->
+                <div class="water-side">
+
+                    <p class="water-message" id="waterMessage">Let's get hydrated — tap a quick-add below.</p>
+
+                    <div class="water-quick-add" id="waterQuickAdd"></div>
+
+                    <div class="water-custom-row">
+
+                        <input
+                            type="number"
+                            id="waterCustomInput"
+                            placeholder="Custom amount (ml)"
+                            min="1">
+
+                        <button class="water-custom-add-btn" id="waterCustomAddBtn">
+                            <i class="fa-solid fa-plus"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                    <div class="water-actions-row">
+
+                        <span class="water-target-text" id="waterTargetText">Daily goal: <strong>0 ml</strong></span>
+
+                        <div style="display:flex;gap:8px;">
+
+                            <button class="water-undo-btn" id="waterUndoBtn">
+                                <i class="fa-solid fa-rotate-left"></i>
+                                Undo
+                            </button>
+
+                            <button class="water-reset-btn" id="waterResetBtn">
+                                <i class="fa-solid fa-trash-can"></i>
+                                Reset
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- WEEKLY STRIP -->
+            <div class="water-week">
+
+                <p class="water-week-label">Last 7 Days</p>
+
+                <div class="water-week-row" id="waterWeekRow"></div>
+
+            </div>
+
+
+            <!-- REMINDER TOGGLE -->
+            <div class="water-reminder-row">
+
+                <div class="water-reminder-label">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <div>
+                        <h4>Water Reminders</h4>
+                        <p id="waterReminderSub">Off — turn on to get reminded every 2 hours.</p>
+                    </div>
+
+                </div>
+
+                <div
+                    class="water-toggle-switch"
+                    id="waterReminderToggle"
+                    role="switch"
+                    aria-checked="false"
+                    tabindex="0">
+                    <div class="water-toggle-knob"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
         <!-- TODAY'S MEALS CARD -->
 
         <div class="meals-card" id="mealsCard">
@@ -767,7 +913,10 @@
 
 
     <!-- JavaScript -->
-    <script src="js/nutrition.js"></script>
+<script src="js/session.js?v=1"></script>
+  <script src="js/water-tracker.js?v=3"></script>
+  <script src="js/water-reminder.js?v=3"></script>
+  <script src="js/nutrition.js?v=3"></script>
 
 </body>
 

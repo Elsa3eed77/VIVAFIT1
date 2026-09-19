@@ -117,14 +117,14 @@ const MEALS_KEY = "vivafitMeals";
 
 function getMeals() {
     try {
-        return JSON.parse(localStorage.getItem(MEALS_KEY)) || [];
+        return getData(MEALS_KEY, []) || [];
     } catch {
         return [];
     }
 }
 
 function saveMeals(meals) {
-    localStorage.setItem(MEALS_KEY, JSON.stringify(meals));
+    saveData(MEALS_KEY, meals);
 }
 
 function calcCalories(protein, carbs, fat) {
@@ -372,14 +372,14 @@ const FOOD_CATEGORIES = {
 
 function getGroceryChecked() {
     try {
-        return JSON.parse(localStorage.getItem(GROCERY_CHECKED_KEY)) || {};
+        return getData(GROCERY_CHECKED_KEY, {}) || {};
     } catch {
         return {};
     }
 }
 
 function saveGroceryChecked(checked) {
-    localStorage.setItem(GROCERY_CHECKED_KEY, JSON.stringify(checked));
+    saveData(GROCERY_CHECKED_KEY, checked);
 }
 
 function categorizeFood(name) {

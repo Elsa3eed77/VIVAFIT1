@@ -1,8 +1,21 @@
-// PASSWORD SHOW / HIDE
+console.log("LOGIN JS LOADED");
+
+const form = document.getElementById("loginForm");
+
+const email = document.getElementById("email");
 const password = document.getElementById("password");
 
-const showPassword =
-    document.getElementById("showPassword");
+const emailError = document.getElementById("emailError");
+const passwordError = document.getElementById("passwordError");
+
+const spinner = document.getElementById("spinner");
+const signText = document.getElementById("signText");
+
+const showPassword = document.getElementById("showPassword");
+
+
+// SHOW / HIDE PASSWORD
+
 showPassword.addEventListener("click", function () {
 
     if (password.type === "password") {
@@ -22,111 +35,158 @@ showPassword.addEventListener("click", function () {
     }
 
 });
-// LOGIN VALIDATION
-const form =
-    document.getElementById("loginForm");
-
-const email =
-    document.getElementById("email");
-
-const emailError =
-    document.getElementById("emailError");
-
-const passwordError =
-    document.getElementById("passwordError");
-
-const spinner =
-    document.getElementById("spinner");
-
-const signText =
-    document.getElementById("signText");
 
 
-form.addEventListener("submit", function (event) {
+// LOGIN
+
+form.addEventListener("submit", async function (event) {
 
     event.preventDefault();
-    // Reset errors
-    emailError.textContent = "";
 
+    console.log("LOGIN BUTTON WORKED");
+
+
+    // Clear old data first
+
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userName");
+
+
+    // Clear errors
+
+    emailError.textContent = "";
     passwordError.textContent = "";
 
 
-    let valid = true;
-    // EMAIL
-    if (email.value.trim() === "") {
+    const userEmail = email.value.trim();
+    const userPassword = password.value;
+
+
+    // Validation
+
+    if (userEmail === "") {
 
         emailError.textContent =
             "Please enter your email.";
 
-        valid = false;
+        return;
+    }
 
-    } else if (!email.value.includes("@")) {
+
+    if (!userEmail.includes("@")) {
 
         emailError.textContent =
             "Please enter a valid email.";
 
-        valid = false;
-
+        return;
     }
-    // PASSWORD
 
-    if (password.value.trim() === "") {
+
+    if (userPassword === "") {
 
         passwordError.textContent =
             "Please enter your password.";
 
-        valid = false;
+        return;
+    }
 
-    } else if (password.value.length < 6) {
+
+    if (userPassword.length < 6) {
 
         passwordError.textContent =
             "Password must be at least 6 characters.";
 
-        valid = false;
-
-    }
-    if (!valid) {
-
         return;
-
     }
-    // LOADING
-    spinner.style.display =
-        "inline-block";
 
-    signText.textContent =
-        "Signing in...";
-    setTimeout(function () {
 
-        spinner.style.display =
-            "none";
+    // Loading
+
+    spinner.style.display = "inline-block";
+
+    signText.textContent = "Signing in...";
+
+
+    try {
+
+        const response = await fetch(
+            "php/login.php",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    email: userEmail,
+
+                    password: userPassword
+
+                })
+            }
+        );
+
+
+        const result = await response.json();
+
+        console.log("PHP RESULT:", result);
+
+
+        // WRONG EMAIL OR PASSWORD
+
+        if (!result.success) {
+
+            spinner.style.display = "none";
+
+            signText.textContent = "Sign In";
+
+            passwordError.textContent =
+                result.message;
+
+            return;
+        }
+
+
+        // CORRECT LOGIN
+
+        localStorage.setItem(
+            "userId",
+            result.user.id
+        );
+
+        localStorage.setItem(
+            "userName",
+            result.user.name
+        );
+
+
+        spinner.style.display = "none";
 
         signText.textContent =
             "Welcome back! ✓";
-        
-        window.location.href = "dashboard.html";
 
-    }, 1500);
+
+        setTimeout(function () {
+
+            window.location.href =
+                "dashboard.html";
+
+        }, 500);
+
+
+    } catch (error) {
+
+        console.error("LOGIN ERROR:", error);
+
+        spinner.style.display = "none";
+
+        signText.textContent = "Sign In";
+
+        emailError.textContent =
+            "Something went wrong. Please try again.";
+
+    }
 
 });
-// SOCIAL BUTTON EFFECT
-document
-    .querySelectorAll(".social-btn")
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            function () {
-
-                this.style.transform =
-                    "scale(.95)";
-
-                setTimeout(() => {
-
-                    this.style.transform =
-                        "";
-
-                }, 150);
-            }
-        );
-    });

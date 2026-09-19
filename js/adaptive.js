@@ -14,14 +14,14 @@ var ADAPTIVE_STORAGE = {
 
 function getAdaptiveStorage(key) {
     try {
-        return JSON.parse(localStorage.getItem(key)) || [];
+        return getData(key, []) || [];
     } catch {
         return [];
     }
 }
 
 function setAdaptiveStorage(key, data) {
-    localStorage.setItem(key, JSON.stringify(data));
+    saveData(key, data);
 }
 
 // =========================================

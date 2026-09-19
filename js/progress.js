@@ -81,19 +81,19 @@ function startQuoteRotation() {
 
 function getStorage(key) {
     try {
-        return JSON.parse(localStorage.getItem(key)) || [];
+        return getData(key, []) || [];
     } catch {
         return [];
     }
 }
 
 function setStorage(key, data) {
-    localStorage.setItem(key, JSON.stringify(data));
+    saveData(key, data);
 }
 
 function getProfile() {
     try {
-        return JSON.parse(localStorage.getItem("vivafitProfile")) || {};
+        return getData("vivafitProfile", {}) || {};
     } catch {
         return {};
     }

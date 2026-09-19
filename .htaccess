@@ -1,0 +1,8 @@
+# DEVELOPMENT: always serve fresh HTML/JS/CSS so changes show immediately
+<IfModule mod_headers.c>
+    <FilesMatch "\.(html|htm|js|css|php)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+</IfModule>

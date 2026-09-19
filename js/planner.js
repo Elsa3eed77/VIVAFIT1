@@ -1,412 +1,1758 @@
 // =========================================
-// AI WORKOUT PLANNER
+// VIVAFIT AI WORKOUT PLANNER
 // =========================================
-
 const PLANNER_STORAGE_KEY = "vivafitWorkoutPlan";
+const API_URL = "http://localhost:3000";
 
-// =========================================
-// EXERCISE DATABASE
-// =========================================
-
-const exerciseDB = {
-
-    chest: {
-        fullGym: [
-            { name: "Barbell Bench Press", instruction: "Lie on bench, grip bar slightly wider than shoulders. Lower to chest, press up powerfully." },
-            { name: "Incline Dumbbell Press", instruction: "Set bench to 30-45 degrees. Press dumbbells up from chest level." },
-            { name: "Cable Flyes", instruction: "Set cables high. Bring handles together in front of chest with slight elbow bend." },
-            { name: "Dumbbell Bench Press", instruction: "Lie flat, press dumbbells up from chest, squeeze at the top." },
-            { name: "Machine Chest Press", instruction: "Adjust seat height, press handles forward from chest level." },
-            { name: "Decline Bench Press", instruction: "Set bench to decline angle. Lower bar to lower chest, press up." }
-        ],
-        homeGym: [
-            { name: "Dumbbell Bench Press", instruction: "Lie on bench or floor, press dumbbells up from chest." },
-            { name: "Incline Push-Ups", instruction: "Hands on elevated surface. Lower chest toward edge, push back up." },
-            { name: "Dumbbell Flyes", instruction: "Lie flat, lower dumbbells out to sides with slight elbow bend, squeeze back up." },
-            { name: "Push-Up Variations", instruction: "Standard, wide, or diamond push-ups. Keep core tight throughout." },
-            { name: "Floor Press", instruction: "Lie on floor, press dumbbells up. Floor limits range of motion for tricep focus." }
-        ],
-        bodyweight: [
-            { name: "Push-Ups", instruction: "Hands shoulder-width, lower chest to floor, push back up. Keep body straight." },
-            { name: "Wide Push-Ups", instruction: "Hands wider than shoulders. Emphasizes outer chest. Lower slowly." },
-            { name: "Diamond Push-Ups", instruction: "Hands together forming diamond shape. Targets inner chest and triceps." },
-            { name: "Decline Push-Ups", instruction: "Feet elevated on chair or step. Increases difficulty and upper chest focus." },
-            { name: "Archer Push-Ups", instruction: "Wide stance, lower to one side while other arm extends. Advanced unilateral work." }
-        ],
-        minimal: [
-            { name: "Resistance Band Chest Press", instruction: "Anchor band behind back, press forward. Squeeze chest at peak." },
-            { name: "Resistance Band Flyes", instruction: "Anchor band at chest height, bring hands together in front." },
-            { name: "Push-Ups", instruction: "Standard push-ups with controlled tempo. 3 seconds down, 1 second up." },
-            { name: "Close-Grip Push-Ups", instruction: "Hands close together, elbows tucked. Focus on inner chest and triceps." },
-            { name: "Plyometric Push-Ups", instruction: "Explosive push-ups with hands leaving the ground. Advanced power builder." }
-        ]
-    },
-
-    back: {
-        fullGym: [
-            { name: "Barbell Deadlift", instruction: "Feet hip-width, grip bar just outside knees. Drive through heels, keep bar close." },
-            { name: "Pull-Ups", instruction: "Grip bar overhand, wider than shoulders. Pull chin over bar, lower with control." },
-            { name: "Barbell Row", instruction: "Hinge at hips, grip bar overhand. Pull to lower chest, squeeze shoulder blades." },
-            { name: "Seated Cable Row", instruction: "Sit upright, pull handle to abdomen. Squeeze back muscles, don't lean back." },
-            { name: "Lat Pulldown", instruction: "Grip bar wide, pull to upper chest. Focus on lats, not arms." },
-            { name: "T-Bar Row", instruction: "Straddle bar, grip handles. Pull to chest keeping back flat." }
-        ],
-        homeGym: [
-            { name: "Dumbbell Bent-Over Row", instruction: "Hinge at hips, pull dumbbell to hip. Squeeze shoulder blade at top." },
-            { name: "Pull-Up Bar Rows", instruction: "Use pull-up bar for inverted rows. Body at angle, pull chest to bar." },
-            { name: "Single-Arm Dumbbell Row", instruction: "Knee on bench, pull dumbbell to hip. Full range of motion." },
-            { name: "Resistance Band Pulldown", instruction: "Anchor band overhead, kneel and pull to chest." },
-            { name: "Reverse Flyes", instruction: "Bend forward, raise dumbbells out to sides. Targets rear delts and upper back." }
-        ],
-        bodyweight: [
-            { name: "Pull-Ups", instruction: "Overhand grip, pull chin over bar. Use band for assistance if needed." },
-            { name: "Chin-Ups", instruction: "Underhand grip, pull chin over bar. More bicep involvement." },
-            { name: "Inverted Rows", instruction: "Lie under sturdy table or bar, pull chest to edge. Adjust difficulty with foot position." },
-            { name: "Superman Hold", instruction: "Lie face down, lift arms and legs off ground. Hold for time. Targets lower back." },
-            { name: "Doorframe Rows", instruction: "Grip doorframe edges, lean back, pull yourself forward. Control the movement." }
-        ],
-        minimal: [
-            { name: "Resistance Band Lat Pulldown", instruction: "Anchor band high, kneel and pull to chest. Squeeze lats." },
-            { name: "Resistance Band Rows", instruction: "Anchor band at waist height, pull to torso. Keep shoulders down." },
-            { name: "Inverted Rows (Table)", instruction: "Lie under table, grip edges, pull chest to tabletop." },
-            { name: "Towel Rows", instruction: "Loop towel over door, grip both ends, lean back and row." },
-            { name: "Back Extensions", instruction: "Lie face down, hands behind head. Lift chest off floor using lower back." }
-        ]
-    },
-
-    shoulders: {
-        fullGym: [
-            { name: "Overhead Press", instruction: "Stand with bar at shoulder height. Press overhead to lockout. Core tight." },
-            { name: "Dumbbell Lateral Raises", instruction: "Raise dumbbells out to sides until parallel with floor. Control the descent." },
-            { name: "Arnold Press", instruction: "Start with palms facing you, rotate and press overhead. Full rotation at top." },
-            { name: "Face Pulls", instruction: "Set cable at face height, pull rope to face. Squeeze rear delts." },
-            { name: "Upright Row", instruction: "Pull barbell up to chin level. Keep elbows higher than wrists." },
-            { name: "Rear Delt Flyes", instruction: "Bend forward, raise dumbbells out to sides. Focus on rear delts." }
-        ],
-        homeGym: [
-            { name: "Dumbbell Overhead Press", instruction: "Sit or stand, press dumbbells overhead. Full lockout at top." },
-            { name: "Dumbbell Lateral Raises", instruction: "Raise to shoulder height, slight lean forward. Control the negative." },
-            { name: "Dumbbell Front Raises", instruction: "Alternate raising dumbbells to eye level. Don't swing or use momentum." },
-            { name: "Pike Push-Ups", instruction: "Inverted V position, lower head toward floor. Targets shoulders heavily." },
-            { name: "Dumbbell Rear Delt Flyes", instruction: "Bend forward, raise dumbbells laterally. Squeeze at the top." }
-        ],
-        bodyweight: [
-            { name: "Pike Push-Ups", instruction: "Feet on elevated surface, hands on floor. Lower head to ground, push up." },
-            { name: "Handstand Hold", instruction: "Against wall. Hold handstand position. Builds shoulder stability and strength." },
-            { name: "Handstand Push-Ups", instruction: "Against wall, lower head to floor and push back up. Advanced movement." },
-            { name: "Plank to Downward Dog", instruction: "Start in plank, push hips up and back. Alternates between positions." },
-            { name: "Lateral Raises (Isometric)", instruction: "Hold arms at shoulder height with tension. Hold for time intervals." }
-        ],
-        minimal: [
-            { name: "Resistance Band Overhead Press", instruction: "Stand on band, press handles overhead. Full extension at top." },
-            { name: "Resistance Band Lateral Raises", instruction: "Stand on band, raise handles to sides. Control the movement." },
-            { name: "Pike Push-Ups", instruction: "Elevate feet, lower head toward floor. Great shoulder bodyweight builder." },
-            { name: "Resistance Band Front Raises", instruction: "Stand on band, raise handles to front. Alternate arms or together." },
-            { name: "Band Pull-Aparts", instruction: "Hold band at chest height, pull apart until arms are straight. Rear delts." }
-        ]
-    },
-
-    arms: {
-        fullGym: [
-            { name: "Barbell Curls", instruction: "Stand with bar, curl up squeezing biceps. Don't swing the weight." },
-            { name: "Skull Crushers", instruction: "Lie on bench, lower EZ bar to forehead. Extend arms using triceps." },
-            { name: "Hammer Curls", instruction: "Curl dumbbells with neutral grip. Targets brachialis and forearms." },
-            { name: "Tricep Pushdowns", instruction: "Push cable bar down to full extension. Squeeze triceps at bottom." },
-            { name: "Preacher Curls", instruction: "Arms on preacher pad, curl up. Eliminates cheating, isolates biceps." },
-            { name: "Overhead Tricep Extension", instruction: "Hold dumbbell overhead, lower behind head. Extend using triceps." }
-        ],
-        homeGym: [
-            { name: "Dumbbell Bicep Curls", instruction: "Curl dumbbells up, supinate at the top. Control the negative." },
-            { name: "Dumbbell Skull Crushers", instruction: "Lie on bench, lower dumbbells to temples. Extend using triceps." },
-            { name: "Concentration Curls", instruction: "Elbow on inner thigh, curl dumbbell. Full contraction at top." },
-            { name: "Tricep Kickbacks", instruction: "Hinge forward, extend dumbbell behind you. Squeeze tricep at lockout." },
-            { name: "Hammer Curls", instruction: "Neutral grip curls. Great for overall arm development and grip." }
-        ],
-        bodyweight: [
-            { name: "Diamond Push-Ups", instruction: "Hands together forming diamond. Elbows close to body for tricep focus." },
-            { name: "Chin-Ups (Close Grip)", instruction: "Underhand grip, shoulder width. Pull chin over bar." },
-            { name: "Bicep Curl Isometric", instruction: "Press palm against other hand, create resistance. Hold for time." },
-            { name: "Tricep Dips", instruction: "Hands on chair or bench edge, lower body and push back up." },
-            { name: "Plank Up-Downs", instruction: "Alternate from plank on hands to elbows. Tricep and core work." }
-        ],
-        minimal: [
-            { name: "Resistance Band Curls", instruction: "Stand on band, curl handles up. Squeeze at the top." },
-            { name: "Resistance Band Pushdowns", instruction: "Anchor band high, push down to full extension." },
-            { name: "Resistance Band Hammer Curls", instruction: "Neutral grip band curls. Focus on contraction." },
-            { name: "Towel Bicep Curls", instruction: "Step on towel, curl up with both hands. Self-resistance exercise." },
-            { name: "Tricep Dips (Chair)", instruction: "Hands on chair edge, lower and push up. Feet further = harder." }
-        ]
-    },
-
-    legs: {
-        fullGym: [
-            { name: "Barbell Back Squat", instruction: "Bar on upper back, squat to parallel or below. Drive through heels." },
-            { name: "Romanian Deadlift", instruction: "Hold bar at hip level, hinge forward lowering bar along legs. Feel hamstring stretch." },
-            { name: "Leg Press", instruction: "Feet shoulder-width on platform, lower weight, press up. Don't lock knees." },
-            { name: "Walking Lunges", instruction: "Step forward into lunge, back knee nearly touches ground. Alternate legs." },
-            { name: "Leg Curl", instruction: "Lie face down, curl weight toward glutes. Squeeze hamstrings." },
-            { name: "Leg Extension", instruction: "Sit upright, extend legs to lockout. Squeeze quads at top." },
-            { name: "Hack Squat", instruction: "Shoulders under pads, squat down, press up. Good quad isolation." }
-        ],
-        homeGym: [
-            { name: "Dumbbell Goblet Squat", instruction: "Hold dumbbell at chest, squat deep. Keep chest up and knees tracking toes." },
-            { name: "Dumbbell Romanian Deadlift", instruction: "Hold dumbbells at sides, hinge at hips. Feel stretch in hamstrings." },
-            { name: "Bulgarian Split Squat", instruction: "Rear foot on bench, lunge down. Excellent for single-leg strength." },
-            { name: "Dumbbell Lunges", instruction: "Hold dumbbells, step forward into lunge. Alternate legs each rep." },
-            { name: "Step-Ups", instruction: "Step onto bench or box with one leg, drive knee up. Alternate legs." }
-        ],
-        bodyweight: [
-            { name: "Bodyweight Squats", instruction: "Feet shoulder-width, squat to parallel. Keep chest up, weight in heels." },
-            { name: "Bulgarian Split Squat", instruction: "Rear foot elevated, lunge down. Bodyweight only is still challenging." },
-            { name: "Walking Lunges", instruction: "Step into lunge, alternate legs. Great for quads and glutes." },
-            { name: "Jump Squats", instruction: "Squat down, explode up into jump. Land softly. Power and cardio." },
-            { name: "Wall Sit", instruction: "Back against wall, thighs parallel to floor. Hold for time." }
-        ],
-        minimal: [
-            { name: "Resistance Band Squats", instruction: "Stand on band, hold handles at shoulders. Squat and stand." },
-            { name: "Resistance Band Leg Curls", instruction: "Anchor band low, curl toward glutes. Squeeze hamstrings." },
-            { name: "Bulgarian Split Squat", instruction: "Rear foot on chair, lunge down. Add band for more resistance." },
-            { name: "Band Walks", instruction: "Band around ankles, walk sideways. Targets glute medius." },
-            { name: "Single-Leg Deadlift", instruction: "Stand on one leg, hinge forward. Hold dumbbell or band for resistance." }
-        ]
-    },
-
-    glutes: {
-        fullGym: [
-            { name: "Barbell Hip Thrust", instruction: "Upper back on bench, bar on hips. Drive hips up, squeeze glutes at top." },
-            { name: "Cable Pull-Through", instruction: "Face away from cable, hinge at hips, thrust forward. Squeeze glutes." },
-            { name: "Sumo Deadlift", instruction: "Wide stance, toes out. Grip bar between legs. Drive hips forward." },
-            { name: "Glute Kickbacks (Cable)", instruction: "Ankle cuff on low cable, kick back and up. Squeeze at top." },
-            { name: "Bulgarian Split Squat", instruction: "Rear foot elevated, deep lunge. Glute-dominant when leaning forward slightly." }
-        ],
-        homeGym: [
-            { name: "Dumbbell Hip Thrust", instruction: "Upper back on bench, dumbbell on hips. Drive up, squeeze glutes." },
-            { name: "Dumbbell Sumo Squat", instruction: "Wide stance, toes out, dumbbell between legs. Deep squat, squeeze glutes." },
-            { name: "Single-Leg Hip Thrust", instruction: "One foot on bench, drive hips up. Unilateral glute builder." },
-            { name: "Dumbbell Romanian Deadlift", instruction: "Hinge at hips, dumbbells along legs. Feel deep glute and hamstring stretch." },
-            { name: "Frog Pumps", instruction: "Lie on back, soles of feet together, knees out. Bridge up and squeeze." }
-        ],
-        bodyweight: [
-            { name: "Glute Bridge", instruction: "Lie on back, feet flat, drive hips up. Squeeze glutes hard at top." },
-            { name: "Single-Leg Glute Bridge", instruction: "One foot flat, other leg extended. Drive up with working leg." },
-            { name: "Donkey Kicks", instruction: "On all fours, kick one leg back and up. Squeeze glute at top." },
-            { name: "Fire Hydrants", instruction: "On all fours, lift knee out to side. Targets glute medius." },
-            { name: "Bulgarian Split Squat", instruction: "Rear foot elevated, deep lunge. Bodyweight glute builder." }
-        ],
-        minimal: [
-            { name: "Resistance Band Hip Thrust", instruction: "Band across hips, upper back on bench. Drive up against band." },
-            { name: "Band Pull-Through", instruction: "Band anchored low, hinge at hips, thrust forward. Squeeze at top." },
-            { name: "Band Squats (Wide Stance)", instruction: "Wide stance on band, squat deep. Emphasize glutes." },
-            { name: "Band Clamshells", instruction: "Band above knees, lie on side, open knees. Glute medius isolation." },
-            { name: "Single-Leg Glute Bridge", instruction: "Band above knees, one foot flat. Drive hips up with band tension." }
-        ]
-    },
-
-    core: {
-        fullGym: [
-            { name: "Cable Crunches", instruction: "Kneel facing cable, crunch down bringing elbows to knees. Squeeze abs." },
-            { name: "Hanging Leg Raises", instruction: "Hang from bar, raise legs to parallel or higher. Control the descent." },
-            { name: "Ab Rollout", instruction: "Kneel with ab wheel, roll forward as far as possible. Pull back using core." },
-            { name: "Cable Woodchops", instruction: "Set cable high, pull diagonally across body. Rotate through core." },
-            { name: "Weighted Plank", instruction: "Standard plank position with weight on back. Hold for time." }
-        ],
-        homeGym: [
-            { name: "Hanging Knee Raises", instruction: "Hang from pull-up bar, raise knees to chest. Control the movement." },
-            { name: "Dumbbell Side Bends", instruction: "Hold dumbbell in one hand, bend sideways. Targets obliques." },
-            { name: "Dead Bug", instruction: "Lie on back, extend opposite arm and leg. Keep lower back pressed down." },
-            { name: "Mountain Climbers", instruction: "Plank position, drive knees to chest alternating. Keep hips low." },
-            { name: "Flutter Kicks", instruction: "Lie on back, legs extended. Alternate small kicks up and down." }
-        ],
-        bodyweight: [
-            { name: "Plank", instruction: "Forearms on ground, body straight. Hold for time. Don't let hips sag." },
-            { name: "Bicycle Crunches", instruction: "Lie on back, alternate elbow to opposite knee. Full rotation." },
-            { name: "Leg Raises", instruction: "Lie on back, raise legs to 90 degrees. Lower slowly without touching floor." },
-            { name: "Mountain Climbers", instruction: "Plank position, drive knees to chest rapidly. Cardio and core." },
-            { name: "Russian Twists", instruction: "Sit with knees bent, lean back slightly. Rotate torso side to side." }
-        ],
-        minimal: [
-            { name: "Resistance Band Pallof Press", instruction: "Anchor band at chest height, press forward. Resist rotation." },
-            { name: "Band Crunches", instruction: "Kneel on band, crunch down. Resistance through full range." },
-            { name: "Plank", instruction: "Standard plank with band around wrists for added tension." },
-            { name: "Band Woodchops", instruction: "Anchor band high, pull diagonally across body. Core rotation work." },
-            { name: "Dead Bug (Band)", instruction: "Band around hands and knees, extend opposite limbs against resistance." }
-        ]
-    },
-
-    calves: {
-        fullGym: [
-            { name: "Standing Calf Raise", instruction: "Shoulders under pads, raise up on toes. Hold peak, lower slowly." },
-            { name: "Seated Calf Raise", instruction: "Sit with knees under pad, raise heels. Targets soleus." },
-            { name: "Donkey Calf Raise", instruction: "Bend forward at hips, raise on toes. Deep stretch at bottom." },
-            { name: "Leg Press Calf Raise", instruction: "Toes on edge of leg press platform, press through toes." },
-            { name: "Smith Machine Calf Raise", instruction: "Bar on shoulders, raise on toes. Good for heavy loading." }
-        ],
-        homeGym: [
-            { name: "Dumbbell Calf Raises", instruction: "Hold dumbbells, raise up on toes. Slow negative for growth." },
-            { name: "Single-Leg Calf Raise", instruction: "Stand on one leg on edge of step. Raise and lower with control." },
-            { name: "Step Calf Raises", instruction: "Toes on step edge, lower heel below step, raise up. Full range." },
-            { name: "Seated Calf Raises", instruction: "Sit on chair, dumbbell on knee, raise heel. Targets soleus." },
-            { name: "Jump Rope", instruction: "Bounce on balls of feet. Cardio and calf endurance builder." }
-        ],
-        bodyweight: [
-            { name: "Standing Calf Raises", instruction: "Raise up on toes, hold 2 seconds at top. Slow and controlled." },
-            { name: "Single-Leg Calf Raises", instruction: "One leg at a time on step edge. Full range of motion." },
-            { name: "Donkey Calf Raises", instruction: "Bend forward, raise on toes. Great stretch and contraction." },
-            { name: "Jump Rope", instruction: "Stay on balls of feet. Continuous bouncing builds calf endurance." },
-            { name: "Box Jumps", instruction: "Explosive jump onto box. Landing absorbs through calves." }
-        ],
-        minimal: [
-            { name: "Resistance Band Calf Raises", instruction: "Stand on band, raise up on toes against resistance." },
-            { name: "Single-Leg Calf Raise", instruction: "On step edge, one leg. Full range. Band adds resistance." },
-            { name: "Jump Rope", instruction: "Bounce on toes continuously. Excellent calf endurance builder." },
-            { name: "Towel Calf Stretch", instruction: "Loop towel around foot, pull toward you. Hold stretch for flexibility." },
-            { name: "Wall Calf Raises", instruction: "Hands on wall for balance, raise on toes. Slow tempo work." }
-        ]
-    }
-};
-
-
-// =========================================
-// WORKOUT SPLIT TEMPLATES
-// =========================================
-
-const splitTemplates = {
-
-    2: [
-        { day: "Day 1", focus: ["chest", "back", "shoulders", "core"], name: "Upper Body" },
-        { day: "Rest", focus: [] },
-        { day: "Day 2", focus: ["legs", "glutes", "calves", "core"], name: "Lower Body" },
-        { day: "Rest", focus: [] },
-        { day: "Rest", focus: [] },
-        { day: "Rest", focus: [] },
-        { day: "Rest", focus: [] }
-    ],
-
-    3: [
-        { day: "Day 1", focus: ["chest", "shoulders", "arms"], name: "Push" },
-        { day: "Rest", focus: [] },
-        { day: "Day 2", focus: ["back", "arms"], name: "Pull" },
-        { day: "Rest", focus: [] },
-        { day: "Day 3", focus: ["legs", "glutes", "core"], name: "Legs" },
-        { day: "Rest", focus: [] },
-        { day: "Rest", focus: [] }
-    ],
-
-    4: [
-        { day: "Day 1", focus: ["chest", "shoulders"], name: "Upper Push" },
-        { day: "Day 2", focus: ["back", "arms"], name: "Upper Pull" },
-        { day: "Rest", focus: [] },
-        { day: "Day 3", focus: ["legs", "glutes"], name: "Lower Body" },
-        { day: "Day 4", focus: ["chest", "back", "core"], name: "Full Body" },
-        { day: "Rest", focus: [] },
-        { day: "Rest", focus: [] }
-    ],
-
-    5: [
-        { day: "Day 1", focus: ["chest"], name: "Chest Day" },
-        { day: "Day 2", focus: ["back"], name: "Back Day" },
-        { day: "Day 3", focus: ["shoulders", "arms"], name: "Shoulders & Arms" },
-        { day: "Rest", focus: [] },
-        { day: "Day 4", focus: ["legs", "glutes"], name: "Leg Day" },
-        { day: "Day 5", focus: ["core", "calves"], name: "Core & Calves" },
-        { day: "Rest", focus: [] }
-    ],
-
-    6: [
-        { day: "Day 1", focus: ["chest", "shoulders"], name: "Push" },
-        { day: "Day 2", focus: ["back", "arms"], name: "Pull" },
-        { day: "Day 3", focus: ["legs", "glutes", "core"], name: "Legs" },
-        { day: "Day 4", focus: ["chest", "shoulders"], name: "Push" },
-        { day: "Day 5", focus: ["back", "arms"], name: "Pull" },
-        { day: "Day 6", focus: ["legs", "glutes", "core"], name: "Legs" },
-        { day: "Rest", focus: [] }
-    ]
-};
-
-
-// =========================================
-// PARAMETERS
-// =========================================
-
-const levelParams = {
-    beginner: { sets: [2, 3], reps: "12-15", rest: "60s", exercisesPerMuscle: 1 },
-    intermediate: { sets: [3, 4], reps: "8-12", rest: "90s", exercisesPerMuscle: 2 },
-    advanced: { sets: [4, 5], reps: "6-10", rest: "120s", exercisesPerMuscle: 2 }
-};
-
-const goalParams = {
-    "build-muscle": { volumeMod: 1, intensityMod: "hypertrophy" },
-    "lose-weight": { volumeMod: 0.8, intensityMod: "endurance" },
-    "strength": { volumeMod: 0.7, intensityMod: "strength" },
-    "endurance": { volumeMod: 1.2, intensityMod: "endurance" },
-    "general-fitness": { volumeMod: 1, intensityMod: "balanced" }
-};
-
-const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-
-const muscleIcons = {
-    chest: "fa-solid fa-heart",
-    back: "fa-solid fa-arrows-up-down",
-    shoulders: "fa-solid fa-person",
-    arms: "fa-solid fa-hand-fist",
-    legs: "fa-solid fa-shoe-prints",
-    glutes: "fa-solid fa-person-running",
-    core: "fa-solid fa-circle-dot",
-    calves: "fa-solid fa-shoe-prints"
-};
-
-
-// =========================================
-// STATE
-// =========================================
+const dayNames = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+];
 
 let selectedEquipment = "full-gym";
-let selectedMuscles = ["chest", "back", "shoulders", "arms", "legs", "glutes", "core"];
+let selectedMuscles = [];
 let currentPlan = null;
 let exerciseModal = null;
+let lastPlanSource = "ai";
 
 
 // =========================================
 // DOM REFERENCES
 // =========================================
 
-const planResult = document.getElementById("planResult");
-const planDaysContainer = document.getElementById("planDaysContainer");
-const generateBtn = document.getElementById("generatePlanBtn");
-const savePlanBtn = document.getElementById("savePlanBtn");
-const regenerateBtn = document.getElementById("regeneratePlanBtn");
-const exportBtn = document.getElementById("exportPlanBtn");
-const summaryDays = document.getElementById("summaryDays");
-const summaryExercises = document.getElementById("summaryExercises");
-const summaryDuration = document.getElementById("summaryDuration");
-const savedPlansContainer = document.getElementById("savedPlansContainer");
-const plannerMessage = document.getElementById("plannerMessage");
-const selectAllMusclesBtn = document.getElementById("selectAllMuscles");
-const clearAllMusclesBtn = document.getElementById("clearAllMuscles");
+let planResult;
+let planDaysContainer;
+let generateBtn;
+let savePlanBtn;
+let regenerateBtn;
+let exportBtn;
+
+let summaryDays;
+let summaryExercises;
+let summaryDuration;
+
+let savedPlansContainer;
+let plannerMessage;
+
+let selectAllMusclesBtn;
+let clearAllMusclesBtn;
+let muscleChipGroup;
+
+
+// =========================================
+// INITIALIZE DOM
+// =========================================
+
+function initializeDOM() {
+
+    planResult = document.getElementById("planResult");
+    planDaysContainer = document.getElementById("planDaysContainer");
+    generateBtn = document.getElementById("generatePlanBtn");
+    savePlanBtn = document.getElementById("savePlanBtn");
+    regenerateBtn = document.getElementById("regeneratePlanBtn");
+    exportBtn = document.getElementById("exportPlanBtn");
+
+    summaryDays = document.getElementById("summaryDays");
+    summaryExercises = document.getElementById("summaryExercises");
+    summaryDuration = document.getElementById("summaryDuration");
+
+    savedPlansContainer = document.getElementById("savedPlansContainer");
+    plannerMessage = document.getElementById("plannerMessage");
+
+    selectAllMusclesBtn =
+        document.getElementById("selectAllMuscles");
+
+    clearAllMusclesBtn =
+        document.getElementById("clearAllMuscles");
+
+    muscleChipGroup =
+        document.getElementById("muscleChipGroup");
+
+}
+
+
+// =========================================
+// MESSAGE
+// =========================================
+
+function showMessage(message, type = "error") {
+
+    if (!plannerMessage) {
+        return;
+    }
+
+    plannerMessage.textContent = message;
+
+    if (type === "success") {
+
+        plannerMessage.style.color = "#4ade80";
+
+    } else if (type === "loading") {
+
+        plannerMessage.style.color = "#ffffff";
+
+    } else {
+
+        plannerMessage.style.color = "#ff4a60";
+
+    }
+
+}
 
 
 // =========================================
 // MUSCLE CHIPS
 // =========================================
 
-document.getElementById("muscleChipGroup").addEventListener("click", (e) => {
-    const chip = e.target.closest(".chip");
-    if (!chip || chip.id === "selectAllMuscles" || chip.id === "clearAllMuscles") return;
+function initializeMuscleChips() {
 
-    chip.classList.toggle("active");
-    selectedMuscles = Array.from(document.querySelectorAll("#muscleChipGroup .chip.active"))
-        .map(c => c.dataset.muscle);
-});
+    if (muscleChipGroup) {
 
-selectAllMusclesBtn.addEventListener("click", () => {
-    document.querySelectorAll("#muscleChipGroup .chip[data-muscle]").forEach(c => c.classList.add("active"));
-    selectedMuscles = ["chest", "back", "shoulders", "arms", "legs", "glutes", "core"];
-});
+        muscleChipGroup.addEventListener(
+            "click",
+            function (e) {
 
-clearAllMusclesBtn.addEventListener("click", () => {
-    document.querySelectorAll("#muscleChipGroup .chip[data-muscle]").forEach(c => c.classList.remove("active"));
-    selectedMuscles = [];
-});
+                const chip =
+                    e.target.closest(".chip");
+
+                if (
+                    !chip ||
+                    !chip.dataset.muscle
+                ) {
+                    return;
+                }
+
+                chip.classList.toggle("active");
+
+                selectedMuscles =
+                    Array.from(
+                        document.querySelectorAll(
+                            "#muscleChipGroup .chip.active"
+                        )
+                    ).map(
+                        function (chip) {
+                            return chip.dataset.muscle;
+                        }
+                    );
+
+            }
+        );
+
+    }
+
+
+    if (selectAllMusclesBtn) {
+
+        selectAllMusclesBtn.addEventListener(
+            "click",
+            function () {
+
+                document
+                    .querySelectorAll(
+                        "#muscleChipGroup .chip[data-muscle]"
+                    )
+                    .forEach(
+                        function (chip) {
+                            chip.classList.add("active");
+                        }
+                    );
+
+                selectedMuscles =
+                    Array.from(
+                        document.querySelectorAll(
+                            "#muscleChipGroup .chip[data-muscle]"
+                        )
+                    ).map(
+                        function (chip) {
+                            return chip.dataset.muscle;
+                        }
+                    );
+
+            }
+        );
+
+    }
+
+
+    if (clearAllMusclesBtn) {
+
+        clearAllMusclesBtn.addEventListener(
+            "click",
+            function () {
+
+                document
+                    .querySelectorAll(
+                        "#muscleChipGroup .chip[data-muscle]"
+                    )
+                    .forEach(
+                        function (chip) {
+                            chip.classList.remove("active");
+                        }
+                    );
+
+                selectedMuscles = [];
+
+            }
+        );
+
+    }
+
+}
+
+
+// =========================================
+// GET FORM DATA
+// =========================================
+
+function getPlannerSettings() {
+
+    return {
+
+        goal:
+            document.getElementById("planGoal")?.value || "",
+
+        level:
+            document.getElementById("planLevel")?.value || "",
+
+        experience:
+            document.getElementById("planExperience")?.value || "",
+
+        days:
+            parseInt(
+                document.getElementById("planDays")?.value
+            ) || 3,
+
+        equipment:
+            document.getElementById("planEquipment")?.value ||
+            "full-gym",
+
+        duration:
+            parseInt(
+                document.getElementById("planDuration")?.value
+            ) || 45,
+
+        selectedMuscles:
+            [...selectedMuscles]
+
+    };
+
+}
+
+
+// =========================================
+// EQUIPMENT FOR SUBSTITUTION
+// =========================================
+
+function getSubstitutionEquipment(equipment) {
+
+    if (equipment === "none") {
+        return "bodyweight";
+    }
+
+    if (equipment === "dumbbells") {
+        return "minimal";
+    }
+
+    if (equipment === "barbell") {
+        return "home-gym";
+    }
+
+    return "full-gym";
+
+}
+
+
+// =========================================
+// AVAILABLE WORKOUTS
+// =========================================
+
+function getAvailableWorkouts() {
+
+    if (typeof workouts === "undefined") {
+
+        console.error(
+            "workouts-data.js was not loaded."
+        );
+
+        return [];
+
+    }
+
+    return workouts.map(
+        function (workout) {
+
+            return {
+
+                id: workout.id,
+
+                name: workout.name,
+
+                category: workout.category,
+
+                duration: workout.duration,
+
+                difficulty: workout.difficulty,
+
+                description: workout.description,
+
+                exercises:
+                    Array.isArray(workout.exercises)
+                        ? workout.exercises.map(
+                            function (exercise) {
+                                return exercise.name;
+                            }
+                        )
+                        : []
+
+            };
+
+        }
+    );
+
+}
+
+
+// =========================================
+// MUSCLE GROUP MATCHING
+// =========================================
+
+function normalizeMuscleGroup(label) {
+
+    const name =
+        String(label || "")
+            .toLowerCase()
+            .trim();
+
+    if (
+        name === "biceps" ||
+        name === "triceps"
+    ) {
+        return "arms";
+    }
+
+    if (
+        name === "quads" ||
+        name === "hamstrings" ||
+        name === "calves"
+    ) {
+        return "legs";
+    }
+
+    return name;
+
+}
+
+
+// =========================================
+// WORKOUT MUSCLE COVERAGE
+// =========================================
+
+function getWorkoutCoverage(workout) {
+
+    const id =
+        String(
+            workout.id || ""
+        ).toLowerCase();
+
+    if (id === "upper-body") {
+
+        return [
+            "chest",
+            "back",
+            "shoulders",
+            "arms"
+        ];
+
+    }
+
+    if (id === "lower-body") {
+
+        return [
+            "legs",
+            "glutes",
+            "core"
+        ];
+
+    }
+
+    if (id === "full-body") {
+
+        return [
+            "chest",
+            "back",
+            "shoulders",
+            "arms",
+            "legs",
+            "glutes",
+            "core",
+            "cardio"
+        ];
+
+    }
+
+    if (id === "cardio-blast") {
+
+        return [
+            "cardio"
+        ];
+
+    }
+
+    if (id === "push") {
+
+        return [
+            "chest",
+            "shoulders",
+            "arms"
+        ];
+
+    }
+
+    if (id === "pull") {
+
+        return [
+            "back",
+            "arms"
+        ];
+
+    }
+
+    if (id === "legs") {
+
+        return [
+            "legs",
+            "glutes",
+            "core"
+        ];
+
+    }
+
+    return [
+        "chest",
+        "back",
+        "shoulders",
+        "arms",
+        "legs",
+        "glutes",
+        "core"
+    ];
+
+}
+
+
+// =========================================
+// FILTER WORKOUTS BY MUSCLES
+// =========================================
+
+function filterWorkoutsByMuscles(
+    workoutList,
+    selectedMuscles
+) {
+
+    if (
+        !Array.isArray(workoutList) ||
+        !Array.isArray(selectedMuscles) ||
+        selectedMuscles.length === 0
+    ) {
+        return workoutList;
+    }
+
+    const selectedGroups =
+        selectedMuscles
+            .map(normalizeMuscleGroup)
+            .filter(Boolean);
+
+    const filtered =
+        workoutList.filter(
+            function (workout) {
+
+                const coverage =
+                    getWorkoutCoverage(workout);
+
+                return selectedGroups.some(
+                    function (group) {
+
+                        return (
+                            coverage.indexOf(group) !== -1
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    return (
+        filtered.length > 0
+            ? filtered
+            : workoutList
+    );
+
+}
+
+
+// =========================================
+// LOCAL FALLBACK PLAN (REAL WORKOUTS ONLY)
+// =========================================
+
+function buildLocalFallbackPlan(settings) {
+
+    if (
+        typeof workouts === "undefined" ||
+        !Array.isArray(workouts)
+    ) {
+        return null;
+    }
+
+    const pool =
+        filterWorkoutsByMuscles(
+            workouts,
+            settings.selectedMuscles || []
+        );
+
+    if (pool.length === 0) {
+        return null;
+    }
+
+    const totalDays =
+        Math.max(
+            Number(settings.days) || 3,
+            1
+        );
+
+    const workoutDays =
+        Math.min(
+            totalDays,
+            7
+        );
+
+    const localPlan = [];
+
+    for (
+        let index = 0;
+        index < 7;
+        index++
+    ) {
+
+        if (index < workoutDays) {
+
+            const workout =
+                pool[index % pool.length];
+
+            localPlan.push(
+                createLocalWorkoutDay(
+                    workout,
+                    index + 1,
+                    settings
+                )
+            );
+
+        } else {
+
+            localPlan.push(
+                createRestDay(
+                    index + 1
+                )
+            );
+
+        }
+
+    }
+
+    return spreadWorkoutDays(
+        localPlan
+    );
+
+}
+
+
+// =========================================
+// CREATE PLAN USING AI
+// =========================================
+
+async function generatePlanFromAI() {
+
+    const settings =
+        getPlannerSettings();
+
+
+    lastPlanSource = "ai";
+
+
+    console.log(
+        "Starting AI workout generation..."
+    );
+
+
+    if (
+        !settings.goal ||
+        !settings.level ||
+        !settings.days ||
+        !settings.equipment ||
+        !settings.duration
+    ) {
+
+        showMessage(
+            "Please fill in all required fields."
+        );
+
+        return null;
+
+    }
+
+
+    const availableWorkouts =
+        filterWorkoutsByMuscles(
+            getAvailableWorkouts(),
+            settings.selectedMuscles || []
+        );
+
+
+    if (availableWorkouts.length === 0) {
+
+        showMessage(
+            "No workouts were found. Check workouts-data.js."
+        );
+
+        return null;
+
+    }
+
+
+    showMessage(
+        "Creating your personalized workout plan...",
+        "loading"
+    );
+
+
+    if (generateBtn) {
+
+        generateBtn.disabled = true;
+
+        generateBtn.innerHTML = `
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            Creating Your Plan...
+        `;
+
+    }
+
+
+    try {
+
+        console.log(
+            "Sending request to:",
+            `${API_URL}/api/generate-plan`
+        );
+
+
+        const response =
+            await fetch(
+                `${API_URL}/api/generate-plan`,
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        goal:
+                            settings.goal,
+
+                        level:
+                            settings.level,
+
+                        experience:
+                            settings.experience,
+
+                        days:
+                            settings.days,
+
+                        equipment:
+                            settings.equipment,
+
+                        duration:
+                            settings.duration,
+
+                        selectedMuscles:
+                            settings.selectedMuscles,
+
+                        availableWorkouts:
+                            availableWorkouts
+
+                    })
+
+                }
+            );
+
+
+        console.log(
+            "Backend response status:",
+            response.status
+        );
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "AI PLAN RESPONSE:",
+            data
+        );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.message ||
+                "Failed to generate workout plan."
+            );
+
+        }
+
+
+        if (
+            !data.days ||
+            !Array.isArray(data.days)
+        ) {
+
+            throw new Error(
+                "The AI returned an invalid workout plan."
+            );
+
+        }
+
+
+        console.log(
+            "AI returned days:",
+            data.days
+        );
+
+
+        const convertedPlan =
+            convertAIPlanToLocalPlan(
+                data.days,
+                settings
+            );
+
+
+        console.log(
+            "CONVERTED LOCAL PLAN:",
+            convertedPlan
+        );
+
+
+        return convertedPlan;
+
+
+    } catch (error) {
+
+        console.error(
+            "Planner error:",
+            error
+        );
+
+
+        const localFallback =
+            buildLocalFallbackPlan(
+                settings
+            );
+
+
+        if (localFallback) {
+
+            lastPlanSource = "local";
+
+            console.warn(
+                "AI unavailable - using real saved workouts."
+            );
+
+            return localFallback;
+
+        }
+
+
+        showMessage(
+            "Could not generate the plan: " +
+            error.message
+        );
+
+
+        return null;
+
+
+    } finally {
+
+        if (generateBtn) {
+
+            generateBtn.disabled = false;
+
+            generateBtn.innerHTML = `
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                Generate My Workout Plan
+            `;
+
+        }
+
+    }
+
+}
+
+
+// =========================================
+// FIND WORKOUT BY ID
+// =========================================
+
+function findWorkoutById(id) {
+
+    if (
+        typeof workouts === "undefined" ||
+        !id
+    ) {
+
+        return null;
+
+    }
+
+
+    return (
+        workouts.find(
+            function (workout) {
+
+                return (
+                    String(workout.id).toLowerCase() ===
+                    String(id).toLowerCase()
+                );
+
+            }
+        ) || null
+    );
+
+}
+
+
+// =========================================
+// NORMALIZE WORKOUT NAME
+// =========================================
+
+function normalizeWorkoutName(name) {
+
+    return String(name || "")
+        .toLowerCase()
+        .replace(/[_-]/g, " ")
+        .replace(/\bday\b/g, "")
+        .replace(/\bdays\b/g, "")
+        .replace(/\blegs\b/g, "leg")
+        .replace(/\bworkout\b/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+
+}
+
+
+// =========================================
+// FIND WORKOUT BY NAME
+// =========================================
+
+function findWorkoutByName(name) {
+
+    if (
+        typeof workouts === "undefined" ||
+        !name
+    ) {
+
+        return null;
+
+    }
+
+
+    const normalizedName =
+        normalizeWorkoutName(name);
+
+
+    return (
+        workouts.find(
+            function (workout) {
+
+                const workoutName =
+                    normalizeWorkoutName(
+                        workout.name
+                    );
+
+                return (
+                    workoutName ===
+                    normalizedName
+                );
+
+            }
+        ) || null
+    );
+
+}
+
+
+// =========================================
+// FIND WORKOUT FROM AI DAY
+// =========================================
+
+function findWorkoutFromAIDay(aiDay) {
+
+    if (!aiDay) {
+        return null;
+    }
+
+
+    // -----------------------------------------
+    // 1. TRY ID
+    // -----------------------------------------
+
+    const possibleId =
+        aiDay.workoutId ||
+        aiDay.id;
+
+
+    if (possibleId) {
+
+        const byId =
+            findWorkoutById(
+                possibleId
+            );
+
+
+        if (byId) {
+            return byId;
+        }
+
+    }
+
+
+    // -----------------------------------------
+    // 2. TRY ALL NAME FIELDS
+    // -----------------------------------------
+
+    const possibleNames = [
+
+        aiDay.name,
+
+        aiDay.workout,
+
+        aiDay.workoutName,
+
+        aiDay.title,
+
+        aiDay.workoutTitle
+
+    ];
+
+
+    for (
+        let i = 0;
+        i < possibleNames.length;
+        i++
+    ) {
+
+        if (!possibleNames[i]) {
+            continue;
+        }
+
+
+        const byName =
+            findWorkoutByName(
+                possibleNames[i]
+            );
+
+
+        if (byName) {
+
+            return byName;
+
+        }
+
+    }
+
+
+    // -----------------------------------------
+    // 3. FALLBACK KEYWORD MATCH
+    // -----------------------------------------
+
+    const aiText =
+        normalizeWorkoutName(
+            possibleNames.find(
+                function (name) {
+                    return !!name;
+                }
+            ) || ""
+        );
+
+
+    if (aiText.includes("push")) {
+
+        return findWorkoutById("push");
+
+    }
+
+
+    if (aiText.includes("pull")) {
+
+        return findWorkoutById("pull");
+
+    }
+
+
+    if (aiText.includes("leg")) {
+
+        return findWorkoutById("legs");
+
+    }
+
+
+    if (aiText.includes("full")) {
+
+        return findWorkoutById("full-body");
+
+    }
+
+
+    if (aiText.includes("cardio")) {
+
+        return findWorkoutById("cardio-blast");
+
+    }
+
+
+    if (aiText.includes("upper")) {
+
+        return findWorkoutById("upper-body");
+
+    }
+
+
+    if (aiText.includes("lower")) {
+
+        return findWorkoutById("lower-body");
+
+    }
+
+
+    return null;
+
+}
+
+
+// =========================================
+// MUSCLE DETECTION
+// =========================================
+
+function getExerciseMuscle(
+    exerciseName,
+    workoutCategory
+) {
+
+    const name =
+        String(
+            exerciseName || ""
+        ).toLowerCase();
+
+
+    if (
+        name.includes("bench") ||
+        name.includes("chest") ||
+        name.includes("fly") ||
+        name.includes("push-up")
+    ) {
+
+        return "Chest";
+
+    }
+
+
+    if (
+        name.includes("row") ||
+        name.includes("pull-up") ||
+        name.includes("pulldown") ||
+        name.includes("deadlift")
+    ) {
+
+        return "Back";
+
+    }
+
+
+    if (
+        name.includes("shoulder") ||
+        name.includes("overhead press") ||
+        name.includes("lateral raise")
+    ) {
+
+        return "Shoulders";
+
+    }
+
+
+    if (
+        name.includes("curl") ||
+        name.includes("bicep") ||
+        name.includes("tricep") ||
+        name.includes("skull")
+    ) {
+
+        return "Arms";
+
+    }
+
+
+    if (
+        name.includes("squat") ||
+        name.includes("lunge") ||
+        name.includes("leg press") ||
+        name.includes("leg curl") ||
+        name.includes("leg extension")
+    ) {
+
+        return "Legs";
+
+    }
+
+
+    if (
+        name.includes("hip thrust") ||
+        name.includes("glute") ||
+        name.includes("kickback")
+    ) {
+
+        return "Glutes";
+
+    }
+
+
+    if (
+        name.includes("calf") ||
+        name.includes("calves")
+    ) {
+
+        return "Calves";
+
+    }
+
+
+    if (
+        name.includes("plank") ||
+        name.includes("crunch") ||
+        name.includes("core") ||
+        name.includes("ab ")
+    ) {
+
+        return "Core";
+
+    }
+
+
+    if (
+        workoutCategory === "cardio" ||
+        name.includes("jump") ||
+        name.includes("burpee") ||
+        name.includes("mountain climber") ||
+        name.includes("high knee")
+    ) {
+
+        return "Cardio";
+
+    }
+
+
+    return "Full Body";
+
+}
+
+
+// =========================================
+// WORKOUT FOCUS
+// =========================================
+
+function getWorkoutFocus(workout) {
+
+    if (!workout) {
+        return ["Workout"];
+    }
+
+
+    const category =
+        String(
+            workout.category || ""
+        ).toLowerCase();
+
+
+    if (workout.id === "push") {
+
+        return [
+            "Chest",
+            "Shoulders",
+            "Arms"
+        ];
+
+    }
+
+
+    if (workout.id === "pull") {
+
+        return [
+            "Back",
+            "Arms"
+        ];
+
+    }
+
+
+    if (
+        workout.id === "legs" ||
+        workout.id === "lower-body"
+    ) {
+
+        return [
+            "Legs",
+            "Glutes",
+            "Core"
+        ];
+
+    }
+
+
+    if (workout.id === "upper-body") {
+
+        return [
+            "Chest",
+            "Back",
+            "Shoulders",
+            "Arms"
+        ];
+
+    }
+
+
+    if (workout.id === "full-body") {
+
+        return [
+            "Full Body"
+        ];
+
+    }
+
+
+    if (category === "cardio") {
+
+        return [
+            "Cardio"
+        ];
+
+    }
+
+
+    return [
+        workout.category ||
+        "Workout"
+    ];
+
+}
+
+
+// =========================================
+// NORMALIZE EXERCISE NAME
+// =========================================
+
+function normalizeExerciseName(name) {
+
+    return String(name || "")
+        .toLowerCase()
+        .replace(/["']/g, "")
+        .replace(/[_-]+/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+}
+
+
+// =========================================
+// CREATE LOCAL WORKOUT OBJECT
+// =========================================
+
+function createLocalWorkoutDay(
+    workout,
+    dayNumber,
+    settings,
+    aiExercises
+) {
+
+    const workoutExercises =
+        Array.isArray(workout.exercises)
+            ? workout.exercises
+            : [];
+
+    const hasAiExercises =
+        Array.isArray(aiExercises) &&
+        aiExercises.length > 0;
+
+    let aiLookup = null;
+
+    if (hasAiExercises) {
+
+        aiLookup = {};
+
+        aiExercises.forEach(
+            function (aiEx) {
+
+                if (!aiEx || !aiEx.name) {
+                    return;
+                }
+
+                aiLookup[
+                    normalizeExerciseName(aiEx.name)
+                ] = aiEx;
+
+            }
+        );
+
+    }
+
+
+    const exercises =
+        workoutExercises.map(
+            function (exercise) {
+
+                const aiMatch =
+                    aiLookup
+                        ? aiLookup[
+                            normalizeExerciseName(
+                                exercise.name
+                            )
+                        ]
+                        : null;
+
+                // The AI may pick a subset of the workout's
+                // real exercises. Skip anything not chosen.
+                if (
+                    hasAiExercises &&
+                    !aiMatch
+                ) {
+                    return null;
+                }
+
+                const aiSets =
+                    Number(
+                        aiMatch &&
+                        aiMatch.sets
+                    );
+
+                const sanitizedSets =
+                    (aiSets >= 2 && aiSets <= 5)
+                        ? aiSets
+                        : Number(
+                            exercise.sets || 3
+                        );
+
+                const aiReps =
+                    aiMatch &&
+                    aiMatch.reps
+                        ? String(aiMatch.reps).trim()
+                        : "";
+
+                const aiRest =
+                    aiMatch &&
+                    aiMatch.rest
+                        ? String(aiMatch.rest).trim()
+                        : "";
+
+                return {
+
+                    name:
+                        exercise.name,
+
+                    muscle:
+                        getExerciseMuscle(
+                            exercise.name,
+                            workout.category
+                        ),
+
+                    sets:
+                        sanitizedSets,
+
+                    reps:
+                        aiReps ||
+                        exercise.reps ||
+                        "10",
+
+                    rest:
+                        aiRest ||
+                        exercise.rest ||
+                        "60s",
+
+                    instruction:
+                        "Perform this exercise with controlled movement and proper form."
+
+                };
+
+            }
+        )
+        .filter(Boolean);
+
+
+    const totalSets =
+        exercises.reduce(
+            function (sum, exercise) {
+
+                return (
+                    sum +
+                    Number(
+                        exercise.sets || 0
+                    )
+                );
+
+            },
+            0
+        );
+
+
+    return {
+
+        dayNumber:
+            dayNumber,
+
+        dayName:
+            dayNames[
+                dayNumber - 1
+            ],
+
+        isRestDay:
+            false,
+
+        workoutId:
+            workout.id,
+
+        name:
+            workout.name,
+
+        category:
+            workout.category,
+
+        description:
+            workout.description,
+
+        focus:
+            getWorkoutFocus(
+                workout
+            ),
+
+        exercises:
+            exercises,
+
+        estimatedTime:
+            parseInt(
+                workout.duration
+            ) ||
+            settings.duration,
+
+        totalSets:
+            totalSets
+
+    };
+
+}
+
+
+// =========================================
+// CREATE REST DAY
+// =========================================
+
+function createRestDay(dayNumber) {
+
+    return {
+
+        dayNumber:
+            dayNumber,
+
+        dayName:
+            dayNames[
+                dayNumber - 1
+            ],
+
+        isRestDay:
+            true,
+
+        name:
+            "Rest Day",
+
+        focus:
+            [],
+
+        exercises:
+            [],
+
+        estimatedTime:
+            0,
+
+        totalSets:
+            0
+
+    };
+
+}
+
+
+// =========================================
+// SPREAD WORKOUT DAYS ACROSS THE WEEK
+// =========================================
+
+function spreadWorkoutDays(plan) {
+
+    if (
+        !Array.isArray(plan) ||
+        plan.length === 0
+    ) {
+        return plan;
+    }
+
+    const workoutDays =
+        plan.filter(
+            function (day) {
+                return (
+                    day &&
+                    !day.isRestDay
+                );
+            }
+        );
+
+    const count =
+        workoutDays.length;
+
+    if (count === 0) {
+        return plan;
+    }
+
+    if (count >= 7) {
+        return plan;
+    }
+
+    const targets = [];
+    const used = [];
+
+    for (
+        let i = 0;
+        i < count;
+        i++
+    ) {
+
+        let position =
+            Math.round(
+                (i * 6) /
+                Math.max(count - 1, 1)
+            );
+
+        while (
+            used.indexOf(position) !== -1
+        ) {
+            position = (position + 1) % 7;
+        }
+
+        used.push(position);
+        targets.push(position);
+
+    }
+
+    const sortedTargets =
+        targets.slice().sort(
+            function (a, b) {
+                return a - b;
+            }
+        );
+
+    const spread = [];
+
+    for (
+        let day = 0;
+        day < 7;
+        day++
+    ) {
+
+        const targetIndex =
+            sortedTargets.indexOf(day);
+
+        if (targetIndex !== -1) {
+
+            const workout =
+                workoutDays[targetIndex];
+
+            spread.push({
+                ...workout,
+                dayNumber: day + 1,
+                dayName: dayNames[day]
+            });
+
+        } else {
+
+            spread.push(
+                createRestDay(
+                    day + 1
+                )
+            );
+
+        }
+
+    }
+
+    return spread;
+
+}
+
+
+// =========================================
+// CONVERT AI PLAN TO LOCAL PLAN
+// =========================================
+
+function convertAIPlanToLocalPlan(
+    aiDays,
+    settings
+) {
+
+    const localPlan = [];
+
+
+    console.log(
+        "Converting AI plan..."
+    );
+
+
+    for (
+        let index = 0;
+        index < 7;
+        index++
+    ) {
+
+        const aiDay =
+            aiDays[index] || {};
+
+
+        // -----------------------------------------
+        // REST DAY
+        // -----------------------------------------
+
+        const aiName =
+            String(
+                aiDay.name ||
+                aiDay.workout ||
+                aiDay.workoutName ||
+                aiDay.title ||
+                ""
+            ).toLowerCase();
+
+
+        if (
+            aiDay.rest === true ||
+            aiName.includes("rest")
+        ) {
+
+            localPlan.push(
+                createRestDay(
+                    index + 1
+                )
+            );
+
+            continue;
+
+        }
+
+
+        // -----------------------------------------
+        // FIND WORKOUT
+        // -----------------------------------------
+
+        const workout =
+            findWorkoutFromAIDay(
+                aiDay
+            );
+
+
+        console.log(
+            "AI day:",
+            aiDay,
+            "Matched workout:",
+            workout
+                ? workout.id
+                : "NOT FOUND"
+        );
+
+
+        // -----------------------------------------
+        // IF WORKOUT NOT FOUND
+        // -----------------------------------------
+
+        if (!workout) {
+
+            console.warn(
+                "Could not match AI workout:",
+                aiDay
+            );
+
+
+            localPlan.push(
+                createRestDay(
+                    index + 1
+                )
+            );
+
+
+            continue;
+
+        }
+
+
+        // -----------------------------------------
+        // CREATE REAL WORKOUT
+        // -----------------------------------------
+
+        localPlan.push(
+            createLocalWorkoutDay(
+                workout,
+                index + 1,
+                settings,
+                aiDay.exercises
+            )
+        );
+
+    }
+
+
+    // -----------------------------------------
+    // ALWAYS MAKE 7 DAYS
+    // -----------------------------------------
+
+    while (
+        localPlan.length < 7
+    ) {
+
+        localPlan.push(
+            createRestDay(
+                localPlan.length + 1
+            )
+        );
+
+    }
+
+
+    return spreadWorkoutDays(
+        localPlan.slice(
+            0,
+            7
+        )
+    );
+
+}
 
 
 // =========================================
@@ -414,194 +1760,278 @@ clearAllMusclesBtn.addEventListener("click", () => {
 // =========================================
 
 function createExerciseModal() {
-    const overlay = document.createElement("div");
-    overlay.className = "exercise-modal-overlay";
-    overlay.id = "exerciseModal";
+
+    const overlay =
+        document.createElement("div");
+
+
+    overlay.className =
+        "exercise-modal-overlay";
+
+
+    overlay.id =
+        "exerciseModal";
+
+
     overlay.innerHTML = `
+
         <div class="exercise-modal-card">
+
             <div class="exercise-modal-header">
-                <h3 id="exModalName">Exercise</h3>
-                <button class="exercise-modal-close" id="exModalClose">
+
+                <h3 id="exModalName">
+                    Exercise
+                </h3>
+
+                <button
+                    class="exercise-modal-close"
+                    id="exModalClose"
+                    type="button">
+
                     <i class="fa-solid fa-xmark"></i>
+
                 </button>
+
             </div>
-            <div class="exercise-modal-muscle" id="exModalMuscle">Chest</div>
+
+            <div
+                class="exercise-modal-muscle"
+                id="exModalMuscle">
+
+                Chest
+
+            </div>
+
             <div class="exercise-modal-stats">
+
                 <div class="exercise-modal-stat">
-                    <span class="stat-val" id="exModalSets">4</span>
-                    <span class="stat-label">Sets</span>
+
+                    <span
+                        class="stat-val"
+                        id="exModalSets">
+
+                        4
+
+                    </span>
+
+                    <span class="stat-label">
+                        Sets
+                    </span>
+
                 </div>
+
                 <div class="exercise-modal-stat">
-                    <span class="stat-val" id="exModalReps">10</span>
-                    <span class="stat-label">Reps</span>
+
+                    <span
+                        class="stat-val"
+                        id="exModalReps">
+
+                        10
+
+                    </span>
+
+                    <span class="stat-label">
+                        Reps
+                    </span>
+
                 </div>
+
                 <div class="exercise-modal-stat">
-                    <span class="stat-val" id="exModalRest">90s</span>
-                    <span class="stat-label">Rest</span>
+
+                    <span
+                        class="stat-val"
+                        id="exModalRest">
+
+                        90s
+
+                    </span>
+
+                    <span class="stat-label">
+                        Rest
+                    </span>
+
                 </div>
+
             </div>
+
             <div class="exercise-modal-instructions">
-                <p>Instructions</p>
-                <p id="exModalInstruction">How to perform this exercise.</p>
+
+                <p>
+                    Instructions
+                </p>
+
+                <p id="exModalInstruction">
+                    How to perform this exercise.
+                </p>
+
             </div>
+
         </div>
+
     `;
-    document.body.appendChild(overlay);
 
-    overlay.addEventListener("click", (e) => {
-        if (e.target === overlay) closeExerciseModal();
-    });
 
-    overlay.querySelector("#exModalClose").addEventListener("click", closeExerciseModal);
+    document.body.appendChild(
+        overlay
+    );
 
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeExerciseModal();
-    });
+
+    overlay.addEventListener(
+        "click",
+        function (e) {
+
+            if (
+                e.target === overlay
+            ) {
+
+                closeExerciseModal();
+
+            }
+
+        }
+    );
+
+
+    overlay
+        .querySelector(
+            "#exModalClose"
+        )
+        .addEventListener(
+            "click",
+            closeExerciseModal
+        );
+
+
+    document.addEventListener(
+        "keydown",
+        function (e) {
+
+            if (
+                e.key === "Escape"
+            ) {
+
+                closeExerciseModal();
+
+            }
+
+        }
+    );
+
 
     return overlay;
+
 }
 
-function openExerciseModal(exercise, muscle, sets, reps, rest) {
-    if (!exerciseModal) exerciseModal = createExerciseModal();
 
-    document.getElementById("exModalName").textContent = exercise.name;
-    document.getElementById("exModalMuscle").textContent = muscle.charAt(0).toUpperCase() + muscle.slice(1);
-    document.getElementById("exModalSets").textContent = sets;
-    document.getElementById("exModalReps").textContent = reps;
-    document.getElementById("exModalRest").textContent = rest;
-    document.getElementById("exModalInstruction").textContent = exercise.instruction;
+function openExerciseModal(
+    exercise,
+    muscle,
+    sets,
+    reps,
+    rest
+) {
 
-    exerciseModal.classList.add("active");
-    document.body.style.overflow = "hidden";
+    if (!exerciseModal) {
+
+        exerciseModal =
+            createExerciseModal();
+
+    }
+
+
+    document.getElementById(
+        "exModalName"
+    ).textContent =
+        exercise.name;
+
+
+    document.getElementById(
+        "exModalMuscle"
+    ).textContent =
+        muscle;
+
+
+    document.getElementById(
+        "exModalSets"
+    ).textContent =
+        sets;
+
+
+    document.getElementById(
+        "exModalReps"
+    ).textContent =
+        reps;
+
+
+    document.getElementById(
+        "exModalRest"
+    ).textContent =
+        rest;
+
+
+    document.getElementById(
+        "exModalInstruction"
+    ).textContent =
+        exercise.instruction;
+
+
+    exerciseModal.classList.add(
+        "active"
+    );
+
+
+    document.body.style.overflow =
+        "hidden";
+
 }
+
 
 function closeExerciseModal() {
+
     if (exerciseModal) {
-        exerciseModal.classList.remove("active");
-        document.body.style.overflow = "";
+
+        exerciseModal.classList.remove(
+            "active"
+        );
+
+        document.body.style.overflow =
+            "";
+
     }
+
 }
 
 
 // =========================================
-// PLAN GENERATION ENGINE
+// SHORT INSTRUCTION
 // =========================================
 
-function generatePlan() {
-    const goal = document.getElementById("planGoal").value;
-    const level = document.getElementById("planLevel").value;
-    const experience = document.getElementById("planExperience").value;
-    const daysPerWeek = parseInt(document.getElementById("planDays").value);
-    const duration = parseInt(document.getElementById("planDuration").value);
-    const equipment = document.getElementById("planEquipment").value;
+function getShortInstruction(
+    instruction
+) {
 
-    if (!goal || !level || !daysPerWeek || !duration) {
-        plannerMessage.textContent = "Please fill in all required fields.";
-        plannerMessage.style.color = "#ff4a60";
-        return;
+    if (!instruction) {
+        return "";
     }
 
-    if (selectedMuscles.length === 0) {
-        plannerMessage.textContent = "Please select at least one target muscle group.";
-        plannerMessage.style.color = "#ff4a60";
-        return;
+
+    if (
+        instruction.length <= 80
+    ) {
+
+        return instruction;
+
     }
 
-    plannerMessage.textContent = "";
 
-    if (equipment) {
-        selectedEquipment = equipment;
-    }
+    return (
+        instruction.substring(
+            0,
+            80
+        ) +
+        "..."
+    );
 
-    const params = levelParams[level];
-    const goalParam = goalParams[goal];
-    const split = splitTemplates[daysPerWeek];
-
-    const plan = [];
-
-    split.forEach((slot, i) => {
-        if (slot.day === "Rest") {
-            plan.push({
-                dayNumber: i + 1,
-                dayName: dayNames[i],
-                isRestDay: true,
-                name: "Rest Day",
-                focus: [],
-                exercises: []
-            });
-            return;
-        }
-
-        const focusMuscles = slot.focus.filter(m => selectedMuscles.includes(m));
-
-        if (focusMuscles.length === 0) {
-            plan.push({
-                dayNumber: i + 1,
-                dayName: dayNames[i],
-                isRestDay: true,
-                name: "Active Recovery",
-                focus: [],
-                exercises: []
-            });
-            return;
-        }
-
-        const exercises = [];
-        const exercisesPerMuscle = params.exercisesPerMuscle;
-
-        focusMuscles.forEach(muscle => {
-            const pool = exerciseDB[muscle]?.[selectedEquipment] || [];
-            const shuffled = [...pool].sort(() => Math.random() - 0.5);
-            const count = Math.min(exercisesPerMuscle, shuffled.length);
-
-            for (let j = 0; j < count; j++) {
-                const ex = shuffled[j];
-                let sets = randomBetween(params.sets[0], params.sets[1]);
-                let reps = params.reps;
-                let rest = params.rest;
-
-                if (goalParam.intensityMod === "strength") {
-                    sets = Math.min(sets + 1, 6);
-                    reps = "5-8";
-                    rest = "120-180s";
-                } else if (goalParam.intensityMod === "endurance") {
-                    sets = Math.max(sets - 1, 2);
-                    reps = "15-20";
-                    rest = "30-45s";
-                }
-
-                exercises.push({
-                    name: ex.name,
-                    muscle: muscle,
-                    sets: sets,
-                    reps: reps,
-                    rest: rest,
-                    instruction: ex.instruction
-                });
-            }
-        });
-
-        const totalSets = exercises.reduce((sum, e) => sum + e.sets, 0);
-        const estimatedTime = Math.round(totalSets * 2.5 + exercises.length * 1.5);
-
-        plan.push({
-            dayNumber: i + 1,
-            dayName: dayNames[i],
-            isRestDay: false,
-            name: slot.name,
-            focus: focusMuscles,
-            exercises: exercises,
-            estimatedTime: estimatedTime,
-            totalSets: totalSets
-        });
-    });
-
-    return plan;
-}
-
-
-function randomBetween(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 
@@ -610,315 +2040,1459 @@ function randomBetween(min, max) {
 // =========================================
 
 function renderPlan(plan) {
-    currentPlan = plan;
 
-    const goal = document.getElementById("planGoal").value;
-    const level = document.getElementById("planLevel").value;
-    const daysPerWeek = document.getElementById("planDays").value;
-    const duration = document.getElementById("planDuration").value;
+    if (
+        !Array.isArray(plan)
+    ) {
 
-    const goalLabels = {
-        "build-muscle": "Build Muscle",
-        "lose-weight": "Lose Weight",
-        "stay-fit": "Stay Fit",
-        "improve-fitness": "Improve Fitness"
-    };
+        showMessage(
+            "Invalid workout plan."
+        );
 
-    const levelLabels = {
-        beginner: "Beginner",
-        intermediate: "Intermediate",
-        advanced: "Advanced"
-    };
+        return;
 
-    const equipLabels = {
-        "full-gym": "Full Gym",
-        "home-gym": "Home Gym",
-        bodyweight: "Bodyweight",
-        "dumbbells": "Dumbbells",
-        "barbell": "Barbell & Dumbbells",
-        "none": "No Equipment",
-        minimal: "Minimal Equipment"
-    };
+    }
 
-    const totalExercises = plan.filter(d => !d.isRestDay).reduce((sum, d) => sum + d.exercises.length, 0);
-    const totalSets = plan.filter(d => !d.isRestDay).reduce((sum, d) => sum + d.totalSets, 0);
-    const trainingDays = plan.filter(d => !d.isRestDay).length;
 
-    summaryDays.textContent = trainingDays;
-    summaryExercises.textContent = totalExercises;
-    summaryDuration.textContent = duration + " min";
+    currentPlan =
+        plan;
 
-    planDaysContainer.innerHTML = "";
 
-    plan.forEach((slot, idx) => {
-        const card = document.createElement("div");
-        card.className = "training-day-card";
+    const duration =
+        parseInt(
+            document.getElementById(
+                "planDuration"
+            )?.value
+        ) || 45;
 
-        if (slot.isRestDay) {
-            card.innerHTML = `
-                <div class="day-header">
-                    <div class="day-header-left">
-                        <div class="day-number">${slot.dayNumber}</div>
-                        <div>
-                            <h3>${slot.dayName} — ${slot.name}</h3>
-                            <p>Rest and recover. Your muscles grow during recovery.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="rest-day-content">
-                    <i class="fa-solid fa-bed"></i>
-                    <h4>Recovery Day</h4>
-                    <p>Stay hydrated, eat well, and get quality sleep.</p>
-                </div>
-            `;
-        } else {
-            const focusStr = slot.focus.map(m => m.charAt(0).toUpperCase() + m.slice(1)).join(", ");
 
-            let tableRows = "";
-            slot.exercises.forEach((ex, j) => {
-                tableRows += `
-                    <tr class="exercise-row" data-exercise='${JSON.stringify(ex).replace(/'/g, "&#39;")}' data-day-index="${idx}" data-ex-index="${j}">
-                        <td>
-                            <div class="exercise-name-cell">
-                                <span class="exercise-num">${j + 1}</span>
-                                <div>
-                                    <div class="exercise-name-text">${ex.name}</div>
-                                    <div class="exercise-instruction">${ex.instruction.substring(0, 80)}${ex.instruction.length > 80 ? "..." : ""}</div>
-                                </div>
+    const trainingDays =
+        plan.filter(
+            function (day) {
+                return !day.isRestDay;
+            }
+        );
+
+
+    const totalExercises =
+        trainingDays.reduce(
+            function (sum, day) {
+
+                return (
+                    sum +
+                    (
+                        Array.isArray(
+                            day.exercises
+                        )
+                            ? day.exercises.length
+                            : 0
+                    )
+                );
+
+            },
+            0
+        );
+
+
+    const totalDuration =
+        trainingDays.reduce(
+            function (sum, day) {
+
+                return (
+                    sum +
+                    (
+                        day.estimatedTime ||
+                        duration
+                    )
+                );
+
+            },
+            0
+        );
+
+
+    const averageDuration =
+        trainingDays.length > 0
+            ? Math.round(
+                totalDuration /
+                trainingDays.length
+            )
+            : duration;
+
+
+    if (summaryDays) {
+
+        summaryDays.textContent =
+            trainingDays.length;
+
+    }
+
+
+    if (summaryExercises) {
+
+        summaryExercises.textContent =
+            totalExercises;
+
+    }
+
+
+    if (summaryDuration) {
+
+        summaryDuration.textContent =
+            averageDuration +
+            " min";
+
+    }
+
+
+    if (!planDaysContainer) {
+        return;
+    }
+
+
+    planDaysContainer.innerHTML =
+        "";
+
+
+    plan.forEach(
+        function (slot, index) {
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "training-day-card";
+
+
+            // -----------------------------------------
+            // REST DAY
+            // -----------------------------------------
+
+            if (slot.isRestDay) {
+
+                card.innerHTML = `
+
+                    <div class="day-header">
+
+                        <div class="day-header-left">
+
+                            <div class="day-number">
+                                ${slot.dayNumber}
                             </div>
-                        </td>
-                        <td><span class="muscle-tag">${ex.muscle.charAt(0).toUpperCase() + ex.muscle.slice(1)}</span></td>
-                        <td><span class="exercise-stat">${ex.sets} sets</span></td>
-                        <td><span class="exercise-stat">${ex.reps}</span></td>
-                        <td><span class="rest-badge">${ex.rest}</span></td>
-                        <td><button class="planner-replace-btn" data-day-index="${idx}" data-ex-index="${j}"><i class="fa-solid fa-shuffle"></i> Replace</button></td>
-                    </tr>
+
+                            <div>
+
+                                <h3>
+                                    ${slot.dayName} — Rest Day
+                                </h3>
+
+                                <p>
+                                    Rest and recover before your next workout.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="rest-day-content">
+
+                        <i class="fa-solid fa-bed"></i>
+
+                        <h4>
+                            Recovery Day
+                        </h4>
+
+                        <p>
+                            Stay hydrated, eat well, and get quality sleep.
+                        </p>
+
+                    </div>
+
                 `;
-            });
+
+
+                planDaysContainer.appendChild(
+                    card
+                );
+
+
+                return;
+
+            }
+
+
+            const focusStr =
+                slot.focus &&
+                slot.focus.length > 0
+                    ? slot.focus.join(", ")
+                    : slot.category ||
+                      "Workout";
+
+
+            let tableRows =
+                "";
+
+
+            const exercises =
+                Array.isArray(
+                    slot.exercises
+                )
+                    ? slot.exercises
+                    : [];
+
+
+            exercises.forEach(
+                function (
+                    ex,
+                    exerciseIndex
+                ) {
+
+                    tableRows += `
+
+                        <tr
+                            class="exercise-row"
+                            data-day-index="${index}"
+                            data-ex-index="${exerciseIndex}">
+
+                            <td>
+
+                                <div class="exercise-name-cell">
+
+                                    <span class="exercise-num">
+                                        ${exerciseIndex + 1}
+                                    </span>
+
+                                    <div>
+
+                                        <div class="exercise-name-text">
+                                            ${ex.name}
+                                        </div>
+
+                                        <div class="exercise-instruction">
+                                            ${getShortInstruction(ex.instruction)}
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+
+                                <span class="muscle-tag">
+                                    ${ex.muscle}
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <span class="exercise-stat">
+                                    ${ex.sets} sets
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <span class="exercise-stat">
+                                    ${ex.reps}
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <span class="rest-badge">
+                                    ${ex.rest}
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="planner-replace-btn"
+                                    data-day-index="${index}"
+                                    data-ex-index="${exerciseIndex}"
+                                    type="button">
+
+                                    <i class="fa-solid fa-shuffle"></i>
+                                    Replace
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    `;
+
+                }
+            );
+
 
             card.innerHTML = `
+
                 <div class="day-header">
+
                     <div class="day-header-left">
-                        <div class="day-number">${slot.dayNumber}</div>
-                        <div>
-                            <h3>${slot.dayName} — ${slot.name}</h3>
-                            <p>${focusStr}</p>
+
+                        <div class="day-number">
+                            ${slot.dayNumber}
                         </div>
+
+                        <div>
+
+                            <h3>
+                                ${slot.dayName} — ${slot.name}
+                            </h3>
+
+                            <p>
+                                ${focusStr}
+                            </p>
+
+                        </div>
+
                     </div>
+
                     <div class="day-meta">
+
                         <span>
+
                             <i class="fa-solid fa-dumbbell"></i>
-                            ${slot.exercises.length} exercises
+
+                            ${exercises.length}
+                            exercises
+
                         </span>
+
                         <span>
+
                             <i class="fa-solid fa-layer-group"></i>
-                            ${slot.totalSets} sets
+
+                            ${slot.totalSets}
+                            sets
+
                         </span>
+
                         <span>
+
                             <i class="fa-regular fa-clock"></i>
-                            ~${slot.estimatedTime} min
+
+                            ~${slot.estimatedTime}
+                            min
+
                         </span>
+
                     </div>
+
                 </div>
+
                 <table class="exercise-table">
+
                     <thead>
+
                         <tr>
-                            <th>Exercise</th>
-                            <th>Muscle</th>
-                            <th>Sets</th>
-                            <th>Reps</th>
-                            <th>Rest</th>
+
+                            <th>
+                                Exercise
+                            </th>
+
+                            <th>
+                                Muscle
+                            </th>
+
+                            <th>
+                                Sets
+                            </th>
+
+                            <th>
+                                Reps
+                            </th>
+
+                            <th>
+                                Rest
+                            </th>
+
                             <th></th>
+
                         </tr>
+
                     </thead>
+
                     <tbody>
+
                         ${tableRows}
+
                     </tbody>
+
                 </table>
+
             `;
-        }
 
-        planDaysContainer.appendChild(card);
 
-        if (!slot.isRestDay) {
-            card.querySelectorAll(".exercise-row").forEach(row => {
-                row.style.cursor = "pointer";
-                row.addEventListener("click", (e) => {
-                    if (e.target.closest(".planner-replace-btn")) return;
-                    try {
-                        const exData = JSON.parse(row.dataset.exercise);
-                        openExerciseModal(
-                            { name: exData.name, instruction: exData.instruction },
-                            exData.muscle,
-                            exData.sets,
-                            exData.reps,
-                            exData.rest
-                        );
-                    } catch (e) {}
-                });
-            });
+            planDaysContainer.appendChild(
+                card
+            );
 
-            card.querySelectorAll(".planner-replace-btn").forEach(btn => {
-                btn.addEventListener("click", function (e) {
-                    e.stopPropagation();
-                    var dayIdx = parseInt(this.dataset.dayIndex);
-                    var exIdx = parseInt(this.dataset.exIndex);
-                    if (!currentPlan || !currentPlan[dayIdx]) return;
-                    var ex = currentPlan[dayIdx].exercises[exIdx];
-                    if (!ex || typeof openExerciseSubstitution === "undefined") return;
 
-                    openExerciseSubstitution({
-                        exerciseName: ex.name,
-                        originalExercise: ex,
-                        workoutId: "planner-day-" + dayIdx,
-                        userEquipment: selectedEquipment,
-                        userLevel: document.getElementById("planLevel") ? document.getElementById("planLevel").value : "intermediate",
-                        onSelect: function (replacement) {
-                            currentPlan[dayIdx].exercises[exIdx] = {
-                                name: replacement.name,
-                                muscle: ex.muscle,
-                                sets: replacement.sets,
-                                reps: replacement.reps,
-                                rest: replacement.rest,
-                                instruction: ex.instruction
-                            };
-                            renderPlan(currentPlan);
+            // -----------------------------------------
+            // EXERCISE DETAILS
+            // -----------------------------------------
+
+            card.querySelectorAll(
+                ".exercise-row"
+            ).forEach(
+                function (row) {
+
+                    row.style.cursor =
+                        "pointer";
+
+
+                    row.addEventListener(
+                        "click",
+                        function (e) {
+
+                            if (
+                                e.target.closest(
+                                    ".planner-replace-btn"
+                                )
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            const dayIndex =
+                                parseInt(
+                                    row.dataset.dayIndex
+                                );
+
+
+                            const exerciseIndex =
+                                parseInt(
+                                    row.dataset.exIndex
+                                );
+
+
+                            const exercise =
+                                currentPlan[
+                                    dayIndex
+                                ]?.exercises[
+                                    exerciseIndex
+                                ];
+
+
+                            if (!exercise) {
+                                return;
+                            }
+
+
+                            openExerciseModal(
+                                exercise,
+                                exercise.muscle,
+                                exercise.sets,
+                                exercise.reps,
+                                exercise.rest
+                            );
+
                         }
-                    });
-                });
-            });
+                    );
+
+                }
+            );
+
+
+            // -----------------------------------------
+            // REPLACE BUTTON
+            // -----------------------------------------
+
+            card.querySelectorAll(
+                ".planner-replace-btn"
+            ).forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function (e) {
+
+                            e.stopPropagation();
+
+
+                            const dayIndex =
+                                parseInt(
+                                    this.dataset.dayIndex
+                                );
+
+
+                            const exerciseIndex =
+                                parseInt(
+                                    this.dataset.exIndex
+                                );
+
+
+                            if (
+                                !currentPlan ||
+                                !currentPlan[
+                                    dayIndex
+                                ]
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            const exercise =
+                                currentPlan[
+                                    dayIndex
+                                ].exercises[
+                                    exerciseIndex
+                                ];
+
+
+                            if (!exercise) {
+                                return;
+                            }
+
+
+                            if (
+                                typeof openExerciseSubstitution ===
+                                "undefined"
+                            ) {
+
+                                showMessage(
+                                    "Substitution is not available."
+                                );
+
+                                return;
+
+                            }
+
+
+                            const settings =
+                                getPlannerSettings();
+
+
+                            const substitutionEquipment =
+                                getSubstitutionEquipment(
+                                    settings.equipment
+                                );
+
+
+                            openExerciseSubstitution({
+
+                                exerciseName:
+                                    exercise.name,
+
+                                originalExercise:
+                                    exercise,
+
+                                workoutId:
+                                    currentPlan[
+                                        dayIndex
+                                    ].workoutId ||
+                                    "planner-day-" +
+                                    dayIndex,
+
+                                userEquipment:
+                                    substitutionEquipment,
+
+                                userLevel:
+                                    settings.level ||
+                                    "intermediate",
+
+                                onSelect:
+                                    function (
+                                        replacement
+                                    ) {
+
+                                        currentPlan[
+                                            dayIndex
+                                        ].exercises[
+                                            exerciseIndex
+                                        ] = {
+
+                                            name:
+                                                replacement.name,
+
+                                            muscle:
+                                                exercise.muscle,
+
+                                            sets:
+                                                replacement.sets,
+
+                                            reps:
+                                                replacement.reps,
+
+                                            rest:
+                                                replacement.rest,
+
+                                            instruction:
+                                                replacement.instruction ||
+                                                exercise.instruction
+
+                                        };
+
+
+                                        renderPlan(
+                                            currentPlan
+                                        );
+
+
+                                        saveCurrentPlanSilently();
+
+                                    }
+
+                            });
+
+                        }
+                    );
+
+                }
+            );
+
         }
-    });
+    );
+
 }
 
 
 // =========================================
-// SAVE / LOAD PLAN
+// SAVE PLAN
 // =========================================
 
 function savePlan() {
-    if (!currentPlan) return;
 
-    const goal = document.getElementById("planGoal").value;
-    const level = document.getElementById("planLevel").value;
-    const daysPerWeek = document.getElementById("planDays").value;
-    const duration = document.getElementById("planDuration").value;
+    if (!currentPlan) {
+        return;
+    }
+
+
+    const settings =
+        getPlannerSettings();
+
 
     const planData = {
-        plan: currentPlan,
+
+        plan:
+            currentPlan,
+
         settings: {
-            goal,
-            level,
-            daysPerWeek: parseInt(daysPerWeek),
-            duration: parseInt(duration),
-            equipment: selectedEquipment,
-            muscles: [...selectedMuscles]
+
+            goal:
+                settings.goal,
+
+            level:
+                settings.level,
+
+            experience:
+                settings.experience,
+
+            daysPerWeek:
+                settings.days,
+
+            duration:
+                settings.duration,
+
+            equipment:
+                settings.equipment,
+
+            muscles:
+                [...selectedMuscles]
+
         },
-        savedAt: new Date().toISOString()
+
+        savedAt:
+            new Date().toISOString()
+
     };
 
-    localStorage.setItem(PLANNER_STORAGE_KEY, JSON.stringify(planData));
 
-    savePlanBtn.classList.add("saved");
-    savePlanBtn.innerHTML = '<i class="fa-solid fa-check"></i> Plan Saved';
+    saveData(
+        PLANNER_STORAGE_KEY,
+        planData
+    );
+
+
+    if (savePlanBtn) {
+
+        savePlanBtn.classList.add(
+            "saved"
+        );
+
+        savePlanBtn.innerHTML = `
+            <i class="fa-solid fa-check"></i>
+            Plan Saved
+        `;
+
+    }
+
+
+    renderSavedPlan();
+
+
+    showMessage(
+        "Your workout plan has been saved.",
+        "success"
+    );
+
 }
+
+
+// =========================================
+// SILENT SAVE
+// =========================================
+
+function saveCurrentPlanSilently() {
+
+    if (!currentPlan) {
+        return;
+    }
+
+
+    const oldData =
+        loadSavedPlan();
+
+
+    if (!oldData) {
+        return;
+    }
+
+
+    oldData.plan =
+        currentPlan;
+
+
+    oldData.savedAt =
+        new Date().toISOString();
+
+
+    saveData(
+        PLANNER_STORAGE_KEY,
+        oldData
+    );
+
+}
+
+
+// =========================================
+// LOAD SAVED PLAN
+// =========================================
 
 function loadSavedPlan() {
+
     try {
-        const data = JSON.parse(localStorage.getItem(PLANNER_STORAGE_KEY));
-        if (data && data.plan) {
+
+        const data =
+            getData(
+                PLANNER_STORAGE_KEY,
+                null
+            );
+
+
+        if (
+            data &&
+            data.plan &&
+            Array.isArray(data.plan)
+        ) {
+
             return data;
+
         }
-    } catch {}
+
+    } catch (error) {
+
+        console.error(
+            "Could not load saved plan:",
+            error
+        );
+
+    }
+
+
     return null;
+
 }
 
 
 // =========================================
-// EVENT HANDLERS
+// LOAD SAVED SETTINGS
 // =========================================
 
-generateBtn.addEventListener("click", () => {
-    const plan = generatePlan();
-    if (plan) {
-        renderPlan(plan);
-        planResult.classList.add("active");
-        planResult.scrollIntoView({ behavior: "smooth" });
+function loadSavedSettings(data) {
 
-        const savedData = loadSavedPlan();
-        if (savedData) {
-            savePlanBtn.classList.remove("saved");
-            savePlanBtn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Save Plan';
-        }
+    if (
+        !data ||
+        !data.settings
+    ) {
+
+        return;
+
     }
-});
 
-savePlanBtn.addEventListener("click", savePlan);
 
-regenerateBtn.addEventListener("click", () => {
-    const plan = generatePlan();
-    if (plan) {
-        renderPlan(plan);
-        planResult.classList.add("active");
+    const settings =
+        data.settings;
 
-        savePlanBtn.classList.remove("saved");
-        savePlanBtn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Save Plan';
+
+    const goal =
+        document.getElementById(
+            "planGoal"
+        );
+
+    const level =
+        document.getElementById(
+            "planLevel"
+        );
+
+    const experience =
+        document.getElementById(
+            "planExperience"
+        );
+
+    const days =
+        document.getElementById(
+            "planDays"
+        );
+
+    const duration =
+        document.getElementById(
+            "planDuration"
+        );
+
+    const equipment =
+        document.getElementById(
+            "planEquipment"
+        );
+
+
+    if (goal) {
+
+        goal.value =
+            settings.goal ||
+            "stay-fit";
+
     }
-});
 
-exportBtn.addEventListener("click", () => {
-    if (!currentPlan) return;
 
-    let text = "VIVAFIT Workout Plan\n";
-    text += "====================\n\n";
+    if (level) {
 
-    currentPlan.forEach(slot => {
-        text += slot.dayName + " — " + slot.name + "\n";
-        if (slot.isRestDay) {
-            text += "Rest and recover.\n\n";
-        } else {
-            slot.exercises.forEach((ex, i) => {
-                text += "  " + (i + 1) + ". " + ex.name + " — " + ex.sets + " sets x " + ex.reps + " (rest " + ex.rest + ")\n";
-            });
-            text += "\n";
+        level.value =
+            settings.level ||
+            "beginner";
+
+    }
+
+
+    if (experience) {
+
+        experience.value =
+            settings.experience ||
+            "beginner";
+
+    }
+
+
+    if (days) {
+
+        days.value =
+            settings.daysPerWeek ||
+            3;
+
+    }
+
+
+    if (duration) {
+
+        duration.value =
+            settings.duration ||
+            45;
+
+    }
+
+
+    if (equipment) {
+
+        equipment.value =
+            settings.equipment ||
+            "full-gym";
+
+    }
+
+
+    selectedEquipment =
+        settings.equipment ||
+        "full-gym";
+
+
+    selectedMuscles =
+        settings.muscles ||
+        [];
+
+
+    document
+        .querySelectorAll(
+            "#muscleChipGroup .chip[data-muscle]"
+        )
+        .forEach(
+            function (chip) {
+
+                chip.classList.toggle(
+                    "active",
+                    selectedMuscles.includes(
+                        chip.dataset.muscle
+                    )
+                );
+
+            }
+        );
+
+}
+
+
+// =========================================
+// SAVED PLAN CARD
+// =========================================
+
+function renderSavedPlan() {
+
+    if (!savedPlansContainer) {
+        return;
+    }
+
+
+    const data =
+        loadSavedPlan();
+
+
+    if (!data) {
+
+        savedPlansContainer.innerHTML = `
+            <p>
+                No saved plans yet.
+            </p>
+        `;
+
+        return;
+
+    }
+
+
+    const trainingDays =
+        data.plan.filter(
+            function (day) {
+                return !day.isRestDay;
+            }
+        ).length;
+
+
+    const savedDate =
+        data.savedAt
+            ? new Date(
+                data.savedAt
+            ).toLocaleDateString()
+            : "";
+
+
+    savedPlansContainer.innerHTML = `
+
+        <div class="saved-plan-card">
+
+            <div>
+
+                <i class="fa-solid fa-calendar-check"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    My Workout Plan
+                </h3>
+
+                <p>
+                    ${trainingDays} training days
+                </p>
+
+                <small>
+                    Saved ${savedDate}
+                </small>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+// =========================================
+// GENERATE BUTTON
+// =========================================
+
+async function handleGenerateClick() {
+
+    console.log(
+        "GENERATE BUTTON CLICKED"
+    );
+
+
+    const plan =
+        await generatePlanFromAI();
+
+
+    if (!plan) {
+        return;
+    }
+
+
+    const settings =
+        getPlannerSettings();
+
+
+    selectedEquipment =
+        settings.equipment;
+
+
+    currentPlan =
+        plan;
+
+
+    // -----------------------------------------
+    // SAVE PLAN
+    // -----------------------------------------
+
+    saveData(
+        PLANNER_STORAGE_KEY,
+        {
+
+            plan:
+                currentPlan,
+
+            settings: {
+
+                goal:
+                    settings.goal,
+
+                level:
+                    settings.level,
+
+                experience:
+                    settings.experience,
+
+                daysPerWeek:
+                    settings.days,
+
+                duration:
+                    settings.duration,
+
+                equipment:
+                    settings.equipment,
+
+                muscles:
+                    [...selectedMuscles]
+
+            },
+
+            savedAt:
+                new Date().toISOString()
+
         }
-    });
-
-    const blob = new Blob([text], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "vivafit-workout-plan.txt";
-    a.click();
-    URL.revokeObjectURL(url);
-});
+    );
 
 
-// =========================================
-// INIT — Load saved plan if exists
-// =========================================
+    // -----------------------------------------
+    // SHOW PLAN
+    // -----------------------------------------
 
-document.addEventListener("DOMContentLoaded", () => {
-    const savedData = loadSavedPlan();
+    renderPlan(
+        currentPlan
+    );
 
-    if (savedData) {
-        const s = savedData.settings;
 
-        document.getElementById("planGoal").value = s.goal || "build-muscle";
-        document.getElementById("planLevel").value = s.level || "intermediate";
-        document.getElementById("planDays").value = s.daysPerWeek || 4;
-        document.getElementById("planDuration").value = s.duration || 45;
-        document.getElementById("planEquipment").value = s.equipment || "full-gym";
+    if (planResult) {
 
-        selectedMuscles = s.muscles || ["chest", "back", "shoulders", "arms", "legs", "glutes", "core"];
-        document.querySelectorAll("#muscleChipGroup .chip[data-muscle]").forEach(chip => {
-            chip.classList.toggle("active", selectedMuscles.includes(chip.dataset.muscle));
+        planResult.classList.add(
+            "active"
+        );
+
+
+        planResult.scrollIntoView({
+            behavior: "smooth"
         });
 
-        renderPlan(savedData.plan);
-        planResult.classList.add("active");
-
-        savePlanBtn.classList.add("saved");
-        savePlanBtn.innerHTML = '<i class="fa-solid fa-check"></i> Plan Saved';
     }
-});
+
+
+    if (savePlanBtn) {
+
+        savePlanBtn.classList.remove(
+            "saved"
+        );
+
+        savePlanBtn.innerHTML = `
+            <i class="fa-solid fa-floppy-disk"></i>
+            Save Plan
+        `;
+
+    }
+
+
+    renderSavedPlan();
+
+
+    if (lastPlanSource === "local") {
+
+        showMessage(
+            "Plan created from your real workouts (AI was offline).",
+            "loading"
+        );
+
+    } else {
+
+        showMessage(
+            "Your personalized plan is ready.",
+            "success"
+        );
+
+    }
+
+}
+
+
+// =========================================
+// REGENERATE
+// =========================================
+
+async function handleRegenerateClick() {
+
+    const plan =
+        await generatePlanFromAI();
+
+
+    if (!plan) {
+        return;
+    }
+
+
+    currentPlan =
+        plan;
+
+
+    renderPlan(
+        currentPlan
+    );
+
+
+    if (planResult) {
+
+        planResult.classList.add(
+            "active"
+        );
+
+    }
+
+
+    if (savePlanBtn) {
+
+        savePlanBtn.classList.remove(
+            "saved"
+        );
+
+        savePlanBtn.innerHTML = `
+            <i class="fa-solid fa-floppy-disk"></i>
+            Save Plan
+        `;
+
+    }
+
+
+    showMessage(
+        "A new plan has been generated.",
+        "success"
+    );
+
+}
+
+
+// =========================================
+// EXPORT PLAN
+// =========================================
+
+function exportPlan() {
+
+    if (!currentPlan) {
+        return;
+    }
+
+
+    let text =
+        "VIVAFIT WORKOUT PLAN\n";
+
+
+    text +=
+        "====================\n\n";
+
+
+    currentPlan.forEach(
+        function (slot) {
+
+            text +=
+                slot.dayName +
+                " — " +
+                slot.name +
+                "\n";
+
+
+            if (slot.isRestDay) {
+
+                text +=
+                    "Rest and recover.\n\n";
+
+                return;
+
+            }
+
+
+            slot.exercises.forEach(
+                function (
+                    exercise,
+                    index
+                ) {
+
+                    text +=
+                        "  " +
+                        (index + 1) +
+                        ". " +
+                        exercise.name +
+                        " — " +
+                        exercise.sets +
+                        " sets x " +
+                        exercise.reps +
+                        " (rest " +
+                        exercise.rest +
+                        ")\n";
+
+                }
+            );
+
+
+            text +=
+                "\n";
+
+        }
+    );
+
+
+    const blob =
+        new Blob(
+            [text],
+            {
+                type:
+                    "text/plain"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(
+            blob
+        );
+
+
+    const a =
+        document.createElement(
+            "a"
+        );
+
+
+    a.href =
+        url;
+
+
+    a.download =
+        "vivafit-workout-plan.txt";
+
+
+    document.body.appendChild(
+        a
+    );
+
+
+    a.click();
+
+
+    document.body.removeChild(
+        a
+    );
+
+
+    URL.revokeObjectURL(
+        url
+    );
+
+}
+
+
+// =========================================
+// INITIALIZE EVERYTHING
+// =========================================
+
+function initializePlanner() {
+
+    console.log(
+        "VIVAFIT PLANNER JS LOADED"
+    );
+
+
+    initializeDOM();
+
+
+    initializeMuscleChips();
+
+
+    // -----------------------------------------
+    // GENERATE
+    // -----------------------------------------
+
+    if (generateBtn) {
+
+        generateBtn.addEventListener(
+            "click",
+            handleGenerateClick
+        );
+
+    } else {
+
+        console.error(
+            "Generate button not found: #generatePlanBtn"
+        );
+
+    }
+
+
+    // -----------------------------------------
+    // SAVE
+    // -----------------------------------------
+
+    if (savePlanBtn) {
+
+        savePlanBtn.addEventListener(
+            "click",
+            savePlan
+        );
+
+    }
+
+
+    // -----------------------------------------
+    // REGENERATE
+    // -----------------------------------------
+
+    if (regenerateBtn) {
+
+        regenerateBtn.addEventListener(
+            "click",
+            handleRegenerateClick
+        );
+
+    }
+
+
+    // -----------------------------------------
+    // EXPORT
+    // -----------------------------------------
+
+    if (exportBtn) {
+
+        exportBtn.addEventListener(
+            "click",
+            exportPlan
+        );
+
+    }
+
+
+    // -----------------------------------------
+    // LOAD SAVED PLAN
+    // -----------------------------------------
+
+    const savedData =
+        loadSavedPlan();
+
+
+    if (savedData) {
+
+        loadSavedSettings(
+            savedData
+        );
+
+
+        currentPlan =
+            savedData.plan;
+
+
+        renderPlan(
+            currentPlan
+        );
+
+
+        if (planResult) {
+
+            planResult.classList.add(
+                "active"
+            );
+
+        }
+
+
+        if (savePlanBtn) {
+
+            savePlanBtn.classList.add(
+                "saved"
+            );
+
+            savePlanBtn.innerHTML = `
+                <i class="fa-solid fa-check"></i>
+                Plan Saved
+            `;
+
+        }
+
+    }
+
+
+    renderSavedPlan();
+
+}
+
+
+// =========================================
+// START
+// =========================================
+
+if (
+    document.readyState ===
+    "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializePlanner
+    );
+
+} else {
+
+    initializePlanner();
+
+}

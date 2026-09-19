@@ -220,7 +220,7 @@ function getApiBaseUrl() {
         if (
             typeof window !== "undefined" &&
             window.location &&
-            (window.location.protocol === "http:" || window.location.protocol === "https:")
+            window.location.port === "3000"
         ) {
             return window.location.origin;
         }
@@ -792,12 +792,12 @@ function logSubstitution(workoutId, originalName, alternativeName, reason) {
         alternativeExercise: alternativeName,
         reason: reason
     });
-    localStorage.setItem(SUBSTITUTION_STORAGE_KEY, JSON.stringify(history));
+    saveData(SUBSTITUTION_STORAGE_KEY, history);
 }
 
 function getSubstitutionHistory() {
     try {
-        return JSON.parse(localStorage.getItem(SUBSTITUTION_STORAGE_KEY)) || [];
+        return getData(SUBSTITUTION_STORAGE_KEY, []) || [];
     } catch (e) {
         return [];
     }
@@ -1067,7 +1067,7 @@ function openExerciseSubstitution(options) {
 
 function getUserEquipment() {
     try {
-        var planData = JSON.parse(localStorage.getItem("vivafitWorkoutPlan"));
+        var planData = getData("vivafitWorkoutPlan", null);
         if (planData && planData.settings && planData.settings.equipment) {
             return planData.settings.equipment;
         }
@@ -1077,13 +1077,13 @@ function getUserEquipment() {
 
 function getUserLevel() {
     try {
-        var planData = JSON.parse(localStorage.getItem("vivafitWorkoutPlan"));
+        var planData = getData("vivafitWorkoutPlan", null);
         if (planData && planData.settings && planData.settings.level) {
             return planData.settings.level;
         }
     } catch (e) {}
     try {
-        var profile = JSON.parse(localStorage.getItem("vivafitProfile"));
+        var profile = getData("vivafitProfile", null);
         if (profile && profile.goal) {
             return "intermediate";
         }
